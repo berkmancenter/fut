@@ -6,7 +6,7 @@ class SelectedAnswersController < ApplicationController
 		if (@question_id = @selected_answer.question.id) != 6 
 			redirect_to "/questions/show/#{@question_id + 1}"
 		else
-			render :text => "Congrats! You've just finished your test :)"	
+			redirect_to "/tests/show/#{@selected_answer.test.id}"		
 		end
 	end
 end

@@ -5,7 +5,8 @@
 		<% @question.answers.each do |answer| %>
 			<li> 
 				<%= f.radio_button :answer_id, answer.id %> 
-				<%= f.label "answer_id_" + answer.id.to_s, answer.content %>  	
+				<%= f.label "answer_id_" + answer.id.to_s, answer.content %>
+				<%= f.hidden_field :test_id, :value => Test.last.id %>  	
 	    	</li>
 		<%end%>
 		<% if params[:id].to_i != 6 %>

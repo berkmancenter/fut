@@ -1,2 +1,5 @@
-<h1>Tests#new</h1>
-<p>Find me in app/views/tests/new.html.erb</p>
+<h1>Test your own Case</h1>
+<%= form_for @test, :url => { :action => "create" } do |f|%>	
+	<%= f.text_field :name %>  
+	<%= f.submit "Test!" %>
+<%end%>
