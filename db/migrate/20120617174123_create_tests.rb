@@ -5,5 +5,6 @@ class CreateTests < ActiveRecord::Migration
     	t.integer :owner_id 
       	t.timestamps
     end
+    add_index :tests,:owner_id
   end
 end

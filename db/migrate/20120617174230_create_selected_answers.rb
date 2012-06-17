@@ -6,5 +6,8 @@ class CreateSelectedAnswers < ActiveRecord::Migration
       	t.integer :answer_id  
     	t.timestamps
     end
+    add_index :selected_answers,:test_id
+    add_index :selected_answers,:owner_id
+    add_index :selected_answers,:answer_id
   end
 end

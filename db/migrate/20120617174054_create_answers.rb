@@ -6,5 +6,6 @@ class CreateAnswers < ActiveRecord::Migration
       	t.integer :value 
      	t.timestamps
     end
+    add_index :answers,:question_id
   end
 end
