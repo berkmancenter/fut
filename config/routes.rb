@@ -1,4 +1,14 @@
 Fut::Application.routes.draw do
+  get "tests/new"
+
+  get "tests/show"
+
+  get "questions/show"
+
+  get "sessions/index"
+
+  get "sessions/new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
