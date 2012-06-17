@@ -1,3 +1,4 @@
 class Question < ActiveRecord::Base
-  # attr_accessible :title, :body
+  has_many :answers
+  attr_accessible :content
 end

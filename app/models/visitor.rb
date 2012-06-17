@@ -1,3 +1,4 @@
 class Visitor < ActiveRecord::Base
-  # attr_accessible :title, :body
+  has_many :selected_answers, :as => :owner
+  has_many :tests, :as => :owner
 end

@@ -1,3 +1,5 @@
 class Test < ActiveRecord::Base
-  # attr_accessible :title, :body
+  has_many :selected_answers
+  belongs_to :owner, :polymorphic => true
+  attr_accessible :name, :owner_id 
 end

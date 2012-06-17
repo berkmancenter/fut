@@ -1,3 +1,4 @@
 class Answer < ActiveRecord::Base
-  # attr_accessible :title, :body
+  belongs_to :question
+  attr_accessible :content, :value, :question_id
 end
