@@ -1,2 +1,17 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<h1>Fair Use Calculator</h1>
+<h3><%=@question.content%></h3>
+<ul>
+	<%= form_for @selected_answer, :url => { :controller => "selected_answers" ,:action => "create" } do |f|%>
+		<% @question.answers.each do |answer| %>
+			<li> 
+				<%= f.radio_button :answer_id, answer.id %> 
+				<%= f.label "answer_id_" + answer.id.to_s, answer.content %>  	
+	    	</li>
+		<%end%>
+		<% if params[:id].to_i != 6 %>
+			<%= f.submit "Next" %>
+		<%else%>
+			<%= f.submit "Finish" %>
+		<%end%>
+	<%end%>	
+</ul>
