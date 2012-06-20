@@ -14,20 +14,19 @@ ul{
 <h1>Fair Use Calculator</h1>
 <% @questions.each do |question| %>
 	<ul>
-		<%= form_for @selected_answer, :url => { :controller => "selected_answers" ,:action => "create" }, :remote => true do |f|%>
+		<%= form_for @selected_answer, :url => { :controller => "selected_answers" ,:action => "create" }, :remote => question.id==6 ? false : true do |f|%>
 			<h3><%=question.content%></h3>
 			<% question.answers.each do |answer| %>
 				<li> 
 					<%= f.radio_button :answer_id, answer.id %> 
 					<%= f.label "answer_id_" + answer.id.to_s, answer.content %>
 					<%= f.hidden_field :test_id, :value => Test.last.id %>  	
-		    	</li>
+	    		</li>
 			<%end%>
-			<% if params[:id].to_i != 6 %>
-				<%= f.submit "Next" %>
-			<%else%>
-				<%= f.submit "Finish" %>
+			<%= f.submit question.id==6 ? "Finish" : "Next" %>
+			<% if question.id != 1%>
+				<%= link_to "Back", "selected_answers/edit/#{question.id - 1}" , :remote => true%>
 			<%end%>
-		<%end%>	
+		<%end%>
 	</ul>
 <%end%>
