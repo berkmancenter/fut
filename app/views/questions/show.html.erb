@@ -1,7 +1,9 @@
+<div id="karim">
+	
 <h1>Fair Use Calculator</h1>
-<h3><%=@question.content%></h3>
 <ul>
-	<%= form_for @selected_answer, :url => { :controller => "selected_answers" ,:action => "create" } do |f|%>
+	<%= form_for @selected_answer, :url => { :controller => "selected_answers" ,:action => "create" }, :remote => true do |f|%>
+		<h3><%=@question.content%></h3>
 		<% @question.answers.each do |answer| %>
 			<li> 
 				<%= f.radio_button :answer_id, answer.id %> 
@@ -16,3 +18,4 @@
 		<%end%>
 	<%end%>	
 </ul>
+</div>

@@ -7,7 +7,7 @@ class TestsController < ApplicationController
   	@test = Test.create(params[:test])
   	@test.owner = Visitor.last
   	@test.save
-  	redirect_to "/questions/show/1"
+  	redirect_to "/questions/"
   end
 
   def show
