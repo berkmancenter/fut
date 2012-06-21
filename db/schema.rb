@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(:version => 20120617174334) do
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
 
+  create_table "fair_use_tests", :force => true do |t|
+    t.string   "name"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.boolean  "result"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "fair_use_tests", ["owner_id"], :name => "index_fair_use_tests_on_owner_id"
+
   create_table "questions", :force => true do |t|
     t.string   "content"
     t.text     "explanation"
@@ -30,27 +41,25 @@ ActiveRecord::Schema.define(:version => 20120617174334) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "selected_answers", :force => true do |t|
-    t.integer  "test_id"
-    t.integer  "owner_id"
-    t.integer  "answer_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "test_answers", :force => true do |t|
+    t.integer  "fair_use_test_id"
+    t.integer  "purpose_id"
+    t.integer  "character_id"
+    t.integer  "use_id"
+    t.integer  "nature_id"
+    t.integer  "amount_id"
+    t.integer  "impact_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
-  add_index "selected_answers", ["answer_id"], :name => "index_selected_answers_on_answer_id"
-  add_index "selected_answers", ["owner_id"], :name => "index_selected_answers_on_owner_id"
-  add_index "selected_answers", ["test_id"], :name => "index_selected_answers_on_test_id"
-
-  create_table "tests", :force => true do |t|
-    t.string   "name"
-    t.integer  "owner_id"
-    t.boolean  "result"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "tests", ["owner_id"], :name => "index_tests_on_owner_id"
+  add_index "test_answers", ["amount_id"], :name => "index_test_answers_on_amount_id"
+  add_index "test_answers", ["character_id"], :name => "index_test_answers_on_character_id"
+  add_index "test_answers", ["fair_use_test_id"], :name => "index_test_answers_on_fair_use_test_id"
+  add_index "test_answers", ["impact_id"], :name => "index_test_answers_on_impact_id"
+  add_index "test_answers", ["nature_id"], :name => "index_test_answers_on_nature_id"
+  add_index "test_answers", ["purpose_id"], :name => "index_test_answers_on_purpose_id"
+  add_index "test_answers", ["use_id"], :name => "index_test_answers_on_use_id"
 
   create_table "visitors", :force => true do |t|
     t.string   "name"

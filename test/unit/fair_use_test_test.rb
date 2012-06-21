@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SelectedAnswerTest < ActiveSupport::TestCase
+class FairUseTestTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
