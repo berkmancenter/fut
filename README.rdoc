@@ -2,4 +2,9 @@
 
 Fair Use Tool is an interactive online tool that will be accessible for middle-school students and their teachers. The main goal of the tool is designing and coding web application with Interactive and User-friendly Interface for teaching a playful way of how to use copyrighted content in accordance with fair use policy.
 
+== License
+Fair Use Tool project is licensed under The MIT License
+Copyright (C) 2012 by Karim El Husseiny <kelhusseiny@cyber.law.harvard.ed>
+
+
 
