@@ -43,16 +43,22 @@ ActiveRecord::Schema.define(:version => 20120622235535) do
     t.datetime "updated_at",             :null => false
   end
 
+  add_index "cases", ["court_decision_id"], :name => "index_cases_on_court_decision_id"
+  add_index "cases", ["derivative_resource_id"], :name => "index_cases_on_derivative_resource_id"
+  add_index "cases", ["original_resource_id"], :name => "index_cases_on_original_resource_id"
+
   create_table "fair_use_tests", :force => true do |t|
+    t.integer  "test_answer_id"
     t.string   "name"
     t.integer  "owner_id"
     t.string   "owner_type"
     t.boolean  "result"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "fair_use_tests", ["owner_id"], :name => "index_fair_use_tests_on_owner_id"
+  add_index "fair_use_tests", ["test_answer_id"], :name => "index_fair_use_tests_on_test_answer_id"
 
   create_table "questions", :force => true do |t|
     t.string   "content"
@@ -62,20 +68,18 @@ ActiveRecord::Schema.define(:version => 20120622235535) do
   end
 
   create_table "test_answers", :force => true do |t|
-    t.integer  "fair_use_test_id"
     t.integer  "purpose_id"
     t.integer  "character_id"
     t.integer  "use_id"
     t.integer  "nature_id"
     t.integer  "amount_id"
     t.integer  "impact_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "test_answers", ["amount_id"], :name => "index_test_answers_on_amount_id"
   add_index "test_answers", ["character_id"], :name => "index_test_answers_on_character_id"
-  add_index "test_answers", ["fair_use_test_id"], :name => "index_test_answers_on_fair_use_test_id"
   add_index "test_answers", ["impact_id"], :name => "index_test_answers_on_impact_id"
   add_index "test_answers", ["nature_id"], :name => "index_test_answers_on_nature_id"
   add_index "test_answers", ["purpose_id"], :name => "index_test_answers_on_purpose_id"

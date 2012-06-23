@@ -1,7 +1,6 @@
 class CreateTestAnswers < ActiveRecord::Migration
   def change
     create_table :test_answers do |t|
-    	t.integer :fair_use_test_id
       	t.integer :purpose_id
         t.integer :character_id 
         t.integer :use_id 
@@ -10,7 +9,6 @@ class CreateTestAnswers < ActiveRecord::Migration
         t.integer :impact_id   
     	t.timestamps
     end
-    add_index :test_answers,:fair_use_test_id
     add_index :test_answers,:purpose_id
     add_index :test_answers,:character_id
     add_index :test_answers,:use_id

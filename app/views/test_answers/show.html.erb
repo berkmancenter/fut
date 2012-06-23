@@ -3,8 +3,8 @@
 <p>Do you want to store you test?</p>
 <%= form_for @fair_use_test, :url => {:controller => 'FairUseTests', :action => 'create', :test_answer_id => @test_answer.id} do |f|%>
 	<%= f.text_field :name %>
-	<%= f.hidden_field :owner_id, :value => Visitor.last.id %> 
 	<%= f.hidden_field :result, :value =>  @result=="Fair Use" ? true : false %>
+	<%= f.hidden_field :test_answer_id, :value => @test_answer.id%>
 	<%= f.submit "Store!"%>
 	<%= link_to "Cancel" , "test_answers/delete/#{@test_answer.id}"%>
 <%end%>

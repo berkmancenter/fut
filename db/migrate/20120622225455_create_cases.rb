@@ -9,5 +9,8 @@ class CreateCases < ActiveRecord::Migration
 		  t.integer :derivative_resource_id
     	t.timestamps
     end
+    add_index :cases,:court_decision_id
+    add_index :cases,:original_resource_id
+    add_index :cases,:derivative_resource_id
   end
 end

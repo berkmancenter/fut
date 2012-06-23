@@ -1,4 +1,4 @@
-<%= form_for test_answer do |f|%>
+<%= form_for test_answer, :url => {:controller => "TestAnswers", :action => "create", :case_id => case_id} do |f|%>
 	<ul>
 		<h3><%=questions[0].content%></h3>
 		<% questions[0].answers.each do |answer| %>
