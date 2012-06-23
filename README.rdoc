@@ -3,11 +3,11 @@
 Fair Use Tool is an interactive online tool that will be accessible for middle-school students and their teachers. The main goal of the tool is designing and coding web application with Interactive and User-friendly Interface for teaching a playful way of how to use copyrighted content in accordance with fair use policy.
 
 == Requirements
-= Main requirments
+=== Main requirments
 * ruby 1.9.3
 * mysql 14.14
 * rails 3.2.5
-= Paperclip requirments
+=== Paperclip requirments
 * ImageMagick 6.6.9
 * Ghostscript 9.05 
 
