@@ -1,8 +1,10 @@
 <h1>Add new Case</h1>
 <%= form_for @case, :html => { :multipart => true } do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :facts %>
-  <%= file_field_tag :original %>
-  <%= file_field_tag :derivative %>
-  <%= f.submit "Create" %>
+	<ul>
+		<li>Title: <%= f.text_field :title %></li>
+		<li>Facts: <%= f.text_area :facts %></li>
+		<li>Original Copy: <%= file_field_tag :original %></li>
+		<li>Derivative Copy: <%= file_field_tag :derivative %></li>
+		<li><%= f.submit "Create" %></li>
+	</ul>
 <% end %>
