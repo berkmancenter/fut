@@ -1,0 +1,5 @@
+<h1><%=@case.title%> Case:</h1>
+<%= image_tag @case.original_resource.source.url %>
+<%= image_tag @case.derivative_resource.source.url %>
+<h2>Facts:</h2>
+<p><%=@case.facts%></p>
