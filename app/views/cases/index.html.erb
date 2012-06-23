@@ -1,0 +1,7 @@
+<h1>Lega Cases</h1>
+<a href="/cases/new">Add New Case</a>
+<ul>
+	<% @cases.each do |c|%>
+		<li><%= link_to c.title, "/cases/show/#{c.id}" %></li>
+	<%end%>
+</ul>

@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  def show
-  	@question = Question.find(params[:id])
-  	@selected_answer= SelectedAnswer.new
+  def index
+  	@questions= Question.all
+  	@test_answer= TestAnswer.new
   end
 end

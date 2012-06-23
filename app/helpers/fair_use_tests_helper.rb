@@ -1,0 +1,2 @@
+module FairUseTestsHelper
+end
