@@ -12,8 +12,8 @@ Fair Use Tool is an interactive online tool that will be accessible for middle-s
 * Ghostscript 9.05 
 
 == License
-*Fair Use Tool project is licensed under The MIT License. 
-*Copyright (C) 2012 by Karim El Husseiny <kelhusseiny@cyber.law.harvard.ed>
+* Fair Use Tool project is licensed under The MIT License. 
+* Copyright (C) 2012 by Karim El Husseiny <kelhusseiny@cyber.law.harvard.ed>
 
 
 
