@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617174334) do
+ActiveRecord::Schema.define(:version => 20120622235535) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -22,6 +22,26 @@ ActiveRecord::Schema.define(:version => 20120617174334) do
   end
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
+
+  create_table "attachments", :force => true do |t|
+    t.string   "source_file_name"
+    t.string   "source_content_type"
+    t.integer  "source_file_size"
+    t.datetime "source_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "cases", :force => true do |t|
+    t.string   "title"
+    t.text     "facts"
+    t.integer  "no_of_tests"
+    t.integer  "court_decision_id"
+    t.integer  "original_resource_id"
+    t.integer  "derivative_resource_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
 
   create_table "fair_use_tests", :force => true do |t|
     t.string   "name"
