@@ -34,4 +34,7 @@ Fut::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # To let Paperclip know to look there by adding that directory to its path.
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end
