@@ -1,5 +1,10 @@
 <h1><%=@case.title%> Case:</h1>
-<%= image_tag @case.original_resource.source.url %>
-<%= image_tag @case.derivative_resource.source.url %>
-<h2>Facts:</h2>
-<p><%=@case.facts%></p>
+<div>
+	<%= image_tag @case.original_resource.source.url %>
+	<%= image_tag @case.derivative_resource.source.url %>
+	<h2>Facts:</h2>
+	<p><%=@case.facts%></p>
+</div>
+<div>
+	<%= render :partial => "test_answers/form", :locals => { :questions => @questions, :test_answer => @test_answer, :case_id => @case.id } %>
+</div>

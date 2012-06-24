@@ -4,7 +4,9 @@ class CasesController < ApplicationController
 	end
 
 	def show
-		@case = Case.find(params[:id]) 
+		@case = Case.find(params[:id])
+		@questions = Question.all
+		@test_answer = TestAnswer.new 
 	end
 
 	def new

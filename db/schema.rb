@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(:version => 20120622235535) do
     t.string   "name"
     t.integer  "owner_id"
     t.string   "owner_type"
-    t.boolean  "result"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -74,8 +73,10 @@ ActiveRecord::Schema.define(:version => 20120622235535) do
     t.integer  "nature_id"
     t.integer  "amount_id"
     t.integer  "impact_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "tested_case_id"
+    t.boolean  "result"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "test_answers", ["amount_id"], :name => "index_test_answers_on_amount_id"

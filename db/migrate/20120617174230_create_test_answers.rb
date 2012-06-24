@@ -6,7 +6,9 @@ class CreateTestAnswers < ActiveRecord::Migration
         t.integer :use_id 
         t.integer :nature_id 
         t.integer :amount_id 
-        t.integer :impact_id   
+        t.integer :impact_id
+        t.integer :tested_case_id
+        t.boolean :result    
     	t.timestamps
     end
     add_index :test_answers,:purpose_id
