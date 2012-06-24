@@ -9,6 +9,7 @@ class TestAnswer < ActiveRecord::Base
   belongs_to :tested_case, :class_name => 'Case'
   has_one :fair_use_test  
   attr_accessible :purpose_id , :character_id ,:use_id ,:nature_id ,:amount_id ,:impact_id, :tested_case_id, :result
+  validates :result, :presence =>true
 
   def self.calculate_fair_use (test_answer)
   	sum = 0
@@ -18,21 +19,16 @@ class TestAnswer < ActiveRecord::Base
   	sum += test_answer.nature.value
   	sum += test_answer.amount.value
   	sum += test_answer.impact.value
-
   	#Tie Breaker
   	if sum == 0
   	sum += test_answer.impact.value
   	end
-
   	#Caclulate 
   	if sum > 0
-  		test_answer.result = true
-      test_answer.save
       return true
   	else sum < 0
-  	  test_answer.result = false
-      test_answer.save
       return false
   	end
+    false
   end   
 end

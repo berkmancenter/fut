@@ -1,7 +1,8 @@
 class TestAnswersController < ApplicationController
 	def create
-		@test_answer= TestAnswer.create(params[:test_answer])
-		TestAnswer.calculate_fair_use(@test_answer)
+		@test_answer= TestAnswer.new(params[:test_answer])
+		@test_answer.result = TestAnswer.calculate_fair_use(@test_answer) ? true : false
+		@test_answer.save!
 
 		unless params[:case_id]
 			redirect_to "/test_answers/show/#{@test_answer.id}"
