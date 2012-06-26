@@ -1,7 +1,16 @@
 <h1>Lega Cases</h1>
-<a href="/cases/new">Add New Case</a>
-<ul>
+<!-- This Part is dedicated to Admin Only -->
+<%= link_to "Add New Case", new_case_path %>
+<!-- This Part is dedicated to Admin Only -->
+<table>
 	<% @cases.each do |c|%>
-		<li><%= link_to c.title, "/cases/show/#{c.id}" %></li>
+		<tr>
+			<td><h2><%=c.title%></h2></td>
+			<td><%= link_to "Show", case_path(c.title) %></td>
+			<!-- This Part is dedicated to Admin Only -->
+			<td><%= link_to "Edit", edit_case_path(c) %></td>
+			<td><%= link_to 'Destroy', c, :confirm => 'Are you sure?', :method => :delete, :remote=>true, :class=>'delete_case' %></td>
+			<!-- This Part is dedicated to Admin Only -->
+		</tr>
 	<%end%>
-</ul>
+</table>

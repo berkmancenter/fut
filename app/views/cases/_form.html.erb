@@ -1,0 +1,9 @@
+<%= form_for @case, :html => { :multipart => true } , :remote => true do |f| %>
+	<ul>
+		<li>Title: <%= f.text_field :title %></li>
+		<li>Facts: <%= f.text_area :facts %></li>
+		<li>Original Copy: <%= file_field_tag :original %></li>
+		<li>Derivative Copy: <%= file_field_tag :derivative %></li>
+		<li><%= f.submit "Next"%></li>
+	</ul>
+<% end %>	
