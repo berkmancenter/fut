@@ -12,4 +12,8 @@ class CaseAnswersController < ApplicationController
 		@result = @case_answer.test_answer.result ? "Fair Use" : "Not Fair Use"
 		@court_result = @case.court_decision.result ? "Fair Use" : "Not Fair Use"
 	end
+
+	def index
+		@case_answers = Visitor.last.case_answers.all
+	end
 end
