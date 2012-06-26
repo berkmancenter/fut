@@ -50,13 +50,10 @@ ActiveRecord::Schema.define(:version => 20120622235535) do
   create_table "fair_use_tests", :force => true do |t|
     t.integer  "test_answer_id", :null => false
     t.string   "name"
-    t.integer  "owner_id",       :null => false
-    t.string   "owner_type",     :null => false
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
 
-  add_index "fair_use_tests", ["owner_id"], :name => "index_fair_use_tests_on_owner_id"
   add_index "fair_use_tests", ["test_answer_id"], :name => "index_fair_use_tests_on_test_answer_id"
 
   create_table "questions", :force => true do |t|
@@ -74,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20120622235535) do
     t.integer  "amount_id",      :null => false
     t.integer  "impact_id",      :null => false
     t.integer  "tested_case_id"
+    t.integer  "owner_id",       :null => false
+    t.string   "owner_type",     :null => false
     t.boolean  "result"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
@@ -83,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20120622235535) do
   add_index "test_answers", ["character_id"], :name => "index_test_answers_on_character_id"
   add_index "test_answers", ["impact_id"], :name => "index_test_answers_on_impact_id"
   add_index "test_answers", ["nature_id"], :name => "index_test_answers_on_nature_id"
+  add_index "test_answers", ["owner_id"], :name => "index_test_answers_on_owner_id"
   add_index "test_answers", ["purpose_id"], :name => "index_test_answers_on_purpose_id"
   add_index "test_answers", ["tested_case_id"], :name => "index_test_answers_on_tested_case_id"
   add_index "test_answers", ["use_id"], :name => "index_test_answers_on_use_id"

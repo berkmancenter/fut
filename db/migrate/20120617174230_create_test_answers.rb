@@ -7,7 +7,6 @@ class CreateTestAnswers < ActiveRecord::Migration
         t.integer :nature_id, :null => false 
         t.integer :amount_id, :null => false 
         t.integer :impact_id, :null => false
-        t.integer :tested_case_id
         t.boolean :result   
     	t.timestamps
     end
@@ -17,6 +16,5 @@ class CreateTestAnswers < ActiveRecord::Migration
     add_index :test_answers,:nature_id
     add_index :test_answers,:amount_id
     add_index :test_answers,:impact_id
-    add_index :test_answers,:tested_case_id
   end
 end

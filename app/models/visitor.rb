@@ -1,5 +1,4 @@
 class Visitor < ActiveRecord::Base
-  has_many :selected_answers, :as => :owner
-  has_many :tests, :as => :owner
+  has_many :test_answers, :as => :owner
   validates :name, :length => { :maximum => 30 }
 end
