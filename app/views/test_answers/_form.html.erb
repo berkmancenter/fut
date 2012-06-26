@@ -1,7 +1,7 @@
-<%= form_for test_answer, :url => {:controller => "TestAnswers", :action => "create", :case_id => case_id} do |f|%>
+<%= form_for @test_answer do |f|%>
 	<ul>
-		<h3><%=questions[0].content%></h3>
-		<% questions[0].answers.each do |answer| %>
+		<h3><%=@questions[0].content%></h3>
+		<% @questions[0].answers.each do |answer| %>
 			<li> 
 				<%= f.radio_button :purpose_id, answer.id %> 
 				<%= f.label "purpose_id_" + answer.id.to_s, answer.content %>  	
@@ -9,8 +9,8 @@
 		<%end%>
 	</ul>
 	<ul>
-		<h3><%=questions[1].content%></h3>
-		<% questions[1].answers.each do |answer| %>
+		<h3><%=@questions[1].content%></h3>
+		<% @questions[1].answers.each do |answer| %>
 			<li> 
 				<%= f.radio_button :character_id, answer.id %> 
 				<%= f.label "character_id_" + answer.id.to_s, answer.content %>  	
@@ -18,8 +18,8 @@
 		<%end%>
 	</ul>
 	<ul>
-		<h3><%=questions[2].content%></h3>
-		<% questions[2].answers.each do |answer| %>
+		<h3><%=@questions[2].content%></h3>
+		<% @questions[2].answers.each do |answer| %>
 			<li> 
 				<%= f.radio_button :use_id, answer.id %> 
 				<%= f.label "use_id_" + answer.id.to_s, answer.content %>  	
@@ -27,8 +27,8 @@
 		<%end%>
 	</ul>
 	<ul>
-		<h3><%=questions[3].content%></h3>
-		<% questions[3].answers.each do |answer| %>
+		<h3><%=@questions[3].content%></h3>
+		<% @questions[3].answers.each do |answer| %>
 			<li> 
 				<%= f.radio_button :nature_id, answer.id %> 
 				<%= f.label "nature_id_" + answer.id.to_s, answer.content %>  	
@@ -36,8 +36,8 @@
 		<%end%>
 	</ul>
 	<ul>
-		<h3><%=questions[4].content%></h3>
-		<% questions[4].answers.each do |answer| %>
+		<h3><%=@questions[4].content%></h3>
+		<% @questions[4].answers.each do |answer| %>
 			<li> 
 				<%= f.radio_button :amount_id, answer.id %> 
 				<%= f.label "amount_id_" + answer.id.to_s, answer.content %>  	
@@ -45,13 +45,14 @@
 		<%end%>
 	</ul>
 	<ul>
-		<h3><%=questions[5].content%></h3>
-		<% questions[5].answers.each do |answer| %>
+		<h3><%=@questions[5].content%></h3>
+		<% @questions[5].answers.each do |answer| %>
 			<li> 
 				<%= f.radio_button :impact_id, answer.id %> 
 				<%= f.label "impact_id_" + answer.id.to_s, answer.content %>  	
     		</li>
 		<%end%>
 	</ul>
+	<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
 	<%= f.submit "Finish" %>
 <%end%>		

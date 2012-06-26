@@ -5,7 +5,7 @@ class TestAnswer < ActiveRecord::Base
   belongs_to :nature , :class_name => 'Answer'
   belongs_to :amount , :class_name => 'Answer'
   belongs_to :impact , :class_name => 'Answer'
-  has_one :court_decision_case,:class_name => 'Case', :foreign_key => :court_decision_id
+  has_one :court_decision_case, :class_name => 'Case', :foreign_key => :court_decision_id
   has_one :case_answer
   has_one :fair_use_test  
   attr_accessible :purpose_id , :character_id ,:use_id ,:nature_id ,:amount_id ,:impact_id, :tested_case_id, :result

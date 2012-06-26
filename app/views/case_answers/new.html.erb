@@ -5,4 +5,6 @@
 	<h2>Facts:</h2>
 	<p><%=@case.facts%></p>
 </div>
- <%= link_to "Test This Case", new_case_case_answer_path(@case.title) %>
+<div>
+	<%= render 'test_answers/form' %>
+</div>

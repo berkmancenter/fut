@@ -1,6 +1,14 @@
 Fut::Application.routes.draw do
   root :to => 'sessions#index'
-  resources :test_answers, :cases, :fair_use_tests
+  resources :test_answers, :fair_use_tests
+  resources :questions, :answers, :attachments
+
+  resources :cases do
+    resources :case_answers
+  end
+
+  match ':title' => "Case#show"
+
   match ':controller(/:action(/:id))(.:format)'
 
   # The priority is based upon order of creation:

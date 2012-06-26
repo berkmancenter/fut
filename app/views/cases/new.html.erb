@@ -14,16 +14,8 @@ div{
 <h1>Add new Case</h1>
 <h2>Please add basic details about the case!</h2>
 <div class= "active">
-<%= form_for @case, :html => { :multipart => true } , :remote => true do |f| %>
-	<ul>
-		<li>Title: <%= f.text_field :title %></li>
-		<li>Facts: <%= f.text_area :facts %></li>
-		<li>Original Copy: <%= file_field_tag :original %></li>
-		<li>Derivative Copy: <%= file_field_tag :derivative %></li>
-		<li><%= f.submit "Next"%></li>
-	</ul>
-<% end %>	
+<%= render 'form' %>
 </div>
 <div>
-	<%= render :partial => "test_answers/form", :locals => { :questions => @questions, :test_answer => @test_answer, :case_id => Case.last.nil? ? 1 : Case.last.id + 1 } %>
+<%= render :partial => "test_answers/form", :locals => { :@questions => @questions, :@test_answer => @test_answer, :case_id => Case.last.nil? ? 1 : Case.last.id + 1 } %>
 </div>
