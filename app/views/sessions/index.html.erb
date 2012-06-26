@@ -1,8 +1,17 @@
 <h1>Welcome to Fair Use Tool</h1>
-<ul>
-	<li><a href="/questions/">Fair Use Tool Calculator</a></li>
-	<li><a href="/cases/">Legal Cases</a></li>
-</ul>
+<table>
+	<tr>
+		<td><%= link_to "Fair Use Calculator", fairusetest_path %></td>
+		<td>  </td>
+		<td><%= link_to "Your Previous Fair Use Tests", fair_use_tests_path %></td>
+	</tr>
+	<tr>
+		<td><%= link_to "Legal Cases", cases_path %></td>
+		<td>  </td>	
+		<td><%= link_to "Your Cases Answers", case_answers_path %></td>
+	</tr>
+	
+</table>
 
 
 

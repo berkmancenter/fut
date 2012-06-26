@@ -4,7 +4,7 @@ class CasesController < ApplicationController
 	end
 
 	def show
-		@case = Case.find(params[:id]) 
+		@case = Case.find_by_title(params[:id])
 	end
 
 	def new
