@@ -5,13 +5,13 @@ class TestAnswersController < ApplicationController
 		@test_answer.save
 
 		unless params[:case_id]
-			redirect_to "/test_answers/show/#{@test_answer.id}"
+			redirect_to @test_answer
 		else
 			@c = Case.find(params[:case_id])
 			if  @c.court_decision.nil?
 				@c.court_decision = @test_answer
 				@c.save 
-				redirect_to @c
+				redirect_to case_path(@c.title)
 			else
 				@ca = CaseAnswer.new(:test_answer_id => @test_answer.id,:case_id => @c.id)
 				@ca.owner = Visitor.last
@@ -24,11 +24,11 @@ class TestAnswersController < ApplicationController
 		@test_answer= TestAnswer.find(params[:id])
 		@result = @test_answer.result ? "Fair Use" : "Not Fair Use"	
 		@fair_use_test= FairUseTest.new
-		render 'simple_answer'
 	end
-	def delete
+
+	def destroy
 		@test_answer= TestAnswer.find(params[:id])
 		@test_answer.destroy
-		redirect_to "/"
+		redirect_to home_path
 	end
 end

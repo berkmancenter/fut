@@ -1,6 +1,6 @@
-<%= form_for fair_use_test do |f|%>
+<%= form_for @fair_use_test do |f|%>
 	<%= f.text_field :name %>
-	<%= f.hidden_field :test_answer_id, :value => test_answer.id%>
+	<%= f.hidden_field :test_answer_id, :value => @test_answer.id%>
 	<%= f.submit "Store!"%>
-	<%= link_to "Cancel" , "/test_answers/delete/#{@test_answer.id}"%>
+	<%= link_to 'Cancel', @test_answer, :confirm => 'Are you sure?', :method => :delete %>
 <%end%>

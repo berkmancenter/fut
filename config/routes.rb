@@ -1,15 +1,23 @@
 Fut::Application.routes.draw do
-  root :to => 'sessions#index'
-  resources :test_answers, :fair_use_tests
-  resources :questions, :answers, :attachments
+  root :to => 'sessions#index' , :as => "home"
+  get "FairUseTest" => "questions#index", :as => "fairusetest"
+  resources :test_answers, :path => "/FairUseTest/Result"
+  resources :fair_use_tests, :questions, :answers, :attachments 
 
   resources :cases do
     resources :case_answers
   end
 
   match ':title' => "Case#show"
-
   match ':controller(/:action(/:id))(.:format)'
+
+  
+=begin
+resources :case_answers do
+  member do
+    get 'preview'
+  end
+=end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

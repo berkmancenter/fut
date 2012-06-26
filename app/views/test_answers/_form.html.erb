@@ -53,6 +53,8 @@
     		</li>
 		<%end%>
 	</ul>
+	<%unless @case == nil %>
 	<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
+	<%end%>
 	<%= f.submit "Finish" %>
 <%end%>		
