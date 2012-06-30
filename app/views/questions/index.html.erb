@@ -11,28 +11,57 @@
 	<tbody>
 		<tr>
 			<td>Purpose</td>
-			<td><div></div></td>
+			<td><div name="test_answer[purpose_id]"></div></td>
 		</tr>
 		<tr>
 			<td>Character</td>
-			<td><div></div></td>
+			<td><div name="test_answer[character_id]"></div></td>
 		</tr>
 		<tr>
 			<td>Use</td>
-			<td><div></div></td>
+			<td><div name="test_answer[use_id]"></div></td>
 		</tr>
 		<tr>
 			<td>Nature</td>
-			<td><div></div></td>
+			<td><div name="test_answer[nature_id]"></div></td>
 		</tr>
 		<tr>
 			<td>Amount</td>
-			<td><div></div></td>
+			<td><div name="test_answer[amount_id]"></div></td>
 		</tr>
 		<tr>
 			<td>Impact</td>
-			<td><div></div></td>
+			<td><div name="test_answer[impact_id]"></div></td>
 		</tr>
 	</tbody>
 </table>
 <%= render 'test_answers/form' %>
+<script type="text/javascript">
+	$('input[type=radio]').click(function(){
+		$this = $(this);
+		var fair = ["1","2","3","4","5","6","7","10","11","12","14","21","23"];
+		var notfair = ["9","13","17","18","19","20","22"];
+		var name = $this.attr('name');
+		var value = $this.val();
+		var lamp = $('div[name*="'+name+'"]');
+		if (($.inArray(value, fair)) != -1) 
+		{
+			lamp.css('background','green');
+		}
+		else if (($.inArray(value, notfair)) != -1)
+		{
+			lamp.css('background','red');
+		}
+		else {
+			lamp.css('background','orange');
+		}
+	});
+	$('.question-box').hide();
+	$('.question-box:nth-child(2)').show();
+	$('button[name*="next"]').click(function(){
+		$(this).closest('.question-box').fadeOut().next().fadeIn();
+	});
+	$('button[name*="back"]').click(function(){
+		$(this).closest('.question-box').fadeOut().prev().fadeIn();
+	});
+</script>

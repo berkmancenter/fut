@@ -12,29 +12,30 @@
  *= require_tree .
  */
 body{
-	background-image: -webkit-linear-gradient(top,rgb(230, 230, 230) ,rgb(180, 180, 180));
+	background-color:rgb(230, 230, 230);
 	background-repeat: no-repeat;
 	font-family: "Ubuntu", "MS Trebuchet", sans-serif;
+	margin:40px;
 }
 .question-box {
 	background-color:white;
 	width: 500px;
-	margin:auto;
 	border-radius: 10px;
 	box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
 	padding:10px;
-	margin-bottom:20px;
-	list-style-type: none;		
+	list-style-type: none;
+	position: absolute;
+	left:350px;
+	top:130px;
+
 }
 .question-box h3{
 	margin-top:0px;
 }
 
-.question-box + input{
-	margin:auto;
-	width:100px;
-	height: 30px;
-	margin-left:575px;
+.question-box button, .question-box:last-child input[type="submit"]{
+	float:right;
+	margin-top:10px;
 }
 .scoreboard{
 	background-color:white;
@@ -45,7 +46,7 @@ body{
 	margin-bottom:20px;
 	list-style-type: none;
 	box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
-	position: fixed;	
+	position: fixed;
 }
 .scoreboard tr td:last-child div{
 	width:22px;
@@ -56,3 +57,5 @@ body{
 .scoreboard tr{
 	height:50px;
 }
+
+

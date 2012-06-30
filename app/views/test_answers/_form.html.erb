@@ -1,5 +1,5 @@
 <%= form_for @test_answer do |f|%>
-	<ul class= "question-box">
+	<ul class= "question-box active">
 		<h3><%=@questions[0].content%></h3>
 		<% @questions[0].answers.each do |answer| %>
 			<li> 
@@ -7,6 +7,7 @@
 				<%= f.label "purpose_id_" + answer.id.to_s, answer.content %>  	
     		</li>
 		<%end%>
+		<button name="nexta" type="button">Next</button>
 	</ul>
 	<ul class= "question-box">
 		<h3><%=@questions[1].content%></h3>
@@ -16,6 +17,8 @@
 				<%= f.label "character_id_" + answer.id.to_s, answer.content %>  	
     		</li>
 		<%end%>
+		<button name="next" type="button">Next</button>
+		<button name="back" type="button">Back</button>
 	</ul>
 	<ul class= "question-box">
 		<h3><%=@questions[2].content%></h3>
@@ -25,6 +28,8 @@
 				<%= f.label "use_id_" + answer.id.to_s, answer.content %>  	
     		</li>
 		<%end%>
+		<button name="next" type="button">Next</button>
+		<button name="back" type="button">Back</button>
 	</ul>
 	<ul class= "question-box">
 		<h3><%=@questions[3].content%></h3>
@@ -34,6 +39,8 @@
 				<%= f.label "nature_id_" + answer.id.to_s, answer.content %>  	
     		</li>
 		<%end%>
+		<button name="next" type="button">Next</button>
+		<button name="back" type="button">Back</button>
 	</ul>
 	<ul class= "question-box">
 		<h3><%=@questions[4].content%></h3>
@@ -43,6 +50,8 @@
 				<%= f.label "amount_id_" + answer.id.to_s, answer.content %>  	
     		</li>
 		<%end%>
+		<button name="next" type="button">Next</button>
+		<button name="back" type="button">Back</button>
 	</ul>
 	<ul class= "question-box">
 		<h3><%=@questions[5].content%></h3>
@@ -52,9 +61,10 @@
 				<%= f.label "impact_id_" + answer.id.to_s, answer.content %>  	
     		</li>
 		<%end%>
+		<%unless @case == nil %>
+			<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
+		<%end%>
+		<%= f.submit "Finish" %>
+		<button name="back" type="button">Back</button>
 	</ul>
-	<%unless @case == nil %>
-	<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
-	<%end%>
-	<%= f.submit "Finish" %>
 <%end%>		
