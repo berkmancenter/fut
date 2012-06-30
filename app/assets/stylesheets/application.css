@@ -11,3 +11,48 @@
  *= require_self
  *= require_tree .
  */
+body{
+	background-image: -webkit-linear-gradient(top,rgb(230, 230, 230) ,rgb(180, 180, 180));
+	background-repeat: no-repeat;
+	font-family: "Ubuntu", "MS Trebuchet", sans-serif;
+}
+.question-box {
+	background-color:white;
+	width: 500px;
+	margin:auto;
+	border-radius: 10px;
+	box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
+	padding:10px;
+	margin-bottom:20px;
+	list-style-type: none;		
+}
+.question-box h3{
+	margin-top:0px;
+}
+
+.question-box + input{
+	margin:auto;
+	width:100px;
+	height: 30px;
+	margin-left:575px;
+}
+.scoreboard{
+	background-color:white;
+	width: 200px;
+	margin:auto;
+	border-radius: 10px;
+	padding:10px;
+	margin-bottom:20px;
+	list-style-type: none;
+	box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
+	position: fixed;	
+}
+.scoreboard tr td:last-child div{
+	width:22px;
+	height:22px;
+	border-radius:20px;
+	border:1px solid gray;
+}
+.scoreboard tr{
+	height:50px;
+}
