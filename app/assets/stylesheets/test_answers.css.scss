@@ -1,3 +1,35 @@
 // Place all the styles related to the selected_answers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ .test-answer{
+ 	width:600px;
+ 	margin:auto;
+ 	text-align:center;
+
+ 	.Not{
+ 		color:red;
+ 		margin-bottom:5px
+ 	}
+
+ 	.Fair{
+ 		color:green;
+ 		margin-bottom:5px
+ 	}
+
+ 	ul{
+ 		padding:5px;
+ 		border-radius: 10px;
+		box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
+ 		background-color:white;
+ 		width:400px;
+ 		margin:auto;
+ 		list-style-type: none;
+ 	}
+
+ 	p{
+ 		margin-top:10px;
+ 	}
+ 	form .btn {
+ 		margin-top:-10px;
+ 	}
+ }

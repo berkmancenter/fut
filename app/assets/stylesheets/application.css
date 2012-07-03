@@ -11,11 +11,9 @@
  *= require_self
  *= require_tree .
  */
-body{
-	background-color:rgb(230, 230, 230);
-	background-repeat: no-repeat;
+html body{
+	background-color: rgba(230, 230, 230, 0.5);
 	font-family: "Ubuntu", "MS Trebuchet", sans-serif;
-	margin:40px;
 }
 .question-box {
 	background-color:white;
@@ -29,15 +27,16 @@ body{
 	top:130px;
 
 }
-.question-box h3{
-	margin-top:0px;
-}
 
 .question-box button, .question-box:last-child input[type="submit"]{
 	float:right;
-	margin-top:10px;
+	margin-top:20px;
+	margin-left:10px;
 }
-.scoreboard{
+.question-box button[name="next"], .question-box:last-child input[type="submit"]{
+	clear:both;
+}
+table.table{
 	background-color:white;
 	width: 200px;
 	margin:auto;
@@ -47,6 +46,8 @@ body{
 	list-style-type: none;
 	box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
 	position: fixed;
+	right:50px;
+	top:170px;
 }
 .scoreboard tr td:last-child div{
 	width:22px;
@@ -55,7 +56,38 @@ body{
 	border:1px solid gray;
 }
 .scoreboard tr{
-	height:50px;
+	height:40px;
+
 }
 
+.answer{
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    float:left;
+    width:200px;
+    height:50px;
+    padding:0px;
+    margin-top:20px;
+}
+.question-box .row{
+	margin:0px;
+}
 
+.answer label span {
+    text-align:center;
+    height:44px;
+    line-height:44px;
+    padding:3px 0px;
+    display:block;
+    cursor: pointer;
+}
+
+.answer label input {
+	display:none;
+}
+
+.answer .input-checked{
+    background-color:#404040;
+    color:#F7F7F7;
+}​

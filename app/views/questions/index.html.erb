@@ -1,8 +1,5 @@
-<style type="text/css">
-
-</style>
 <h1>Fair Use Calculator</h1>
-<table class="scoreboard">
+<table class="scoreboard table">
 	<thead>
 		<tr>
 			<th>Scoreboard</th>
@@ -38,6 +35,12 @@
 <%= render 'test_answers/form' %>
 <script type="text/javascript">
 	$('input[type=radio]').click(function(){
+
+		/*To highlight the checked answer*/
+		$(this).siblings('span').addClass('input-checked');
+   		$(this).closest('.answer').siblings('.answer').children('label').children('span').removeClass('input-checked');
+
+		/*To light the corresponded lamp*/
 		$this = $(this);
 		var fair = ["1","2","3","4","5","6","7","10","11","12","14","21","23"];
 		var notfair = ["9","13","17","18","19","20","22"];
@@ -56,6 +59,9 @@
 			lamp.css('background','orange');
 		}
 	});
+
+
+	/*Hide Questions and show them one by one*/
 	$('.question-box').hide();
 	$('.question-box:nth-child(2)').show();
 	$('button[name*="next"]').click(function(){
@@ -64,4 +70,5 @@
 	$('button[name*="back"]').click(function(){
 		$(this).closest('.question-box').fadeOut().prev().fadeIn();
 	});
+  
 </script>

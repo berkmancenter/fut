@@ -1,4 +1,32 @@
-<h1>WOW You Already tested a Survey</h1>
-<h3>and you got <%=@result%></h3>
+<div class="test-answer">
+<h2>WOW! </h2><h3>You already tested a survey!</h3>
+<h3>and your use is</h3> <h1 class="<%=@result.split(" ")[0]%>"><%=@result%></h1>
+
+<ul>
+	<h3>Your Answer Report</h3>
+<li>
+	<strong><%=@test_answer.purpose.question.content.split(" ")[0]%>:</strong> <%=@test_answer.purpose.content%> 
+</li>
+<li>
+	<strong><%=@test_answer.character.question.content.split(" ")[0]%>:</strong> <%=@test_answer.character.content%>
+</li>
+<li>
+	<strong><%=@test_answer.use.question.content.split(" ")[0]%>:</strong> <%=@test_answer.use.content%>
+</li>
+<li>
+	<strong><%=@test_answer.nature.question.content.split(" ")[0]%>:</strong> <%=@test_answer.nature.content%>
+</li>
+<li>
+	<strong><%=@test_answer.amount.question.content.split(" ")[0]%>:</strong> <%=@test_answer.amount.content%>
+</li>
+<li>
+	<strong><%=@test_answer.impact.question.content.split(" ")[0]%>:</strong> <%=@test_answer.impact.content%>
+</li>
+
+
+</ul>
+
+
 <p>Do you want to store you test?</p>
 <%= render 'fair_use_tests/form' %>
+</div>
