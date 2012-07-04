@@ -26,7 +26,7 @@
 			<%end%>
 		</ul>
 	<%end%>
-	<%= f.submit nil, :class => "btn-large btn-warning",:id=> 'submit', :disabled=> true%>
+	<%= f.submit nil, :class => "btn-large",:id=> 'submit', :disabled=> true%>
 <%end%>
 <script type="text/javascript">
 	$('input[type=radio]').click(function(){
@@ -82,7 +82,7 @@
             }
         }
         if(allChecked) {
-            $('#submit').removeAttr('disabled');
+            $('#submit').removeAttr('disabled').addClass('btn-warning');
         }
     });
 
