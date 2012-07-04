@@ -40,6 +40,16 @@
 .show-case{
 	img{
 		width:150px;
-		height:150px;
+		height:200px;
+		margin:10px;
+	}
+	@include awesome(600px, white);
+	text-align:center;
+	margin:auto;
+	.btn{
+		height:30px;
+		width:150px;
+		line-height:30px;
+		font-size:14px;
 	}
 }

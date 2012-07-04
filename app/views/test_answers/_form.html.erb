@@ -22,11 +22,11 @@
 				<%unless @case == nil %>
 					<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
 				<%end%>
-				<%= f.submit "Finish", :class => "btn" %>
 				<button class= "btn" name="back" type="button">Back</button>
 			<%end%>
 		</ul>
 	<%end%>
+	<%= f.submit nil, :class => "btn-large btn-warning" %>
 <%end%>
 <script type="text/javascript">
 	$('input[type=radio]').click(function(){

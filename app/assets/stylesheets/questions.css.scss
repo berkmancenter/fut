@@ -7,7 +7,7 @@ html body{
 .question-box {
 	@include awesome(500px, white);
 	position: absolute;
-	left:350px;
+	right:400px;
 	top:150px;
 }
 
@@ -23,7 +23,7 @@ table.table{
 	@include awesome(200px, white);
 	margin:auto;
 	margin-bottom:20px;
-	position: fixed;
+	position: absolute;
 	right:50px;
 	top:170px;
 }
