@@ -1,6 +1,6 @@
 <%= form_for @test_answer do |f|%>
 	<%@questions.each do |question|%>
-		<ul class= "question-box active">
+		<ul class= "question-box">
 			<h3><%=question.content%></h3>
 			<div class="row">
 				<% question.answers.each do |answer| %>			
@@ -26,7 +26,7 @@
 			<%end%>
 		</ul>
 	<%end%>
-	<%= f.submit nil, :class => "btn-large btn-warning" %>
+	<%= f.submit nil, :class => "btn-large btn-warning",:id=> 'submit', :disabled=> true%>
 <%end%>
 <script type="text/javascript">
 	$('input[type=radio]').click(function(){
@@ -65,5 +65,25 @@
 	$('button[name*="back"]').click(function(){
 		$(this).closest('.question-box').fadeOut().prev().fadeIn();
 	});
-  
+
+
+	/*To Disable Submit button until finishing all questions*/
+    $('input:radio').change(function(){
+        var names = [];
+        var allChecked = true;
+        $('input:radio').each(function(){
+            if(names.indexOf($(this).attr('name')) === -1) {
+                names.push($(this).attr('name'));
+            }
+        });
+        for(var i = 0, cnt = names.length; i < cnt; i++) {
+            if(!$('input[name="' + names[i] + '"]').is(':checked')) {
+                allChecked = false;
+            }
+        }
+        if(allChecked) {
+            $('#submit').removeAttr('disabled');
+        }
+    });
+
 </script>		

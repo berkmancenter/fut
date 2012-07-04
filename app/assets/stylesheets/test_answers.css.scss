@@ -1,8 +1,8 @@
 @import "mixins.css.scss";
 .test-answer{
- 	width:600px;
- 	margin:auto;
- 	text-align:center;
+	@include awesome(500px, white);
+ 		margin:auto;
+ 		text-align:center;
 
  	.Not{
  		color:red;
@@ -15,9 +15,7 @@
  	}
 
  	ul{
- 		@include awesome(400px, white);
- 		margin:auto;
- 		
+ 		 list-style-type: none;		
  	}
 
  	p{

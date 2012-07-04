@@ -14,9 +14,7 @@
 	@include awesome(400px, white);
 	margin:auto;
 	text-align:center;
-	.question-box{
-		top:170px;
-	}
+	position:relative;
 	textarea{
 		height:150px;
 	}
