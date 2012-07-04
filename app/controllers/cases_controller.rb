@@ -19,14 +19,23 @@ class CasesController < ApplicationController
 		@derivative.source = params[:derivative]
 		@case.original_resource = @original 
 		@case.derivative_resource = @derivative
-		@case.save
-		@questions = Question.all
-		@test_answer = TestAnswer.new
+		if @case.save
+			redirect_to new_case_test_answer_path(@case.title)
+		else
+			render 'new'
+		end
+		# @questions = Question.all
+		# @test_answer = TestAnswer.new
 
-		respond_to do |format|
-       		format.html { redirect_to "/cases/show/#{@case.id}"}
-       		format.js 
-   		end
+		#Comment this untill fixing ajax upload file issue
+
+		#respond_to do |format|
+       	#	format.html { redirect_to "/cases/show/#{@case.id}"}
+       	#	format.js 
+   		#end
+
+   		
+
 	end
 
 	def destroy

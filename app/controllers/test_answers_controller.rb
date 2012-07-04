@@ -1,4 +1,10 @@
 class TestAnswersController < ApplicationController
+	def new
+		@case = Case.find_by_title params[:case_id] 
+		@questions = Question.all
+		@test_answer = TestAnswer.new
+	end
+
 	def create
 		@test_answer= TestAnswer.new(params[:test_answer])
 		@test_answer.result = TestAnswer.calculate_fair_use(@test_answer)

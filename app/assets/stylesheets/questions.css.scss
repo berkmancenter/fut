@@ -1,11 +1,4 @@
-@mixin awesome($size, $color) {
- background-color:$color;
- border-radius: 10px;
- box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
- padding:10px;
- list-style-type: none;
- width: $size;
-}
+@import "mixins.css.scss";
 html body{
 	background-color: rgba(230, 230, 230, 0.5);
 	font-family: "Ubuntu", "MS Trebuchet", sans-serif;
@@ -15,7 +8,7 @@ html body{
 	@include awesome(500px, white);
 	position: absolute;
 	left:350px;
-	top:130px;
+	top:150px;
 }
 
 .question-box button, .question-box:last-child input[type="submit"]{
@@ -39,6 +32,7 @@ table.table{
 	height:22px;
 	border-radius:20px;
 	border:1px solid gray;
+	-webkit-transition: background-color 0.5s;
 }
 .scoreboard tr{
 	height:40px;

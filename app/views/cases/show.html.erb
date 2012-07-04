@@ -1,8 +1,9 @@
-<h1><%=@case.title%> Case:</h1>
-<div>
-	<%= image_tag @case.original_resource.source.url %>
+<div class="show-case">
+	<h1><%=@case.title%> Case:</h1>
+	<%= image_tag @case.original_resource.source.url %> vs
 	<%= image_tag @case.derivative_resource.source.url %>
 	<h2>Facts:</h2>
 	<p><%=@case.facts%></p>
-</div>
+
  <%= link_to "Test This Case", new_case_case_answer_path(@case.title) %>
+</div>

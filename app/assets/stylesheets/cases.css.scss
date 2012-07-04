@@ -1,3 +1,45 @@
-.new-case .question-box{
-	top:170px;
+@import "mixins.css.scss";
+.errors{
+	list-style-type: none;
+	color:red;
+	background-color: #FFCCCC;
+    border:1px solid red;
+    margin:auto;
+    width:70%;
+    padding:5px;
+
+}
+.new-case{
+
+	@include awesome(400px, white);
+	margin:auto;
+	text-align:center;
+	.question-box{
+		top:170px;
+	}
+	textarea{
+		height:150px;
+	}
+	input, textarea{
+		margin:10px;
+	}
+}
+.cases{
+	width:400px;
+	margin:auto;
+	text-align:center;
+
+	a{
+		width:150px;
+		height:50px;
+		line-height:50px;
+		font-size:12px;
+		margin:10px;
+	}
+}	
+.show-case{
+	img{
+		width:150px;
+		height:150px;
+	}
 }
