@@ -9,8 +9,6 @@ class CasesController < ApplicationController
 
 	def new
 		@case = Case.new
-		@questions = Question.all
-		@test_answer = TestAnswer.new
 	end
 
 	def create
@@ -22,6 +20,9 @@ class CasesController < ApplicationController
 		@case.original_resource = @original 
 		@case.derivative_resource = @derivative
 		@case.save
+		@questions = Question.all
+		@test_answer = TestAnswer.new
+
 		respond_to do |format|
        		format.html { redirect_to "/cases/show/#{@case.id}"}
        		format.js 

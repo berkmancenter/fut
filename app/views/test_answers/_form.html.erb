@@ -1,100 +1,30 @@
 <%= form_for @test_answer do |f|%>
-	<ul class= "question-box active">
-		<h3><%=@questions[0].content%></h3>
-		<div class="row">
-			<% @questions[0].answers.each do |answer| %>			
-					<li class="answer span3"> 						
-		   				<label>
-		   					<%= f.radio_button :purpose_id, answer.id %> 
-		   					<span><%=answer.content%></span>
-		   				</label>    
-	    			</li>
-	    		
-			<%end%>
-		</div>
-		<button class= "btn" name="next" type="button">Next</button>
-	</ul>
-	<ul class= "question-box">
-		<h3><%=@questions[1].content%></h3>
+	<%@questions.each do |question|%>
+		<ul class= "question-box active">
+			<h3><%=question.content%></h3>
 			<div class="row">
-			<% @questions[1].answers.each do |answer| %>			
-					<li class="answer span3"> 						
-		   				<label>
-		   					<%= f.radio_button :character_id, answer.id %> 
-		   					<span><%=answer.content%></span>
-		   				</label>    
-	    			</li>
-	    		
+				<% question.answers.each do |answer| %>			
+						<li class="answer span3"> 						
+			   				<label>
+			   					<%= f.radio_button question.flag+"_id", answer.id %> 
+			   					<span><%=answer.content%></span>
+			   				</label>    
+		    			</li>
+		    		
+				<%end%>
+			</div>
+			<%if question.id != 6 &&  question.id != 1%>
+				<button class= "btn" name="next" type="button">Next</button>
+				<button class= "btn" name="back" type="button">Back</button>
+			<%elsif question.id == 1%>
+				<button class= "btn" name="next" type="button">Next</button>
+			<%else%>
+				<%unless @case == nil %>
+					<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
+				<%end%>
+				<%= f.submit "Finish", :class => "btn" %>
+				<button class= "btn" name="back" type="button">Back</button>
 			<%end%>
-		</div>
-		<button class= "btn" name="next" type="button">Next</button>
-		<button class= "btn" name="back" type="button">Back</button>
-	</ul>
-	<ul class= "question-box">
-		<h3><%=@questions[2].content%></h3>
-			<div class="row">
-			<% @questions[2].answers.each do |answer| %>			
-					<li class="answer span3"> 						
-		   				<label>
-		   					<%= f.radio_button :use_id, answer.id %> 
-		   					<span><%=answer.content%></span>
-		   				</label>    
-	    			</li>
-	    		
-			<%end%>
-		</div>
-		<button class= "btn" name="next" type="button">Next</button>
-		<button class= "btn" name="back" type="button">Back</button>
-	</ul>
-	<ul class= "question-box">
-		<h3><%=@questions[3].content%></h3>
-			<div class="row">
-			<% @questions[3].answers.each do |answer| %>			
-					<li class="answer span3"> 						
-		   				<label>
-		   					<%= f.radio_button :nature_id, answer.id %> 
-		   					<span><%=answer.content%></span>
-		   				</label>    
-	    			</li>
-	    		
-			<%end%>
-		</div>
-		<button class= "btn" name="next" type="button">Next</button>
-		<button class= "btn" name="back" type="button">Back</button>
-	</ul>
-	<ul class= "question-box">
-		<h3><%=@questions[4].content%></h3>
-			<div class="row">
-			<% @questions[4].answers.each do |answer| %>			
-					<li class="answer span3"> 						
-		   				<label>
-		   					<%= f.radio_button :amount_id, answer.id %> 
-		   					<span><%=answer.content%></span>
-		   				</label>    
-	    			</li>
-	    		
-			<%end%>
-		</div>
-		<button class= "btn" name="next" type="button">Next</button>
-		<button class= "btn" name="back" type="button">Back</button>
-	</ul>
-	<ul class= "question-box">
-		<h3><%=@questions[5].content%></h3>
-			<div class="row">
-			<% @questions[5].answers.each do |answer| %>			
-					<li class="answer span3"> 						
-		   				<label>
-		   					<%= f.radio_button :impact_id, answer.id %> 
-		   					<span><%=answer.content%></span>
-		   				</label>    
-	    			</li>
-	    		
-			<%end%>
-		</div>
-		<%unless @case == nil %>
-			<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
-		<%end%>
-		<%= f.submit "Finish", :class => "btn" %>
-		<button class= "btn" name="back" type="button">Back</button>
-	</ul>
+		</ul>
+	<%end%>
 <%end%>		

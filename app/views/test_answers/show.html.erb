@@ -4,25 +4,11 @@
 
 <ul>
 	<h3>Your Answer Report</h3>
-<li>
-	<strong><%=@test_answer.purpose.question.content.split(" ")[0]%>:</strong> <%=@test_answer.purpose.content%> 
-</li>
-<li>
-	<strong><%=@test_answer.character.question.content.split(" ")[0]%>:</strong> <%=@test_answer.character.content%>
-</li>
-<li>
-	<strong><%=@test_answer.use.question.content.split(" ")[0]%>:</strong> <%=@test_answer.use.content%>
-</li>
-<li>
-	<strong><%=@test_answer.nature.question.content.split(" ")[0]%>:</strong> <%=@test_answer.nature.content%>
-</li>
-<li>
-	<strong><%=@test_answer.amount.question.content.split(" ")[0]%>:</strong> <%=@test_answer.amount.content%>
-</li>
-<li>
-	<strong><%=@test_answer.impact.question.content.split(" ")[0]%>:</strong> <%=@test_answer.impact.content%>
-</li>
-
+	<%@answers_of_test.each do |answer|%>
+		<li>
+			<strong><%=answer.question.content.split(" ")[0]%>:</strong> <%=answer.content%> -> <%=answer.get_use%>  
+		</li>
+	<%end%>	
 
 </ul>
 

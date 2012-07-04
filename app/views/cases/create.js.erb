@@ -1,2 +1,2 @@
-$('div.active').removeClass('active').next().addClass('active');
-$('h2').text('Please choose court decision which is associated with this case:');
+$('div.new-case').html('<%= escape_javascript(render(:file => "test_answers/_form.html.erb"))%>');
+$('div.new-case').siblings('h2').text('Please choose court decision which is associated with this case:');

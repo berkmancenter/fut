@@ -25,7 +25,6 @@ html body{
 	position: absolute;
 	left:350px;
 	top:130px;
-
 }
 
 .question-box button, .question-box:last-child input[type="submit"]{
@@ -57,7 +56,6 @@ table.table{
 }
 .scoreboard tr{
 	height:40px;
-
 }
 
 .answer{
@@ -83,11 +81,11 @@ table.table{
     cursor: pointer;
 }
 
-.answer label input {
+.answer label input{
 	display:none;
 }
 
 .answer .input-checked{
     background-color:#404040;
     color:#F7F7F7;
-}​
+}

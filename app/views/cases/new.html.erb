@@ -1,21 +1,6 @@
-<style type="text/css">
-div, ul{
-	background-color:grey;
-	width: 500px;
-	margin:auto;
-}
-div{
-	display: none;
-}
-.active{
-	display: block;
-}
-</style>
 <h1>Add new Case</h1>
 <h2>Please add basic details about the case!</h2>
-<div class= "active">
-<%= render 'form' %>
+<div class="new-case">
+	<%= render 'form' %>
 </div>
-<div>
-<%= render :partial => "test_answers/form", :locals => { :@questions => @questions, :@test_answer => @test_answer, :case_id => Case.last.nil? ? 1 : Case.last.id + 1 } %>
-</div>
+
