@@ -28,4 +28,13 @@ class CasesController < ApplicationController
        		format.js 
    		end
 	end
+
+	def destroy
+		@case = Case.find(params[:id])
+		if @case.court_decision
+			@case.court_decision.destroy
+		end
+		@case.destroy
+		redirect_to :back
+	end
 end

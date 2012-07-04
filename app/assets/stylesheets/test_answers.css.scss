@@ -1,7 +1,12 @@
-// Place all the styles related to the selected_answers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
- .test-answer{
+@mixin awesome($size, $color) {
+ background-color:$color;
+ border-radius: 10px;
+ box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
+ padding:10px;
+ list-style-type: none;
+ width: $size;
+}
+.test-answer{
  	width:600px;
  	margin:auto;
  	text-align:center;
@@ -17,13 +22,9 @@
  	}
 
  	ul{
- 		padding:5px;
- 		border-radius: 10px;
-		box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
- 		background-color:white;
- 		width:400px;
+ 		@include awesome(400px, white);
  		margin:auto;
- 		list-style-type: none;
+ 		
  	}
 
  	p{
