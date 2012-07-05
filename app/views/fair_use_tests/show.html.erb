@@ -1,3 +1,13 @@
-<h1><%=@fair_use_test.name%> Fair Use Test</h1>
-<h3>You Make a Test and You Got <%=@result%></h3>
-<%= link_to "Back", fair_use_tests_path %>
+<div class="test-answer">
+<h3><%=@fair_use_test.name%> test</h3>
+<h3>your use was</h3> <h1 class="<%=@fair_use_test.test_answer.get_result.split(" ")[0]%>"><%=@fair_use_test.test_answer.get_result%></h1>
+
+<ul>
+	<h3>Your Answer Report</h3>
+	<%@answers_of_test.each do |answer|%>
+		<li>
+			<strong><%=answer.question.flag.capitalize%>:</strong> <%=answer.content%> -> <%=answer.get_use%>  
+		</li>
+	<%end%>	
+
+</ul>

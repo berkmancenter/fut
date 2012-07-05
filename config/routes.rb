@@ -1,11 +1,13 @@
 Fut::Application.routes.draw do
   root :to => 'sessions#index' , :as => "home"
   get "FairUseTest" => "questions#index", :as => "fairusetest"
+
   resources :test_answers, :path => "/FairUseTest/Result"
   resources :fair_use_tests, :questions, :answers, :attachments, :case_answers
 
   resources :cases do
     resources :case_answers
+    resources :test_answers
   end
 
   match ':title' => "Case#show"

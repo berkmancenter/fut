@@ -1,4 +1,7 @@
-<h1>WOW You Already tested a Survey</h1>
-<h3>and you got <%=@result%></h3>
+<div class="test-answer">
+<h2>WOW! </h2><h3>You already tested a survey!</h3>
+<h3>and your use is</h3> <h1 class="<%=@test_answer.get_result.split(" ")[0]%>"><%=@test_answer.get_result%></h1>
+
 <p>Do you want to store you test?</p>
 <%= render 'fair_use_tests/form' %>
+</div>

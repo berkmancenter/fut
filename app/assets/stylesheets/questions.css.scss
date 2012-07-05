@@ -1,3 +1,92 @@
-// Place all the styles related to the questions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins.css.scss";
+html body{
+	background-color: rgba(230, 230, 230, 0.5);
+	font-family: "Ubuntu", "MS Trebuchet", sans-serif;
+}
+
+.questions{
+	position:relative;
+
+	 input[type="submit"]{
+	position:absolute;
+	right:185px;
+	top:390px;
+	height:70px;
+	}
+}
+.question-box {
+	@include awesome(500px, white);
+	position: absolute;
+	left:300px;	
+	top:120px;
+}
+
+.question-box:nth-child(2){
+	top:80px;
+}
+.question-box:nth-child(3), .question-box:nth-child(7){
+	top:150px;
+}
+.question-box:nth-child(4) .answer:nth-child(3){
+	margin-left:150px;
+}
+
+
+.question-box button{
+	float:right;
+	margin-top:20px;
+	margin-left:10px;
+}
+.question-box button[name="next"]{
+	clear:both;
+}
+
+table.table{
+	@include awesome(200px, white);
+	margin:auto;
+	margin-bottom:20px;
+	position: absolute;
+	right:150px;
+	top:90px;
+}
+.scoreboard tr td:last-child div{
+	width:22px;
+	height:22px;
+	border-radius:20px;
+	border:1px solid gray;
+	-webkit-transition: background-color 0.5s;
+}
+.scoreboard tr{
+	height:40px;
+}
+
+.answer{
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    width:200px;
+    height:50px;
+    padding:0px;
+    margin-top:20px;
+}
+.question-box .row{
+	margin:0px;
+}
+
+.answer label span {
+    text-align:center;
+    height:44px;
+    line-height:44px;
+    padding:3px 0px;
+    display:block;
+    cursor: pointer;
+}
+
+.answer label input{
+	display:none;
+}
+
+.answer .input-checked{
+    background-color:#404040;
+    color:#F7F7F7;
+}

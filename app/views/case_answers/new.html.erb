@@ -1,10 +1,22 @@
-<h1><%=@case.title%> Case:</h1>
-<div>
-	<%= image_tag @case.original_resource.source.url %>
-	<%= image_tag @case.derivative_resource.source.url %>
-	<h2>Facts:</h2>
-	<p><%=@case.facts%></p>
+<div class= "test-case">
+	<div class="row">
+		<div class="span4">
+			<h1><%=@case.title%> Case</h1>
+			<%= image_tag @case.original_resource.source.url %> vs 
+			<%= image_tag @case.derivative_resource.source.url %>
+			<p class="pull-left">Original</p>
+			<p class="pull-right">Derivative</p>
+			<h2>Facts</h2>
+			<%@facts.each do |fact|%>
+				<p><%=fact%></p>
+			<%end%>
+		</div>
+		<div class="span8">	
+			<%= render 'test_answers/form' %>
+			<%= render 'test_answers/scoreboard'%>
+		</div>
+	</div>
 </div>
-<div>
-	<%= render 'test_answers/form' %>
-</div>
+<script type="text/javascript">
+$(".test-case").find(".btn-large").attr("value","Compare your Answer with Judges");
+</script>

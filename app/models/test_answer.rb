@@ -29,5 +29,15 @@ class TestAnswer < ActiveRecord::Base
   	else sum < 0
       return false
   	end
+  end
+
+  public
+  def get_result
+      if self.result == true
+        return "Fair Use"
+      else
+        return "Not Fair Use"
+      end
+          
   end   
 end

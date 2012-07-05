@@ -1,9 +1,10 @@
-<style type="text/css">
-ul{
-	background-color:grey;
-	width: 500px;
-	margin:auto;		
-}
-</style>
-<h1>Fair Use Calculator</h1>
-<%= render 'test_answers/form' %>
+<div class="questions">
+	<h1>Fair Use Calculator</h1>
+	<h3>Answer all the following questions!</h3>
+	<%= render 'test_answers/scoreboard'%>
+	<%= render 'test_answers/form' %>
+</div>
+<script type="text/javascript">
+	$(".questions").find(".btn-large").attr("value","Calculate your use!");
+
+</script>

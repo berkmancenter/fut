@@ -1,11 +1,12 @@
-<h1>Your Previous Fair Use Tests</h1>
-<table>
-	<% @fair_use_tests.each do |f| %>
-		<tr>
-			<td><h2><%=f.name%></h2></td>
-			<td><%= link_to 'Show', f %></td>
-			<td><%= link_to 'Delete', f, :confirm => 'Are you sure?', :method => :delete%></td>
-		</tr>
-	<%end%>
-</table>
-<%= link_to "Back", home_path %>
+<div class="user-answers">
+	<h1>Your Previous Fair Use Tests</h1>
+	<table class="table">
+		<% @fair_use_tests.each do |f| %>
+			<tr>
+				<td><%=f.name%></td>
+				<td><%= link_to 'Show', f %></td>
+				<td><%= link_to 'Delete', f, :confirm => 'Are you sure?', :method => :delete%></td>
+			</tr>
+		<%end%>
+	</table>
+</div>
