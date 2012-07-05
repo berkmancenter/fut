@@ -27,8 +27,7 @@ class TestAnswersController < ApplicationController
 		end				
 	end
 	def show
-		@test_answer= TestAnswer.find(params[:id])
-		@answers_of_test=[@test_answer.purpose,@test_answer.character,@test_answer.use,@test_answer.nature,@test_answer.amount,@test_answer.impact] 	
+		@test_answer= TestAnswer.find(params[:id]) 	
 		@fair_use_test= FairUseTest.new
 	end
 	

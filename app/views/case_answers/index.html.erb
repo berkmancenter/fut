@@ -1,10 +1,13 @@
-<h1>Your Cases Answers</h1>
-<table>
-<% @case_answers.each do |c|%>
-		<tr>
-			<td><h2><%=c.case.title%></h2></td>
-			<td><%= link_to "Show", case_case_answer_path(c.case.title, c) %></td>
-		</tr>
-<%end%>
-</table>
+<div class="user-answers">
+	<h1>Your Cases Answers</h1>
+	<table class="table">
+		<% @case_answers.each do |c|%>
+			<tr>
+				<td><%=c.case.title%></td>
+				<td><%= link_to "Show", case_case_answer_path(c.case.title, c) %></td>
+				<td><%= link_to 'Delete', c, :confirm => 'Are you sure?', :method => :delete%></td>
+			</tr>
+		<%end%>
+	</table>
+</div>
 

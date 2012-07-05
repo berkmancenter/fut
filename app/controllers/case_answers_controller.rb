@@ -15,4 +15,11 @@ class CaseAnswersController < ApplicationController
 	def index
 		@case_answers = Visitor.last.case_answers.all
 	end
+
+	def destroy
+	  	@case_answer = CaseAnswer.find params[:id]
+	  	@case_answer.test_answer.destroy
+	  	@case_answer.destroy
+	  	redirect_to :back
+  end
 end
