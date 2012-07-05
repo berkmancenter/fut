@@ -52,3 +52,8 @@
 		margin-left:80px;
 	}
 }
+.case-answer{
+	@include awesome(500px, white);
+	margin:auto;
+ 	text-align:center;
+}

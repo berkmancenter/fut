@@ -1,17 +1,16 @@
 <div class="test-answer">
 <h2>WOW! </h2><h3>You already tested a survey!</h3>
-<h3>and your use is</h3> <h1 class="<%=@result.split(" ")[0]%>"><%=@result%></h1>
+<h3>and your use is</h3> <h1 class="<%=@test_answer.get_result.split(" ")[0]%>"><%=@test_answer.get_result%></h1>
 
 <ul>
 	<h3>Your Answer Report</h3>
 	<%@answers_of_test.each do |answer|%>
 		<li>
-			<strong><%=answer.question.content.split(" ")[0]%>:</strong> <%=answer.content%> -> <%=answer.get_use%>  
+			<strong><%=answer.question.flag.capitalize%>:</strong> <%=answer.content%> -> <%=answer.get_use%>  
 		</li>
 	<%end%>	
 
 </ul>
-
 
 <p>Do you want to store you test?</p>
 <%= render 'fair_use_tests/form' %>
