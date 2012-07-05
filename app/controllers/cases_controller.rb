@@ -17,11 +17,20 @@ class CasesController < ApplicationController
 		@original.source =  params[:original]
 		@derivative = Attachment.new
 		@derivative.source = params[:derivative]
-		@case.original_resource = @original 
-		@case.derivative_resource = @derivative
-		if @case.save
-			redirect_to new_case_test_answer_path(@case.title)
+		flash[:notice] = nil
+		if  @derivative.save && @original.save
+			@case.original_resource = @original 
+			@case.derivative_resource = @derivative
+			if @case.save
+				redirect_to new_case_test_answer_path(@case.title)
+			else
+				render 'new'
+			end	
 		else
+			if @case.title == "" || @case.facts == ""
+				@case.save
+			end
+			flash[:notice] = "Please upload the 2 recources of case!"
 			render 'new'
 		end
 		# @questions = Question.all

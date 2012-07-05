@@ -34,9 +34,9 @@ class TestAnswer < ActiveRecord::Base
   public
   def get_result
       if self.result == true
-        return "Fair"
+        return "Fair Use"
       else
-        return "Not Fair"
+        return "Not Fair Use"
       end
           
   end   

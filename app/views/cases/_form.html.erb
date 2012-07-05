@@ -1,9 +1,10 @@
 <%= form_for @case, :html => { :multipart => true } do |f| %>
-	<% if @case.errors.any? %>
+	<% if @case.errors.any? || flash[:notice] %>
 	    <ul class="errors">
 	        <% for message in @case.errors.full_messages %>
 	        <li><%= message %></li>
 	        <% end %>
+	        <li><%=flash[:notice]%></li>
 	    </ul>
 	<% end %>
 	<table>
