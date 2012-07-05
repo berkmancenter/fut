@@ -1,3 +1,36 @@
-// Place all the styles related to the selected_answers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins.css.scss";
+.test-answer{
+	@include awesome(500px, white);
+ 		margin:auto;
+ 		text-align:center;
+
+ 	.Not{
+ 		color:red;
+ 		margin-bottom:5px
+ 	}
+
+ 	.Fair{
+ 		color:green;
+ 		margin-bottom:5px
+ 	}
+
+ 	ul{
+ 		 list-style-type: none;		
+ 	}
+
+ 	p{
+ 		margin-top:10px;
+ 	}
+ 	form .btn {
+ 		margin-top:-10px;
+ 	}
+ }
+.Not{
+	color:red;
+	margin-bottom:5px
+}
+
+.Fair{
+	color:green;
+	margin-bottom:5px
+}

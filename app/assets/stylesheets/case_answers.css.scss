@@ -1,3 +1,67 @@
-// Place all the styles related to the CaseAnswers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins.css.scss";
+.test-case{
+	@include awesome(1220px, #EFEFEF);
+	position:relative;
+	margin:auto;
+	img{
+		width:200px;
+		height:250px;
+		margin:5px;
+	}
+	.question-box{
+		margin:0px;
+		top:90px;
+		left:210px;
+
+	}
+	.question-box:nth-child(2){
+		top:20px;
+	}
+	.question-box:nth-child(3), .question-box:nth-child(7){
+		top:120px;
+	}
+	
+	.scoreboard{
+		margin:0px;
+		top:70px;
+		left:0px;
+	}
+	.span4{
+		
+		width:450px;
+		text-align:center;
+	}
+	.span8{
+		position:relative;
+		
+		width:750px
+	}
+
+	input[type="submit"]{
+		position:absolute;
+		bottom:-470px;
+		right:50px;
+		width:260px;
+		height:60px;
+	}
+
+	.pull-right{
+		margin-right:80px;
+	}
+	.pull-left{
+		margin-left:80px;
+	}
+}
+.case-answer{
+	@include awesome(500px, white);
+	margin:auto;
+ 	text-align:center;
+}
+
+.user-answers{
+	.table{
+		position:static;
+		width:500px;
+		margin:0px;
+	}
+}

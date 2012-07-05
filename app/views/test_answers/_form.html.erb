@@ -1,60 +1,95 @@
 <%= form_for @test_answer do |f|%>
-	<ul>
-		<h3><%=@questions[0].content%></h3>
-		<% @questions[0].answers.each do |answer| %>
-			<li> 
-				<%= f.radio_button :purpose_id, answer.id %> 
-				<%= f.label "purpose_id_" + answer.id.to_s, answer.content %>  	
-    		</li>
-		<%end%>
-	</ul>
-	<ul>
-		<h3><%=@questions[1].content%></h3>
-		<% @questions[1].answers.each do |answer| %>
-			<li> 
-				<%= f.radio_button :character_id, answer.id %> 
-				<%= f.label "character_id_" + answer.id.to_s, answer.content %>  	
-    		</li>
-		<%end%>
-	</ul>
-	<ul>
-		<h3><%=@questions[2].content%></h3>
-		<% @questions[2].answers.each do |answer| %>
-			<li> 
-				<%= f.radio_button :use_id, answer.id %> 
-				<%= f.label "use_id_" + answer.id.to_s, answer.content %>  	
-    		</li>
-		<%end%>
-	</ul>
-	<ul>
-		<h3><%=@questions[3].content%></h3>
-		<% @questions[3].answers.each do |answer| %>
-			<li> 
-				<%= f.radio_button :nature_id, answer.id %> 
-				<%= f.label "nature_id_" + answer.id.to_s, answer.content %>  	
-    		</li>
-		<%end%>
-	</ul>
-	<ul>
-		<h3><%=@questions[4].content%></h3>
-		<% @questions[4].answers.each do |answer| %>
-			<li> 
-				<%= f.radio_button :amount_id, answer.id %> 
-				<%= f.label "amount_id_" + answer.id.to_s, answer.content %>  	
-    		</li>
-		<%end%>
-	</ul>
-	<ul>
-		<h3><%=@questions[5].content%></h3>
-		<% @questions[5].answers.each do |answer| %>
-			<li> 
-				<%= f.radio_button :impact_id, answer.id %> 
-				<%= f.label "impact_id_" + answer.id.to_s, answer.content %>  	
-    		</li>
-		<%end%>
-	</ul>
-	<%unless @case == nil %>
-	<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
+	<%@questions.each do |question|%>
+		<ul class= "question-box">
+			<h3><%=question.content%></h3>
+			<div class="row">
+				<% question.answers.each do |answer| %>			
+						<li class="answer span3"> 						
+			   				<label>
+			   					<%= f.radio_button question.flag+"_id", answer.id %> 
+			   					<span><%=answer.content%></span>
+			   				</label>    
+		    			</li>
+		    		
+				<%end%>
+			</div>
+			<%if question.id != 6 &&  question.id != 1%>
+				<button class= "btn" name="next" type="button">Next</button>
+				<button class= "btn" name="back" type="button">Back</button>
+			<%elsif question.id == 1%>
+				<button class= "btn" name="next" type="button">Next</button>
+			<%else%>
+				<%unless @case == nil %>
+					<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
+				<%end%>
+				<button class= "btn" name="back" type="button">Back</button>
+			<%end%>
+		</ul>
 	<%end%>
-	<%= f.submit "Finish" %>
-<%end%>		
+	<%if params[:action]== 'new' %>
+		<%= f.submit "Create Court Decision", :class => "btn-large",:id=> 'submit', :disabled=> true%>
+	<%elsif params[:action]== 'edit' %>	
+		<%= f.submit "Update Court Decision", :class => "btn-large btn-warning",:id=> 'submit'%>
+	<%else%>
+		<%= f.submit nil, :class => "btn-large",:id=> 'submit', :disabled=> true%>
+	<%end%>
+<%end%>
+<script type="text/javascript">
+	$('input[type=radio]').click(function(){
+
+		/*To highlight the checked answer*/
+		$(this).siblings('span').addClass('input-checked');
+   		$(this).closest('.answer').siblings('.answer').children('label').children('span').removeClass('input-checked');
+
+		/*To light the corresponded lamp*/
+		$this = $(this);
+		var fair = ["1","2","3","4","5","6","7","10","11","12","14","21","23"];
+		var notfair = ["9","13","17","18","19","20","22"];
+		var name = $this.attr('name');
+		var value = $this.val();
+		var lamp = $('div[name*="'+name+'"]');
+		if (($.inArray(value, fair)) != -1) 
+		{
+			lamp.css('background','green');
+		}
+		else if (($.inArray(value, notfair)) != -1)
+		{
+			lamp.css('background','red');
+		}
+		else {
+			lamp.css('background','orange');
+		}
+	});
+
+
+	/*Hide Questions and show them one by one*/
+	$('.question-box').hide();
+	$('.question-box:nth-child(2)').show();
+	$('button[name*="next"]').click(function(){
+		$(this).closest('.question-box').fadeOut().next().fadeIn();
+	});
+	$('button[name*="back"]').click(function(){
+		$(this).closest('.question-box').fadeOut().prev().fadeIn();
+	});
+
+
+	/*To Disable Submit button until finishing all questions*/
+    $('input:radio').change(function(){
+        var names = [];
+        var allChecked = true;
+        $('input:radio').each(function(){
+            if(names.indexOf($(this).attr('name')) === -1) {
+                names.push($(this).attr('name'));
+            }
+        });
+        for(var i = 0, cnt = names.length; i < cnt; i++) {
+            if(!$('input[name="' + names[i] + '"]').is(':checked')) {
+                allChecked = false;
+            }
+        }
+        if(allChecked) {
+            $('#submit').removeAttr('disabled').addClass('btn-warning');
+        }
+    });
+
+</script>		

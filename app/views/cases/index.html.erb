@@ -1,16 +1,10 @@
-<h1>Lega Cases</h1>
+<h1>Legal Cases</h1>
 <!-- This Part is dedicated to Admin Only -->
 <%= link_to "Add New Case", new_case_path %>
 <!-- This Part is dedicated to Admin Only -->
-<table>
+<div class="cases">
 	<% @cases.each do |c|%>
-		<tr>
-			<td><h2><%=c.title%></h2></td>
-			<td><%= link_to "Show", case_path(c.title) %></td>
-			<!-- This Part is dedicated to Admin Only -->
-			<td><%= link_to "Edit", edit_case_path(c) %></td>
-			<td><%= link_to 'Destroy', c, :confirm => 'Are you sure?', :method => :delete, :remote=>true, :class=>'delete_case' %></td>
-			<!-- This Part is dedicated to Admin Only -->
-		</tr>
+			
+		<%= link_to c.title, case_path(c.title), :class => "btn" %>
 	<%end%>
-</table>
+</div>

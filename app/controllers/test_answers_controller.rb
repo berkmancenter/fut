@@ -1,4 +1,10 @@
 class TestAnswersController < ApplicationController
+	def new
+		@case = Case.find_by_title params[:case_id] 
+		@questions = Question.all
+		@test_answer = TestAnswer.new
+	end
+
 	def create
 		@test_answer= TestAnswer.new(params[:test_answer])
 		@test_answer.result = TestAnswer.calculate_fair_use(@test_answer)
@@ -21,9 +27,20 @@ class TestAnswersController < ApplicationController
 		end				
 	end
 	def show
-		@test_answer= TestAnswer.find(params[:id])
-		@result = @test_answer.result ? "Fair Use" : "Not Fair Use"	
+		@test_answer= TestAnswer.find(params[:id]) 	
 		@fair_use_test= FairUseTest.new
+	end
+	
+	def edit
+		@case = Case.find_by_title params[:case_id] 
+		@questions = Question.all
+		@test_answer = TestAnswer.find(params[:id])
+	end
+
+	def update
+		@test_answer = TestAnswer.find(params[:id])
+		@test_answer.update_attributes(params[:test_answer])
+		redirect_to case_path(@test_answer.court_decision_case.title)
 	end
 
 	def destroy

@@ -1,3 +1,26 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.home{
+	width:1200px;
+	margin:auto;
+	text-align:center;
+	margin-top:10%;
+
+	h1{
+	font-size:90px;
+	margin-bottom:50px;
+	}
+
+	table{
+	margin:auto;
+	}
+
+	.btn{
+	width:300px;
+	height:100px;
+	margin:20px;
+	font-size: 30px;
+	line-height:100px;
+	}
+}

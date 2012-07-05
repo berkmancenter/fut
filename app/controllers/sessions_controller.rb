@@ -1,5 +1,5 @@
-
 class SessionsController < ApplicationController
+  layout false
   def index
   end
 
