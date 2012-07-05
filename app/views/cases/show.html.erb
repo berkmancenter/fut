@@ -6,4 +6,7 @@
 	<p><%=@case.facts%></p>
 
  <%= link_to "Test This Case", new_case_case_answer_path(@case.title), :class => "btn btn-warning" %>
+</br>
+ <%= link_to "Edit", edit_case_path(@case.title) %>
+ <%= link_to 'Destroy', @case, :confirm => 'Are you sure?', :method => :delete%>
 </div>

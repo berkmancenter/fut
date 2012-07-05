@@ -42,11 +42,35 @@ class CasesController < ApplicationController
        	#	format.html { redirect_to "/cases/show/#{@case.id}"}
        	#	format.js 
    		#end
-
-   		
-
 	end
 
+	def edit
+		@case = Case.find_by_title(params[:id])
+	end
+
+	def update
+		@case = Case.find(params[:id])
+		@case.update_attributes(params[:case])
+		if params[:original] != nil
+			@new_original = Attachment.new
+			@new_original.source = params[:original]
+			if @case.original_resource 
+				@case.original_resource.destroy
+			end
+			@case.original_resource = @new_original
+		end
+		if params[:derivative] != nil
+			@new_derivative = Attachment.new
+			@new_derivative.source = params[:derivative]
+			if @case.derivative_resource
+				@case.derivative_resource.destroy
+			end
+			@case.derivative_resource = @new_derivative
+		end
+		@case.save
+		redirect_to edit_case_test_answer_path(@case.title,@case.court_decision)
+	end
+	
 	def destroy
 		@case = Case.find(params[:id])
 		if @case.court_decision

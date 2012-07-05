@@ -31,6 +31,18 @@ class TestAnswersController < ApplicationController
 		@answers_of_test=[@test_answer.purpose,@test_answer.character,@test_answer.use,@test_answer.nature,@test_answer.amount,@test_answer.impact] 	
 		@fair_use_test= FairUseTest.new
 	end
+	
+	def edit
+		@case = Case.find_by_title params[:case_id] 
+		@questions = Question.all
+		@test_answer = TestAnswer.find(params[:id])
+	end
+
+	def update
+		@test_answer = TestAnswer.find(params[:id])
+		@test_answer.update_attributes(params[:test_answer])
+		redirect_to case_path(@test_answer.court_decision_case.title)
+	end
 
 	def destroy
 		@test_answer= TestAnswer.find(params[:id])
