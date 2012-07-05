@@ -26,7 +26,13 @@
 			<%end%>
 		</ul>
 	<%end%>
-	<%= f.submit nil, :class => "btn-large",:id=> 'submit', :disabled=> true%>
+	<%if params[:action]== 'new' %>
+		<%= f.submit "Create Court Decision", :class => "btn-large",:id=> 'submit', :disabled=> true%>
+	<%elsif params[:action]== 'edit' %>	
+		<%= f.submit "Update Court Decision", :class => "btn-large btn-warning",:id=> 'submit'%>
+	<%else%>
+		<%= f.submit nil, :class => "btn-large",:id=> 'submit', :disabled=> true%>
+	<%end%>
 <%end%>
 <script type="text/javascript">
 	$('input[type=radio]').click(function(){
