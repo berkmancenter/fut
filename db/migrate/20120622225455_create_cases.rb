@@ -2,6 +2,7 @@ class CreateCases < ActiveRecord::Migration
   def change
     create_table :cases do |t|
     	t.string :title
+      t.integer :role_id
 		  t.text :facts
 		  t.integer :no_of_tests, :default => 0 
       t.integer :court_decision_id

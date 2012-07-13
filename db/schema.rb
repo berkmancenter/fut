@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120713163127) do
 
   create_table "cases", :force => true do |t|
     t.string   "title"
+    t.integer  "role_id"
     t.text     "facts"
     t.integer  "no_of_tests",            :default => 0
     t.integer  "court_decision_id"

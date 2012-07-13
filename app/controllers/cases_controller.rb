@@ -3,7 +3,7 @@ class CasesController < ApplicationController
 	before_filter :check_role, :only => [:show, :index]
 	
 	def index
-		@cases= Case.all
+		@cases= @current_role.cases
 	end
 
 	def show
