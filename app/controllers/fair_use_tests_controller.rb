@@ -9,7 +9,7 @@ class FairUseTestsController < ApplicationController
 
   def show
   	@fair_use_test= FairUseTest.find params[:id]
-    @answers_of_test=[@fair_use_test.test_answer.purpose,@fair_use_test.test_answer.character,@fair_use_test.test_answer.use,@fair_use_test.test_answer.nature,@fair_use_test.test_answer.amount,@fair_use_test.test_answer.impact]
+    @answers_of_test=[@fair_use_test.test_answer.purpose,@fair_use_test.test_answer.character,@fair_use_test.test_answer.use,@fair_use_test.test_answer.nature,@fair_use_test.test_answer.amount,@fair_use_test.test_answer.financial]
   end
 
   def index

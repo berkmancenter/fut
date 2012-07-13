@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120626010946) do
+ActiveRecord::Schema.define(:version => 20120713163127) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id", :null => false
@@ -79,13 +79,20 @@ ActiveRecord::Schema.define(:version => 20120626010946) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.integer  "case_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "test_answers", :force => true do |t|
     t.integer  "purpose_id",   :null => false
     t.integer  "character_id", :null => false
     t.integer  "use_id",       :null => false
     t.integer  "nature_id",    :null => false
     t.integer  "amount_id",    :null => false
-    t.integer  "impact_id",    :null => false
+    t.integer  "financial_id", :null => false
     t.boolean  "result"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
@@ -93,7 +100,7 @@ ActiveRecord::Schema.define(:version => 20120626010946) do
 
   add_index "test_answers", ["amount_id"], :name => "index_test_answers_on_amount_id"
   add_index "test_answers", ["character_id"], :name => "index_test_answers_on_character_id"
-  add_index "test_answers", ["impact_id"], :name => "index_test_answers_on_impact_id"
+  add_index "test_answers", ["financial_id"], :name => "index_test_answers_on_financial_id"
   add_index "test_answers", ["nature_id"], :name => "index_test_answers_on_nature_id"
   add_index "test_answers", ["purpose_id"], :name => "index_test_answers_on_purpose_id"
   add_index "test_answers", ["use_id"], :name => "index_test_answers_on_use_id"
@@ -101,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20120626010946) do
   create_table "visitors", :force => true do |t|
     t.string   "name",       :default => "Anonymous"
     t.string   "ip_adress"
+    t.integer  "role_id"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
   end

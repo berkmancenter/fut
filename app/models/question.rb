@@ -6,12 +6,7 @@ class Question < ActiveRecord::Base
 
   public
 	def flag
-		unless self.id == 6
-    		self.content.split(" ")[0].downcase
-    	else
-    		#This's Temporary, Don't forget to change association name better
-    		"impact"
-    	end
-    end
+    self.content.split(" ")[0].downcase
+  end
 
 end
