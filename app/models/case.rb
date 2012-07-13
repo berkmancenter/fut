@@ -3,7 +3,7 @@ class Case < ActiveRecord::Base
   belongs_to :derivative_resource , :class_name => 'Attachment'
   belongs_to :court_decision, :class_name => 'TestAnswer'
   has_many :case_answers
-  has_one :role
+  belongs_to :role
   attr_accessible :title, :facts, :no_of_tests, :court_decision_id, :original_resource_id, :derivative_resource_id
   validates :title, :uniqueness => true, :length => { :in => 3..80, :message => "is blank or too short" }
   validates :facts, :length => { :in => 3..600 , :message => "is blank or too short"}

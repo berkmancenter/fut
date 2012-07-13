@@ -1,4 +1,5 @@
 class TestAnswersController < ApplicationController
+	before_filter :check_visitor
 	def new
 		@case = Case.find_by_title params[:case_id] 
 		@questions = Question.all

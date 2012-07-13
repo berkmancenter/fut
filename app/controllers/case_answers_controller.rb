@@ -1,4 +1,6 @@
 class CaseAnswersController < ApplicationController
+	before_filter :check_visitor
+	before_filter :check_role, :only => [:new, :show]
 	def new
 		@case_answer= CaseAnswer.new
 		@case = Case.find_by_title params[:case_id]
@@ -12,6 +14,7 @@ class CaseAnswersController < ApplicationController
 		@case = Case.find_by_title params[:case_id]
 	end
 
+	#We don't want these two actions anymore
 	def index
 		@case_answers = Visitor.last.case_answers.all
 	end

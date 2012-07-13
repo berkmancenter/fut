@@ -1,4 +1,7 @@
 class CasesController < ApplicationController
+	before_filter :check_visitor
+	before_filter :check_role, :only => [:show, :index]
+	
 	def index
 		@cases= Case.all
 	end
@@ -7,6 +10,7 @@ class CasesController < ApplicationController
 		@case = Case.find_by_title(params[:id])
 	end
 
+	#The Next Actions for Administration purpose
 	def new
 		@case = Case.new
 	end

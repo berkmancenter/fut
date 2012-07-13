@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(:version => 20120713163127) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.integer  "case_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

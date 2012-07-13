@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  layout false
+  before_filter :check_visitor
   def index
   end
 

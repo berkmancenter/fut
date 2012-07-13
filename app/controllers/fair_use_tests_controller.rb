@@ -1,5 +1,5 @@
 class FairUseTestsController < ApplicationController
-
+  before_filter :check_visitor
   def create
   	@fair_use_test = FairUseTest.new(params[:fair_use_test])
     @fair_use_test.owner= Visitor.last

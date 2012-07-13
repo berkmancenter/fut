@@ -1,0 +1,5 @@
+<div class="roles">
+		<%Role.all.each do |role|%>
+			<%=link_to role.name , "", :class => "btn" %>
+		<%end%>
+</div>
