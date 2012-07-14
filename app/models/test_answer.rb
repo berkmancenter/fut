@@ -41,5 +41,15 @@ class TestAnswer < ActiveRecord::Base
         return "Not Fair Use"
       end
           
+  end
+
+  def get_answers
+    answers = [self.purpose]
+    answers << self.character
+    answers << self.use
+    answers << self.nature
+    answers << self.amount
+    answers << self.financial  
+    return answers
   end 
 end

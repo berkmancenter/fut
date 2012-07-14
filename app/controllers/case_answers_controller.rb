@@ -13,7 +13,7 @@ class CaseAnswersController < ApplicationController
 		@case_answer = CaseAnswer.find params[:id]
 		@case = Case.find_by_title params[:case_id]
 		@court_answers_report = @case.get_report
-		@answers_of_case = @case_answer.get_answers
+		@answers_of_case = @case_answer.test_answer.get_answers
 		@questions= Question.all
 	end
 
