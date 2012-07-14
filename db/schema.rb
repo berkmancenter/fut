@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713163127) do
+ActiveRecord::Schema.define(:version => 20120714002721) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id", :null => false
     t.string   "content"
     t.integer  "value"
+    t.text     "info"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -60,6 +61,21 @@ ActiveRecord::Schema.define(:version => 20120713163127) do
   add_index "cases", ["court_decision_id"], :name => "index_cases_on_court_decision_id"
   add_index "cases", ["derivative_resource_id"], :name => "index_cases_on_derivative_resource_id"
   add_index "cases", ["original_resource_id"], :name => "index_cases_on_original_resource_id"
+  add_index "cases", ["role_id"], :name => "index_cases_on_role_id"
+
+  create_table "court_decision_details", :force => true do |t|
+    t.integer  "test_answer_id"
+    t.text     "purpose"
+    t.text     "character"
+    t.text     "use"
+    t.text     "nature"
+    t.text     "amount"
+    t.text     "financial"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "court_decision_details", ["test_answer_id"], :name => "index_court_decision_details_on_test_answer_id"
 
   create_table "fair_use_tests", :force => true do |t|
     t.integer  "test_answer_id", :null => false
@@ -112,5 +128,7 @@ ActiveRecord::Schema.define(:version => 20120713163127) do
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
   end
+
+  add_index "visitors", ["role_id"], :name => "index_visitors_on_role_id"
 
 end

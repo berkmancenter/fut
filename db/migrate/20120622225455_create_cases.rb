@@ -13,5 +13,6 @@ class CreateCases < ActiveRecord::Migration
     add_index :cases,:court_decision_id
     add_index :cases,:original_resource_id
     add_index :cases,:derivative_resource_id
+    add_index :cases,:role_id
   end
 end

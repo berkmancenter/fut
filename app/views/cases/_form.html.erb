@@ -25,6 +25,10 @@
 				<td>Derivative Copy</td>
 				<td><%= file_field_tag :derivative%></td>
 			</tr>
+			<tr>
+				<td>Role</td>
+				<td><%= f.collection_select(:role_id, Role.all, :id, :name) %></td>
+			</tr>
 		</tbody>		
 	</table>
 	<td><%= f.submit "Next", :class => "btn"%></td>

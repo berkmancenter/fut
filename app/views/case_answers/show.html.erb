@@ -1,9 +1,13 @@
 <div class="case-answer">
-	<h2>WOW!</h2>
-	<h3>You just have tested</h3><h2><%=@case.title%> Case</h2>
+	<h2>Congratulations!</h2>
+	<h3>You are almost a judge</h3><h2><%=@case.title%> Case</h2>
 	<h3>You got</h3> 
 	<h1 class="<%=@case_answer.test_answer.get_result.split(" ")[0]%>"><%=@case_answer.test_answer.get_result%></h1>
 	<h3>and The Court Decision was</h3>
-	<h1 class="<%=@case.court_decision.get_result.split(" ")[0]%>"><%=@case.court_decision.get_result%></h1> 
+	<h1 class="<%=@case.court_decision.get_result.split(" ")[0]%>"><%=@case.court_decision.get_result%></h1>
+	<%@answers_of_test.each do |answer|%>
+		<p><%=answer[:answer]%></p>
+		<p><%=answer[:court_details]%></p>
+	<%end%> 
 	<%= link_to "Test More Legal Cases?", cases_path %>
 </div>

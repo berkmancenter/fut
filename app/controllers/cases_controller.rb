@@ -12,7 +12,7 @@ class CasesController < ApplicationController
 
 	#The Next Actions for Administration purpose
 	def new
-		@case = Case.new
+		@case = Case.new :role_id => 5
 	end
 
 	def create

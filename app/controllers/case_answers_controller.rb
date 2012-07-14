@@ -12,6 +12,7 @@ class CaseAnswersController < ApplicationController
 	def show
 		@case_answer = CaseAnswer.find params[:id]
 		@case = Case.find_by_title params[:case_id]
+		@answers_of_test= @case.get_report
 	end
 
 	#We don't want these two actions anymore

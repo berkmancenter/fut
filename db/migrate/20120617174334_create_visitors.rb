@@ -6,5 +6,6 @@ class CreateVisitors < ActiveRecord::Migration
     	t.integer :role_id
     	t.timestamps
     end
+    add_index :visitors,:role_id
   end
 end

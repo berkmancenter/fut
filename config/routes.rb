@@ -11,6 +11,7 @@ Fut::Application.routes.draw do
   resources :cases do
     resources :case_answers
     resources :test_answers
+    resources :court_decision_details
   end
 
   match ':title' => "Case#show"
