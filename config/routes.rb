@@ -3,10 +3,9 @@ Fut::Application.routes.draw do
   root :to => 'sessions#fair' , :as => "fair"
   
   get "FairUse" => "sessions#fair", :as => "fair"
-  get "Calculator" => "questions#index", :as => "fairusetest"
 
   resources :test_answers, :path => "/Calculator/Result"
-  resources :fair_use_tests, :questions, :answers, :attachments, :case_answers
+  resources :fair_use_tests, :questions, :answers, :attachments, :case_answers, :calculators
 
   resources :cases do
     resources :case_answers

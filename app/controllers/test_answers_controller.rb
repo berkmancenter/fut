@@ -13,7 +13,10 @@ class TestAnswersController < ApplicationController
 
 		unless params[:case_id]
 			#test_answer for calculator test
-			redirect_to @test_answer
+			@calculator = Calculator.new(:test_answer_id => @test_answer.id)
+			@calculator.owner = @current_visitor
+			@calculator.save
+			redirect_to @calculator
 		else
 			@case = Case.find(params[:case_id])
 			#test_answer refer to court decision for a case
@@ -29,12 +32,6 @@ class TestAnswersController < ApplicationController
 				redirect_to case_case_answer_path(@case.title,@ca)				
 			end
 		end				
-	end
-	def show
-		@test_answer= TestAnswer.find(params[:id])
-		@answers_of_test = @test_answer.get_answers 
-		@questions= Question.all	
-		@fair_use_test= FairUseTest.new
 	end
 	
 	def edit

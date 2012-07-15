@@ -7,12 +7,14 @@ class TestAnswer < ActiveRecord::Base
   belongs_to :financial , :class_name => 'Answer'
   has_one :court_decision_case, :class_name => 'Case', :foreign_key => :court_decision_id
   has_one :case_answer
+  has_one :calculator
   has_one :court_decision_detail
   has_one :fair_use_test  
   attr_accessible :purpose_id , :character_id ,:use_id ,:nature_id ,:amount_id ,:financial_id, :tested_case_id, :result
   # validates :result, :presence =>true
-  scope :court_decision, joins(:court_decision_case)
-  scope :case_answer, joins(:case_answer)
+  scope :court_decisions, joins(:court_decision_case)
+  scope :case_answers, joins(:case_answer)
+  scope :calculators, joins(:calculator)
 
   def self.calculate_fair_use (test_answer)
   	sum = 0
