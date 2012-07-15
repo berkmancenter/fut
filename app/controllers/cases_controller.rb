@@ -8,6 +8,9 @@ class CasesController < ApplicationController
 
 	def show
 		@case = Case.find_by_title(params[:id])
+		unless @case.role == @current_role
+			redirect_to home_path
+		end
 	end
 
 	#The Next Actions for Administration purpose

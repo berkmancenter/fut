@@ -1,17 +1,22 @@
 class CaseAnswersController < ApplicationController
 	before_filter :check_visitor
-	before_filter :check_role, :only => [:new, :show]
+	before_filter :check_role, :only => [:new]
 	def new
 		@case_answer= CaseAnswer.new
 		@case = Case.find_by_title params[:case_id]
-		@facts = @case.facts.split(". ") 
-		@questions = Question.all
-		@test_answer = TestAnswer.new	
+		unless @case.role == @current_role
+			redirect_to home_path
+		else
+			@facts = @case.facts.split(". ") 
+			@questions = Question.all
+			@test_answer = TestAnswer.new
+		end	
 	end
 
 	def show
-		@case_answer = CaseAnswer.find params[:id]
 		@case = Case.find_by_title params[:case_id]
+		# To make sure that the corresponding case_answer id associated with this case
+		@case_answer= @case.case_answers.find params[:id]
 		@court_answers_report = @case.get_report
 		@answers_of_case = @case_answer.test_answer.get_answers
 		@questions= Question.all
