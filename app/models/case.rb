@@ -5,8 +5,8 @@ class Case < ActiveRecord::Base
   has_many :case_answers
   belongs_to :role
   attr_accessible :title, :facts, :no_of_tests, :court_decision_id, :original_resource_id, :derivative_resource_id, :role_id
-  validates :title, :uniqueness => true, :length => { :in => 3..80, :message => "is blank or too short" }
-  validates :facts, :length => { :in => 3..600 , :message => "is blank or too short"}
+  validates :title, :uniqueness => true, :length => { :in => 3..80, :message => "should be between 3 ~ 80 characters" }
+  validates :facts, :length => { :in => 3..600 , :message => "should be between 3 ~ 600 characters"}
 
   def get_report
     report = [{:answer => self.court_decision.purpose.content, :court_details => self.court_decision.court_decision_detail.purpose}] 
