@@ -7,6 +7,7 @@ class CasesController < ApplicationController
 	end
 
 	def show
+		# To make sure that the requested case has the same current role
 		@case = Case.find_by_title(params[:id])
 		unless @case.role == @current_role
 			redirect_to home_path

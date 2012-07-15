@@ -1,8 +1,8 @@
 Fut::Application.routes.draw do
   root :to => 'sessions#index' , :as => "home"
   root :to => 'sessions#fair' , :as => "fair"
-  get "FairUse" => "sessions#fair", :as => "fair"
   
+  get "FairUse" => "sessions#fair", :as => "fair"
   get "Calculator" => "questions#index", :as => "fairusetest"
 
   resources :test_answers, :path => "/Calculator/Result"

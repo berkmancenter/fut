@@ -11,6 +11,8 @@ class TestAnswer < ActiveRecord::Base
   has_one :fair_use_test  
   attr_accessible :purpose_id , :character_id ,:use_id ,:nature_id ,:amount_id ,:financial_id, :tested_case_id, :result
   # validates :result, :presence =>true
+  scope :court_decision, joins(:court_decision_case)
+  scope :case_answer, joins(:case_answer)
 
   def self.calculate_fair_use (test_answer)
   	sum = 0

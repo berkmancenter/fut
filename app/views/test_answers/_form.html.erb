@@ -20,7 +20,7 @@
 				<button class= "btn" name="next" type="button">Next</button>
 			<%else%>
 				<%unless @case == nil %>
-					<%= hidden_field_tag :case_id, @case.id.nil? ? case_id : @case.id %>
+					<%= hidden_field_tag :case_id, @case.id%>
 				<%end%>
 				<button class= "btn" name="back" type="button">Back</button>
 			<%end%>

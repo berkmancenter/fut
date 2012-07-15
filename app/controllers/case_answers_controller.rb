@@ -4,6 +4,7 @@ class CaseAnswersController < ApplicationController
 	def new
 		@case_answer= CaseAnswer.new
 		@case = Case.find_by_title params[:case_id]
+		# To make sure that the requested case has the same current role
 		unless @case.role == @current_role
 			redirect_to home_path
 		else
