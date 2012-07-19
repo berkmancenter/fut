@@ -1,0 +1,10 @@
+class CreateSpecializations < ActiveRecord::Migration
+  def change
+    create_table :specializations do |t|
+    	t.integer :case_id
+	    t.integer :role_id
+        t.timestamps
+    end
+    add_index :specializations, [:case_id,:role_id]
+  end
+end
