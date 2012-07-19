@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120715141432) do
+ActiveRecord::Schema.define(:version => 20120719051846) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id", :null => false
     t.string   "content"
     t.integer  "value"
-    t.text     "info"
+    t.text     "explanation"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(:version => 20120715141432) do
 
   create_table "cases", :force => true do |t|
     t.string   "title"
-    t.integer  "role_id"
     t.text     "facts"
     t.integer  "no_of_tests",            :default => 0
     t.integer  "court_decision_id"
@@ -71,7 +70,6 @@ ActiveRecord::Schema.define(:version => 20120715141432) do
   add_index "cases", ["court_decision_id"], :name => "index_cases_on_court_decision_id"
   add_index "cases", ["derivative_resource_id"], :name => "index_cases_on_derivative_resource_id"
   add_index "cases", ["original_resource_id"], :name => "index_cases_on_original_resource_id"
-  add_index "cases", ["role_id"], :name => "index_cases_on_role_id"
 
   create_table "court_decision_details", :force => true do |t|
     t.integer  "test_answer_id"
@@ -111,6 +109,15 @@ ActiveRecord::Schema.define(:version => 20120715141432) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "specializations", :force => true do |t|
+    t.integer  "case_id"
+    t.integer  "role_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "specializations", ["case_id", "role_id"], :name => "index_specializations_on_case_id_and_role_id"
 
   create_table "test_answers", :force => true do |t|
     t.integer  "purpose_id",   :null => false

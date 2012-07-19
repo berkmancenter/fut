@@ -1,3 +1,4 @@
 class Specialization < ActiveRecord::Base
-  # attr_accessible :title, :body
+  belongs_to :case
+  belongs_to :role
 end
