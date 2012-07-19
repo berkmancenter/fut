@@ -4,7 +4,7 @@ class CreateAnswers < ActiveRecord::Migration
 		    t.integer :question_id, :null => false
 		    t.string :content
         t.integer :value 
-      	t.text :info
+      	t.text :explanation
      	t.timestamps
     end
     add_index :answers,:question_id
