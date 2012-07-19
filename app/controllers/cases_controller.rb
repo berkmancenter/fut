@@ -8,19 +8,23 @@ class CasesController < ApplicationController
 
 	def show
 		# To make sure that the requested case has the same current role
-		@case = Case.find_by_title(params[:id])
-		unless @case.role == @current_role
-			redirect_to home_path
+		if @case = Case.find_by_title(params[:id])
+			unless @case.roles.include? @current_role
+				render :text => "This Case is not included in your role"
+			end
+		else
+			render :text => "Wrong Page"
 		end
 	end
 
 	#The Next Actions for Administration purpose
 	def new
-		@case = Case.new :role_id => 5
+		@case = Case.new 
 	end
 
 	def create
 		@case= Case.new(params[:case])
+		@case.attributes = {'role_ids' => []}.merge(params[:case] || {})
 		@original = Attachment.new
 		@original.source =  params[:original]
 		@derivative = Attachment.new
@@ -41,6 +45,8 @@ class CasesController < ApplicationController
 			flash[:notice] = "Please upload the 2 recources of case!"
 			render 'new'
 		end
+		
+		
 		# @questions = Question.all
 		# @test_answer = TestAnswer.new
 

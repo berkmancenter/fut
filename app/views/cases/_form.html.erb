@@ -26,8 +26,13 @@
 				<td><%= file_field_tag :derivative%></td>
 			</tr>
 			<tr>
-				<td>Role</td>
-				<td><%= f.collection_select(:role_id, Role.all, :id, :name) %></td>
+				<td>Roles</td>
+				<td>
+					<%Role.all.each do |role|%>
+						<%= check_box_tag :role_ids, role.id, @case.roles.include?(role), :name => 'case[role_ids][]' -%>
+      					<%= label_tag :role_ids, role.name -%>
+					<%end%>
+				</td>
 			</tr>
 		</tbody>		
 	</table>
