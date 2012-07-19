@@ -43,7 +43,8 @@ class TestAnswersController < ApplicationController
 	def update
 		@test_answer = TestAnswer.find(params[:id])
 		@test_answer.update_attributes(params[:test_answer])
-		redirect_to case_path(@test_answer.court_decision_case.title)
+		@case = @test_answer.court_decision_case
+		redirect_to edit_case_court_decision_detail_path(@case.title,@test_answer.court_decision_detail)
 	end
 
 	def destroy
