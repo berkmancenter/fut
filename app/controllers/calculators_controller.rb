@@ -10,6 +10,5 @@ class CalculatorsController < ApplicationController
 		@test_answer= @calculator.test_answer
 		@answers_of_test = @test_answer.get_answers 
 		@questions= Question.all	
-		@fair_use_test= FairUseTest.new
 	end
 end

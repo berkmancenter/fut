@@ -5,7 +5,7 @@ Fut::Application.routes.draw do
   get "FairUse" => "sessions#fair", :as => "fair"
 
   resources :test_answers, :path => "/Calculator/Result"
-  resources :fair_use_tests, :questions, :answers, :attachments, :case_answers, :calculators
+  resources :questions, :answers, :attachments, :case_answers, :calculators
 
   resources :cases do
     resources :case_answers
