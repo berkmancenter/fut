@@ -10,7 +10,12 @@ class TestAnswer < ActiveRecord::Base
   has_one :calculator
   has_one :court_decision_detail
   attr_accessible :purpose_id , :character_id ,:use_id ,:nature_id ,:amount_id ,:financial_id, :tested_case_id, :result
-  # validates :result, :presence =>true
+  validates :purpose, :inclusion => { :in => 1..8 }
+  validates :character, :inclusion => { :in => 9..10 }
+  validates :use, :inclusion => { :in => 11..13 }
+  validates :nature, :inclusion => { :in => 14..17 }
+  validates :amount, :inclusion => { :in => 18..21 }
+  validates :financial, :inclusion => { :in => 22..23 }
   scope :court_decisions, joins(:court_decision_case)
   scope :case_answers, joins(:case_answer)
   scope :calculators, joins(:calculator)
