@@ -1,4 +1,8 @@
 Fut::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   root :to => 'sessions#index' , :as => "home"
   root :to => 'sessions#fair' , :as => "fair"
   
