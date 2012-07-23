@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   has_many :answers
-  attr_accessible :content
+  attr_accessible :content, :explanation
   validates :content, :presence =>true, :length => { :maximum => 80 }
   validates :explanation, :length => { :maximum => 600 }
 
