@@ -5,7 +5,7 @@ class Case < ActiveRecord::Base
   has_many :case_answers
   has_many :specializations
   has_many :roles, :through => :specializations
-  attr_accessible :title, :facts, :no_of_tests, :court_decision_id, :original_resource_id, :derivative_resource_id, :role_ids
+  attr_accessible :court_decision_attributes, :title, :facts, :no_of_tests, :court_decision, :court_decision_id, :original_resource_id, :derivative_resource_id, :role_ids
   validates :title, :uniqueness => true, :length => { :in => 3..80, :message => "should be between 3 ~ 80 characters" }
   validates :facts, :length => { :in => 3..600 , :message => "should be between 3 ~ 600 characters"}
 

@@ -9,28 +9,32 @@ class TestAnswersController < ApplicationController
 	def create
 		@test_answer= TestAnswer.new(params[:test_answer])
 		@test_answer.result = TestAnswer.calculate_fair_use(@test_answer)
-		@test_answer.save
+		
+		if @test_answer.save
 
-		unless params[:case_id]
-			#test_answer for calculator test
-			@calculator = Calculator.new(:test_answer_id => @test_answer.id)
-			@calculator.owner = @current_visitor
-			@calculator.save
-			redirect_to @calculator
-		else
-			@case = Case.find(params[:case_id])
-			#test_answer refer to court decision for a case
-			if  @case.court_decision.nil?
-				@case.court_decision = @test_answer
-				@case.save 
-				redirect_to new_case_court_decision_detail_path(@case.title)
+			unless params[:case_id]
+				#test_answer for calculator test
+				@calculator = Calculator.new(:test_answer_id => @test_answer.id)
+				@calculator.owner = @current_visitor
+				@calculator.save
+				redirect_to @calculator
 			else
-			#test_answer refer to case_answer for a user
-				@ca = CaseAnswer.new(:test_answer_id => @test_answer.id,:case_id => @case.id)
-				@ca.owner = @current_visitor
-				@ca.save
-				redirect_to case_case_answer_path(@case.title,@ca)				
+				@case = Case.find(params[:case_id])
+				#test_answer refer to court decision for a case
+				if  @case.court_decision.nil?
+					@case.court_decision = @test_answer
+					@case.save 
+					redirect_to new_case_court_decision_detail_path(@case.title)
+				else
+				#test_answer refer to case_answer for a user
+					@ca = CaseAnswer.new(:test_answer_id => @test_answer.id,:case_id => @case.id)
+					@ca.owner = @current_visitor
+					@ca.save
+					redirect_to case_case_answer_path(@case.title,@ca)				
+				end
 			end
+		else
+			render :text => "3abeeet"
 		end				
 	end
 	

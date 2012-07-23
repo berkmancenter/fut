@@ -1,0 +1,7 @@
+<%= semantic_form_for [:admin, @case] do |f| %>
+    <%= f.inputs :title, :facts %>
+    <%= f.semantic_fields_for :court_decision, @case.court_decision do |c| %>
+      <%= c.inputs :purpose_id, :character_id, :use_id, :nature_id, :amount_id, :financial_id, :name => "Court Decision" %>
+    <% end %>
+    <%= f.actions %>
+  <% end %>
