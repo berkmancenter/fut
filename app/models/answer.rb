@@ -14,6 +14,5 @@ def get_use
     	return "Draw"
     else
     	return "Not Fair"
-    end
-    		
+    end   		
 end
