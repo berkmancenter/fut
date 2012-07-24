@@ -67,40 +67,35 @@ ActiveRecord::Schema.define(:version => 20120722084349) do
   end
 
   create_table "calculators", :force => true do |t|
-    t.integer  "test_answer_id"
-    t.integer  "owner_id",       :null => false
-    t.string   "owner_type",     :null => false
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "owner_id",   :null => false
+    t.string   "owner_type", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "calculators", ["test_answer_id"], :name => "index_calculators_on_test_answer_id"
+  add_index "calculators", ["owner_id"], :name => "index_calculators_on_owner_id"
 
   create_table "case_answers", :force => true do |t|
     t.integer  "case_id"
-    t.integer  "test_answer_id"
-    t.integer  "owner_id",       :null => false
-    t.string   "owner_type",     :null => false
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "owner_id",   :null => false
+    t.string   "owner_type", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "case_answers", ["case_id"], :name => "index_case_answers_on_case_id"
   add_index "case_answers", ["owner_id"], :name => "index_case_answers_on_owner_id"
-  add_index "case_answers", ["test_answer_id"], :name => "index_case_answers_on_test_answer_id"
 
   create_table "cases", :force => true do |t|
     t.string   "title"
     t.text     "facts"
     t.integer  "no_of_tests",            :default => 0
-    t.integer  "court_decision_id"
     t.integer  "original_resource_id",                  :null => false
     t.integer  "derivative_resource_id",                :null => false
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
   end
 
-  add_index "cases", ["court_decision_id"], :name => "index_cases_on_court_decision_id"
   add_index "cases", ["derivative_resource_id"], :name => "index_cases_on_derivative_resource_id"
   add_index "cases", ["original_resource_id"], :name => "index_cases_on_original_resource_id"
 
@@ -141,6 +136,8 @@ ActiveRecord::Schema.define(:version => 20120722084349) do
   add_index "specializations", ["case_id", "role_id"], :name => "index_specializations_on_case_id_and_role_id"
 
   create_table "test_answers", :force => true do |t|
+    t.integer  "target_id"
+    t.string   "target_type"
     t.integer  "purpose_id",   :null => false
     t.integer  "character_id", :null => false
     t.integer  "use_id",       :null => false
@@ -157,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20120722084349) do
   add_index "test_answers", ["financial_id"], :name => "index_test_answers_on_financial_id"
   add_index "test_answers", ["nature_id"], :name => "index_test_answers_on_nature_id"
   add_index "test_answers", ["purpose_id"], :name => "index_test_answers_on_purpose_id"
+  add_index "test_answers", ["target_id"], :name => "index_test_answers_on_target_id"
   add_index "test_answers", ["use_id"], :name => "index_test_answers_on_use_id"
 
   create_table "visitors", :force => true do |t|

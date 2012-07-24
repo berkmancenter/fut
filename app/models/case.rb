@@ -1,7 +1,7 @@
 class Case < ActiveRecord::Base
   belongs_to :original_resource , :class_name => 'Attachment'
   belongs_to :derivative_resource , :class_name => 'Attachment'
-  belongs_to :court_decision, :class_name => 'TestAnswer'
+  has_one :court_decision, :class_name => "TestAnswer", :as => :target
   has_many :case_answers
   has_many :specializations
   has_many :roles, :through => :specializations

@@ -14,7 +14,8 @@ class TestAnswersController < ApplicationController
 
 			unless params[:case_id]
 				#test_answer for calculator test
-				@calculator = Calculator.new(:test_answer_id => @test_answer.id)
+				@calculator = Calculator.new
+				@calculator.test_answer = @test_answer
 				@calculator.owner = @current_visitor
 				@calculator.save
 				redirect_to @calculator
@@ -27,7 +28,8 @@ class TestAnswersController < ApplicationController
 					redirect_to new_case_court_decision_detail_path(@case.title)
 				else
 				#test_answer refer to case_answer for a user
-					@ca = CaseAnswer.new(:test_answer_id => @test_answer.id,:case_id => @case.id)
+					@ca = CaseAnswer.new(:case_id => @case.id)
+					@ca.test_answer = @test_answer
 					@ca.owner = @current_visitor
 					@ca.save
 					redirect_to case_case_answer_path(@case.title,@ca)				

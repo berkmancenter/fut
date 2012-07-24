@@ -1,6 +1,7 @@
 class CreateTestAnswers < ActiveRecord::Migration
   def change
     create_table :test_answers do |t|
+        t.references :target, :polymorphic => true
       	t.integer :purpose_id, :null => false
         t.integer :character_id, :null => false 
         t.integer :use_id, :null => false 
@@ -16,5 +17,6 @@ class CreateTestAnswers < ActiveRecord::Migration
     add_index :test_answers,:nature_id
     add_index :test_answers,:amount_id
     add_index :test_answers,:financial_id
+    add_index :test_answers,:target_id
   end
 end
