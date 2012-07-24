@@ -19,7 +19,8 @@ class CasesController < ApplicationController
 
 	#The Next Actions for Administration purpose
 	def new
-		@case = Case.new 
+		@case = Case.new
+		@case.test_answer 
 	end
 
 	def create
