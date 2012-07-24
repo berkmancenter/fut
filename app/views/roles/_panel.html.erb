@@ -1,0 +1,7 @@
+<div class="roles">
+		<%Role.all.each do |role|%>
+			<%=link_to({:controller => 'roles', :action => 'set_role', :id => role.id}, :class => "btn") do %>
+            <%=role.name%>
+          <%end%>
+		<%end%>
+</div>

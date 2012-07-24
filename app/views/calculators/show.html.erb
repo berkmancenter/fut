@@ -1,0 +1,22 @@
+<div class="test-answer">
+	<h2>WOW! </h2><h3>You already tested a survey!</h3>
+	<h3>and your use is</h3> <h1 class="<%=@test_answer.get_result.split(" ")[0]%>"><%=@test_answer.get_result%></h1>
+	<table class="table">
+			<tr>
+				<td class="high"><h4>Aspect</h4></td>
+				<td class="high"><h4>You</h4></td>
+			</tr>
+			<%for i in 0..5 %>
+				<tr>
+					<td class="high">
+						<p><h4><%=@questions[i].flag.capitalize%></h4></p>
+					</td>
+					
+					<td>
+						<p><%=@answers_of_test[i].content%></p>
+					</td>
+
+				</tr>
+			<%end%>
+	</table>		
+</div>

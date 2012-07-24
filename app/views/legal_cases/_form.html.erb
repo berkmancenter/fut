@@ -1,0 +1,42 @@
+<%= form_for @legal_case, :html => { :multipart => true } do |f| %>
+	<% if @legal_case.errors.any? || flash[:notice] %>
+	    <ul class="errors">
+	        <% for message in @legal_case.errors.full_messages %>
+	        <li><%= message %></li>
+	        <% end %>
+	        <li><%=flash[:notice]%></li>
+	    </ul>
+	<% end %>
+	<table>
+		<tbody>
+			<tr>
+				<td>Title</td>
+				<td><%= f.text_field :title, :class => "input-xlarge" %></td>
+			</tr>
+			<tr>
+				<td>Facts</td>
+				<td><%= f.text_area :facts, :class => "input-xlarge" %></td>
+			</tr>
+			<tr>
+				<td>Original Copy</td>
+				<td><%= file_field_tag :original%></td>
+			</tr>
+			<tr>
+				<td>Derivative Copy</td>
+				<td><%= file_field_tag :derivative%></td>
+			</tr>
+			<tr>
+				<td>Roles</td>
+				<td>
+					<%Role.all.each do |role|%>
+						<%= check_box_tag :role_ids, role.id, @legal_case.roles.include?(role), :name => 'legal_case[role_ids][]' -%>
+      					<%= label_tag :role_ids, role.name -%>
+					<%end%>
+				</td>
+			</tr>
+		</tbody>		
+	</table>
+	<td><%= f.submit "Next", :class => "btn"%></td>
+<% end %>
+
+	

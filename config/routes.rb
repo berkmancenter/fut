@@ -1,25 +1,25 @@
 Fut::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   root :to => 'sessions#index' , :as => "home"
-  get "FairUseTest" => "questions#index", :as => "fairusetest"
+  root :to => 'sessions#fair' , :as => "fair"
+  
+  get "FairUse" => "sessions#fair", :as => "fair"
 
-  resources :test_answers, :path => "/FairUseTest/Result"
-  resources :fair_use_tests, :questions, :answers, :attachments, :case_answers
+  resources :test_answers, :path => "/Calculator/Result"
+  resources :questions, :answers, :attachments, :case_answers, :calculators
 
-  resources :cases do
+  resources :legal_cases do
     resources :case_answers
     resources :test_answers
+    resources :court_decision_details
   end
 
-  match ':title' => "Case#show"
+  match ':title' => "LegalCase#show"
   match ':controller(/:action(/:id))(.:format)'
 
-  
-=begin
-resources :case_answers do
-  member do
-    get 'preview'
-  end
-=end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

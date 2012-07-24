@@ -41,7 +41,7 @@ html body{
 	clear:both;
 }
 
-table.table{
+.questions .table, .span8 .table{
 	@include awesome(200px, white);
 	margin:auto;
 	margin-bottom:20px;

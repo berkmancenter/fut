@@ -1,19 +1,12 @@
-<%= stylesheet_link_tag "application", :media => "all" %>
 <div class= "home">
-<h1>Welcome to Fair Use Tool</h1>
-<table>
-	<tr>
-		<td><%= link_to "Fair Use Calculator", fairusetest_path, :class => "btn" %></td>
-		<td>  </td>
-		<td><%= link_to "Your Fair Use Tests", fair_use_tests_path, :class => "btn" %></td>
-	</tr>
-	<tr>
-		<td><%= link_to "Legal Cases", cases_path, :class => "btn" %></td>
-		<td>  </td>	
-		<td><%= link_to "Your Cases Answers", case_answers_path, :class => "btn" %></td>
-	</tr>
-	
-</table>
+	<h1>Catchy title/ephrase</h1>
+	<p>
+		This website explains what fair use is and shows what everybody is affected. It's made for people who want to unserstand how to handle copyright material correctly - Nobody likes trouble
+	</p>
+	<%=image_tag "Video.png"%>
+	<h3>What do you want to be?</h3>
+	<%= render 'roles/panel'%>
+
 </div>
 
 

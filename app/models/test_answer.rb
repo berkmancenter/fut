@@ -4,12 +4,19 @@ class TestAnswer < ActiveRecord::Base
   belongs_to :use , :class_name => 'Answer'
   belongs_to :nature , :class_name => 'Answer'
   belongs_to :amount , :class_name => 'Answer'
-  belongs_to :impact , :class_name => 'Answer'
-  has_one :court_decision_case, :class_name => 'Case', :foreign_key => :court_decision_id
-  has_one :case_answer
-  has_one :fair_use_test  
-  attr_accessible :purpose_id , :character_id ,:use_id ,:nature_id ,:amount_id ,:impact_id, :tested_case_id, :result
-  # validates :result, :presence =>true
+  belongs_to :financial , :class_name => 'Answer'
+  belongs_to :target, :polymorphic => true
+  attr_accessible :purpose_id , :character_id ,:use_id ,:nature_id ,:amount_id ,:financial_id, :result
+  validates :purpose_id, :inclusion => { :in => 1..8 }
+  validates :character_id, :inclusion => { :in => 9..10 }
+  validates :use_id, :inclusion => { :in => 11..13 }
+  validates :nature_id, :inclusion => { :in => 14..17 }
+  validates :amount_id, :inclusion => { :in => 18..21 }
+  validates :financial_id, :inclusion => { :in => 22..23 }
+  
+  scope :court_decisions, joins(:legal_case)
+  scope :case_answers, joins(:case_answer)
+  scope :calculators, joins(:calculator)
 
   def self.calculate_fair_use (test_answer)
   	sum = 0
@@ -18,10 +25,10 @@ class TestAnswer < ActiveRecord::Base
   	sum += test_answer.use.value
   	sum += test_answer.nature.value
   	sum += test_answer.amount.value
-  	sum += test_answer.impact.value
+  	sum += test_answer.financial.value
   	#Tie Breaker
   	if sum == 0
-  	sum += test_answer.impact.value
+  	sum += test_answer.financial.value
   	end
   	#Caclulate 
   	if sum > 0
@@ -30,7 +37,8 @@ class TestAnswer < ActiveRecord::Base
       return false
   	end
   end
-
+    
+  
   public
   def get_result
       if self.result == true
@@ -39,5 +47,15 @@ class TestAnswer < ActiveRecord::Base
         return "Not Fair Use"
       end
           
-  end   
+  end
+
+  def get_answers
+    answers = [self.purpose]
+    answers << self.character
+    answers << self.use
+    answers << self.nature
+    answers << self.amount
+    answers << self.financial  
+    return answers
+  end 
 end
