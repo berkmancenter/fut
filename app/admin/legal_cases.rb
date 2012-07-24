@@ -92,7 +92,7 @@ ActiveAdmin.register LegalCase do
   		end
   		panel "Characters" do
 	    	table_for legal_case.roles do |t|
-	      		t.column("Corresponding Roles to this Case ") { |role| role.name  }
+	      		t.column("Corresponding Roles to this Case ") { |role| link_to role.name, admin_role_path(role)  }
 	    	end
  		end
   		panel "Court Decision Details" do
