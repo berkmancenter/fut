@@ -12,7 +12,7 @@ ActiveAdmin.register Question do
   	filter :content
   	filter :explanation
 
-  	show do
+  	show :title => :content do
   		panel "Question Details" do
     		attributes_table_for question do
 				row("Content") { question.content }

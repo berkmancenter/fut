@@ -1,7 +1,7 @@
 class CreateCourtDecisionDetails < ActiveRecord::Migration
   def change
     create_table :court_decision_details do |t|
-    	t.integer :test_answer_id
+    	t.integer :case_id
     	t.text :purpose
     	t.text :character
     	t.text :use
@@ -10,6 +10,6 @@ class CreateCourtDecisionDetails < ActiveRecord::Migration
     	t.text :financial
       t.timestamps
     end
-    add_index :court_decision_details,:test_answer_id
+    add_index :court_decision_details,:case_id
   end
 end

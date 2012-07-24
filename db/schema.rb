@@ -100,18 +100,18 @@ ActiveRecord::Schema.define(:version => 20120722084349) do
   add_index "cases", ["original_resource_id"], :name => "index_cases_on_original_resource_id"
 
   create_table "court_decision_details", :force => true do |t|
-    t.integer  "test_answer_id"
+    t.integer  "case_id"
     t.text     "purpose"
     t.text     "character"
     t.text     "use"
     t.text     "nature"
     t.text     "amount"
     t.text     "financial"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "court_decision_details", ["test_answer_id"], :name => "index_court_decision_details_on_test_answer_id"
+  add_index "court_decision_details", ["case_id"], :name => "index_court_decision_details_on_case_id"
 
   create_table "questions", :force => true do |t|
     t.string   "content"

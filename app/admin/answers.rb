@@ -53,7 +53,7 @@ ActiveAdmin.register Answer do
 	    f.buttons
 	end
 
-	show do
+	show :title => :content do
   		panel "Answer Details" do
     		attributes_table_for answer do
     			row("Question") { link_to answer.question.content, admin_question_path(answer.question) }

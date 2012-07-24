@@ -24,10 +24,10 @@ ActiveAdmin.register Attachment do
  		f.buttons
  	end
 
- 	show do
+ 	show :title => :source_file_name do
   		panel "Attachment Details" do
     		attributes_table_for attachment do
-    			row("Image") { image_tag attachment.source.url(:thumb)}
+    		row("Image") { image_tag attachment.source.url(:thumb)}
 				row("File Name") { attachment.source_file_name.split('.')[0] }
 				row("Content Type") { attachment.source_content_type }
     		end
