@@ -3,7 +3,9 @@ class CreateVisitors < ActiveRecord::Migration
     create_table :visitors do |t|
     	t.string :name, :default => "Anonymous"
     	t.string :ip_adress
+    	t.integer :role_id
     	t.timestamps
     end
+    add_index :visitors,:role_id
   end
 end

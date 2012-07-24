@@ -35,6 +35,9 @@ Fut::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  # Default url options for Devise
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   # To let Paperclip know to look there by adding that directory to its path.
   Paperclip.options[:command_path] = "/usr/local/bin/"
 end

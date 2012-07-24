@@ -21,7 +21,7 @@
 		top:120px;
 	}
 	
-	.scoreboard{
+	.span8 .scoreboard{
 		margin:0px;
 		top:70px;
 		left:0px;
@@ -56,8 +56,17 @@
 	@include awesome(500px, white);
 	margin:auto;
  	text-align:center;
+ 	
 }
-
+.test-answer, .case-answer{
+	.high{
+ 		background:rgb(44, 44, 44);
+ 		color:white;
+ 	}
+ 	table td{
+ 		text-align:center;
+ 	}
+}
 .user-answers{
 	.table{
 		position:static;

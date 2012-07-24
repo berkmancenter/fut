@@ -1,0 +1,13 @@
+<%= form_for [@legal_case, @court_decision_detail] do |f| %>
+	<table>
+		<tbody>			
+			<%@details.each do |detail|%>
+				<tr>
+					<td><%=detail%></td>
+					<td><%= f.text_area detail, :class => "input-xlarge" %></td>
+				</tr>
+			<%end%>
+		</tbody>		
+	</table>
+	<td><%= f.submit "Finish", :class => "btn"%></td>
+<% end %>

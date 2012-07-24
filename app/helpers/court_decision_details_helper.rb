@@ -1,0 +1,2 @@
+module CourtDecisionDetailsHelper
+end
