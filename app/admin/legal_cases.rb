@@ -97,10 +97,11 @@ ActiveAdmin.register LegalCase do
  		end
   		panel "Court Decision Details" do
     		attributes_table_for legal_case do
-    			@court_report = legal_case.get_report
+    			court_report = legal_case.get_report
+    			questions = Question.all
     			for i in 0..5
-	    			row(Question.all[i].flag.capitalize) do
-	    				link_to(@court_report[i][:answer].content, admin_answer_path(@court_report[i][:answer])) + " - " + @court_report[i][:court_details]		
+	    			row(questions[i].flag.capitalize) do
+	    				link_to(court_report[i][:answer].content, admin_answer_path(court_report[i][:answer])) + " - " + court_report[i][:court_details]		
 					end
 				end
 			end
