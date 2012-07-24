@@ -1,4 +1,4 @@
-class Case < ActiveRecord::Base
+class LegalCase < ActiveRecord::Base
   belongs_to :original_resource , :class_name => 'Attachment'
   belongs_to :derivative_resource , :class_name => 'Attachment'
   has_one :court_decision, :class_name => "TestAnswer", :as => :target

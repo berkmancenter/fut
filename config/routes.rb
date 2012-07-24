@@ -11,22 +11,15 @@ Fut::Application.routes.draw do
   resources :test_answers, :path => "/Calculator/Result"
   resources :questions, :answers, :attachments, :case_answers, :calculators
 
-  resources :cases do
+  resources :legal_cases do
     resources :case_answers
     resources :test_answers
     resources :court_decision_details
   end
 
-  match ':title' => "Case#show"
+  match ':title' => "LegalCase#show"
   match ':controller(/:action(/:id))(.:format)'
 
-  
-=begin
-resources :case_answers do
-  member do
-    get 'preview'
-  end
-=end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,4 +1,4 @@
-<%= form_for [@case, @court_decision_detail] do |f| %>
+<%= form_for [@legal_case, @court_decision_detail] do |f| %>
 	<table>
 		<tbody>			
 			<%@details.each do |detail|%>
@@ -11,5 +11,3 @@
 	</table>
 	<td><%= f.submit "Finish", :class => "btn"%></td>
 <% end %>
-
-	

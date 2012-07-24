@@ -1,7 +1,7 @@
 class TestAnswersController < ApplicationController
 	before_filter :check_visitor
 	def new
-		@case = Case.find_by_title params[:case_id] 
+		@legal_case = LegalCase.find_by_title params[:legal_case_id] 
 		@questions = Question.all
 		@test_answer = TestAnswer.new
 	end
@@ -12,7 +12,7 @@ class TestAnswersController < ApplicationController
 		
 		if @test_answer.save
 
-			unless params[:case_id]
+			unless params[:legal_case_id]
 				#test_answer for calculator test
 				@calculator = Calculator.new
 				@calculator.test_answer = @test_answer
@@ -20,19 +20,19 @@ class TestAnswersController < ApplicationController
 				@calculator.save
 				redirect_to @calculator
 			else
-				@case = Case.find(params[:case_id])
+				@legal_case = Case.find(params[:legal_case_id])
 				#test_answer refer to court decision for a case
-				if  @case.court_decision.nil?
-					@case.court_decision = @test_answer
-					@case.save 
-					redirect_to new_case_court_decision_detail_path(@case.title)
+				if  @legal_case.court_decision.nil?
+					@legal_case.court_decision = @test_answer
+					@legal_case.save 
+					redirect_to new_legal_case_court_decision_detail_path(@legal_case.title)
 				else
 				#test_answer refer to case_answer for a user
-					@ca = CaseAnswer.new(:case_id => @case.id)
+					@ca = CaseAnswer.new(:legal_case_id => @legal_case.id)
 					@ca.test_answer = @test_answer
 					@ca.owner = @current_visitor
 					@ca.save
-					redirect_to case_case_answer_path(@case.title,@ca)				
+					redirect_to legal_case_case_answer_path(@legal_case.title,@ca)				
 				end
 			end
 		else
@@ -41,7 +41,7 @@ class TestAnswersController < ApplicationController
 	end
 	
 	def edit
-		@case = Case.find_by_title params[:case_id] 
+		@legal_case = LegalCase.find_by_title params[:legal_case_id] 
 		@questions = Question.all
 		@test_answer = TestAnswer.find(params[:id])
 	end
@@ -49,8 +49,8 @@ class TestAnswersController < ApplicationController
 	def update
 		@test_answer = TestAnswer.find(params[:id])
 		@test_answer.update_attributes(params[:test_answer])
-		@case = @test_answer.court_decision_case
-		redirect_to edit_case_court_decision_detail_path(@case.title,@test_answer.court_decision_detail)
+		@legal_case = @test_answer.court_decision_case
+		redirect_to edit_case_court_decision_detail_path(@legal_case.title,@test_answer.court_decision_detail)
 	end
 
 	def destroy

@@ -1,7 +1,7 @@
-<%= form_for @case, :html => { :multipart => true } do |f| %>
-	<% if @case.errors.any? || flash[:notice] %>
+<%= form_for @legal_case, :html => { :multipart => true } do |f| %>
+	<% if @legal_case.errors.any? || flash[:notice] %>
 	    <ul class="errors">
-	        <% for message in @case.errors.full_messages %>
+	        <% for message in @legal_case.errors.full_messages %>
 	        <li><%= message %></li>
 	        <% end %>
 	        <li><%=flash[:notice]%></li>
@@ -29,12 +29,12 @@
 				<td>Roles</td>
 				<td>
 					<%Role.all.each do |role|%>
-						<%= check_box_tag :role_ids, role.id, @case.roles.include?(role), :name => 'case[role_ids][]' -%>
+						<%= check_box_tag :role_ids, role.id, @legal_case.roles.include?(role), :name => 'legal_case[role_ids][]' -%>
       					<%= label_tag :role_ids, role.name -%>
 					<%end%>
 				</td>
 			</tr>
-			<%= f.fields_for :test_answer, @case.test_answer do |u|%>
+			<%= f.fields_for :test_answer, @legal_case.test_answer do |u|%>
    				<%=u.text_field :purpose_id %>
    				<%=u.text_field :character_id %>
    				<%=u.text_field :use_id %>

@@ -6,7 +6,7 @@
 	<h2 class="<%=@case_answer.test_answer.get_result.split(" ")[0]%>"><%=@case_answer.test_answer.get_result%></h2>
 
 	<h3>and The Court Decision was</h3>
-	<h2 class="<%=@case.court_decision.get_result.split(" ")[0]%>"><%=@case.court_decision.get_result%></h2>
+	<h2 class="<%=@legal_case.court_decision.get_result.split(" ")[0]%>"><%=@legal_case.court_decision.get_result%></h2>
 	<h2>The Report</h2>
 	<table class="table">
 		<tr>
@@ -31,5 +31,5 @@
 			</tr>
 		<%end%>
 	</table>		
-	<%= link_to "Test More Legal Cases?", cases_path %>
+	<%= link_to "Test More Legal Cases?", legal_cases_path %>
 </div>

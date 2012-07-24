@@ -19,8 +19,8 @@
 			<%elsif question.id == 1%>
 				<button class= "btn" name="next" type="button">Next</button>
 			<%else%>
-				<%unless @case == nil %>
-					<%= hidden_field_tag :case_id, @case.id%>
+				<%unless @legal_case == nil %>
+					<%= hidden_field_tag :legal_case_id, @legal_case.id%>
 				<%end%>
 				<button class= "btn" name="back" type="button">Back</button>
 			<%end%>

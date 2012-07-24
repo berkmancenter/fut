@@ -3,8 +3,8 @@
 	<table class="table">
 		<% @case_answers.each do |c|%>
 			<tr>
-				<td><%=c.case.title%></td>
-				<td><%= link_to "Show", case_case_answer_path(c.case.title, c) %></td>
+				<td><%=c.legal_case.title%></td>
+				<td><%= link_to "Show", legal_case_case_answer_path(c.legal_case.title, c) %></td>
 				<td><%= link_to 'Delete', c, :confirm => 'Are you sure?', :method => :delete%></td>
 			</tr>
 		<%end%>

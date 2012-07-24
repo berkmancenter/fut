@@ -1,27 +1,27 @@
-ActiveAdmin.register Case do
+ActiveAdmin.register LegalCase do
 	menu :label => "Legal Cases"
 	controller do
 		def new
-			@case = Case.new
-			@case.build_court_decision
-			@case.build_court_decision_detail
-			@case.build_original_resource
-			@case.build_derivative_resource
+			@legal_case = LegalCase.new
+			@legal_case.build_court_decision
+			@legal_case.build_court_decision_detail
+			@legal_case.build_original_resource
+			@legal_case.build_derivative_resource
 		end
 	end
 
 	index do 
-		column :id, :sortable => :id do |c|
-    		link_to c.id, admin_case_path(c)	
+		column :id, :sortable => :id do |legal_case|
+    		link_to legal_case.id, admin_legal_case_path(legal_case)	
   		end	
-	    column :title do |c|
-    		link_to c.title, admin_case_path(c)
+	    column :title do |legal_case|
+    		link_to legal_case.title, admin_legal_case_path(legal_case)
     	end
-    	column "Original" do |c|
-    		image_tag(c.original_resource.source.url(:thumb), :height => '50')
+    	column "Original" do |legal_case|
+    		image_tag(legal_case.original_resource.source.url(:thumb), :height => '50')
   		end
-  		column "Derivative" do |c|
-    		image_tag(c.derivative_resource.source.url(:thumb), :height => '50')
+  		column "Derivative" do |legal_case|
+    		image_tag(legal_case.derivative_resource.source.url(:thumb), :height => '50')
   		end		
 	    default_actions
   	end
@@ -89,7 +89,7 @@ ActiveAdmin.register Case do
  		active_admin_comments
 	end
 	# show :title => :title do
- #  		panel "Case Details" do
+ #  		panel "legal_case Details" do
  #    		attributes_table_for legal_case do
  #    			row("Title") { legal_case.title }
 	# 			row("Facts") { legal_case.facts }

@@ -1,12 +1,12 @@
 <div class="show-case">
-	<h1><%=@case.title%> Case</h1>
-	<%= image_tag @case.original_resource.source.url %> vs
-	<%= image_tag @case.derivative_resource.source.url %>
+	<h1><%=@legal_case.title%> Case</h1>
+	<%= image_tag @legal_case.original_resource.source.url %> vs
+	<%= image_tag @legal_case.derivative_resource.source.url %>
 	<h2>Description:</h2>
-	<p><%=@case.facts%></p>
+	<p><%=@legal_case.facts%></p>
 
- <%= link_to "Test This Case", new_case_case_answer_path(@case.title), :class => "btn btn-warning" %>
+ <%= link_to "Test This Case", new_legal_case_case_answer_path(@legal_case.title), :class => "btn btn-warning" %>
 </br>
- <%= link_to "Edit", edit_case_path(@case.title) %>
- <%= link_to 'Destroy', @case, :confirm => 'Are you sure?', :method => :delete%>
+ <%= link_to "Edit", edit_legal_case_path(@legal_case.title) %>
+ <%= link_to 'Destroy', @legal_case, :confirm => 'Are you sure?', :method => :delete%>
 </div>

@@ -14,7 +14,7 @@ class TestAnswer < ActiveRecord::Base
   validates :amount_id, :inclusion => { :in => 18..21 }
   validates :financial_id, :inclusion => { :in => 22..23 }
   
-  scope :court_decisions, joins(:case)
+  scope :court_decisions, joins(:legal_case)
   scope :case_answers, joins(:case_answer)
   scope :calculators, joins(:calculator)
 
