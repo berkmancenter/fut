@@ -1,5 +1,8 @@
 ActiveAdmin.register LegalCase do
 	menu :label => "Legal Cases"
+
+	# scope :film_maker, joins(:roles).where('roles.name = ?', "Film Maker")
+	
 	controller do
 		def new
 			@legal_case = LegalCase.new
@@ -22,9 +25,15 @@ ActiveAdmin.register LegalCase do
   		end
   		column "Derivative" do |legal_case|
     		image_tag(legal_case.derivative_resource.source.url(:thumb), :height => '50')
-  		end		
+  		end
+  		column "Status" do |legal_case|
+    		status_tag (legal_case.court_decision.get_result), (legal_case.court_decision.result ? :ok : :error)
+  		end			
 	    default_actions
   	end
+  	filter :title
+  	filter :facts
+  	
 
 	form do |f|
 		f.inputs "Basic Details" do
@@ -63,38 +72,40 @@ ActiveAdmin.register LegalCase do
 	    f.buttons
 	end
 
-	show :title => :title do |c|
-  		
-    		attributes_table()  do
-				row("Title") { c.title }
-				row("Original Resource") do
-          			image_tag(c.original_resource.source.url(:thumb))
+	show :title => :title do
+  		panel "Basic Details" do
+    		attributes_table_for legal_case do
+    			row("Title") { legal_case.title }
+				row("Facts") { legal_case.facts }
+				row("Status") {status_tag (legal_case.court_decision.get_result), (legal_case.court_decision.result ? :ok : :error)} 			 
+			end
+  		end
+  		panel "Resources" do
+  			attributes_table_for legal_case do
+  				row("Original Resource") do
+          			image_tag(legal_case.original_resource.source.url(:thumb))
         		end
         		row("Derivative Resource") do
-          			image_tag(c.derivative_resource.source.url(:thumb))
+          			image_tag(legal_case.derivative_resource.source.url(:thumb))
         		end
-				row("Facts") {c.facts}
-				row("Facts") {c.roles.each { |r| r.name}}				
-    		end
-    		
-    		attributes_table  do
-    			@court_report = c.get_report
+  			end	
+  		end
+  		panel "Characters" do
+	    	table_for legal_case.roles do |t|
+	      		t.column("Corresponding Roles to this Case ") { |role| role.name  }
+	    	end
+ 		end
+  		panel "Court Decision Details" do
+    		attributes_table_for legal_case do
+    			@court_report = legal_case.get_report
     			for i in 0..5
 	    			row(Question.all[i].flag.capitalize) do
 	    				link_to(@court_report[i][:answer].content, admin_answer_path(@court_report[i][:answer])) + " - " + @court_report[i][:court_details]		
 					end
 				end
-    		end
+			end
+  		end
   		
  		active_admin_comments
 	end
-	# show :title => :title do
- #  		panel "legal_case Details" do
- #    		attributes_table_for legal_case do
- #    			row("Title") { legal_case.title }
-	# 			row("Facts") { legal_case.facts }
-	# 		end
- #  		end
- # 		active_admin_comments
-	# end
 end

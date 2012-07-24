@@ -12,6 +12,8 @@ class LegalCase < ActiveRecord::Base
   validates :title, :uniqueness => true, :length => { :in => 3..80, :message => "should be between 3 ~ 80 characters" }
   validates :facts, :length => { :in => 3..600 , :message => "should be between 3 ~ 600 characters"}
 
+  scope :film_maker, joins(:roles).where('roles.name = ?', "Film Maker")
+  
   def get_report
     report = [{:answer => self.court_decision.purpose, :court_details => self.court_decision_detail.purpose}] 
     report << {:answer => self.court_decision.character, :court_details => self.court_decision_detail.character}
