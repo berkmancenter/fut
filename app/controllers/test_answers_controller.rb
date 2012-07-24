@@ -20,7 +20,7 @@ class TestAnswersController < ApplicationController
 				@calculator.save
 				redirect_to @calculator
 			else
-				@legal_case = Case.find(params[:legal_case_id])
+				@legal_case = LegalCase.find(params[:legal_case_id])
 				#test_answer refer to court decision for a case
 				if  @legal_case.court_decision.nil?
 					@legal_case.court_decision = @test_answer

@@ -34,14 +34,6 @@
 					<%end%>
 				</td>
 			</tr>
-			<%= f.fields_for :test_answer, @legal_case.test_answer do |u|%>
-   				<%=u.text_field :purpose_id %>
-   				<%=u.text_field :character_id %>
-   				<%=u.text_field :use_id %>
-   				<%=u.text_field :nature_id %>
-   				<%=u.text_field :amount_id %>
-   				<%=u.text_field :financial_id %>
- 			<%end%>
 		</tbody>		
 	</table>
 	<td><%= f.submit "Next", :class => "btn"%></td>

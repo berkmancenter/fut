@@ -20,7 +20,6 @@ class LegalCasesController < ApplicationController
 	#The Next Actions for Administration purpose
 	def new
 		@legal_case = LegalCase.new
-		@legal_case.test_answer 
 	end
 
 	def create

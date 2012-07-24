@@ -3,7 +3,7 @@ class CaseAnswersController < ApplicationController
 	before_filter :check_role, :only => [:new]
 	def new
 		@case_answer= CaseAnswer.new
-		@legal_case = LegalCase.find_by_title params[:case_id]
+		@legal_case = LegalCase.find_by_title params[:legal_case_id]
 		# To make sure that the requested case has the same current role
 		unless @legal_case.roles.include? @current_role
 			redirect_to home_path
@@ -15,7 +15,7 @@ class CaseAnswersController < ApplicationController
 	end
 
 	def show
-		@legal_case = LegalCase.find_by_title params[:case_id]
+		@legal_case = LegalCase.find_by_title params[:legal_case_id]
 		# To make sure that the corresponding case_answer id associated with this case
 		@case_answer= @legal_case.case_answers.find params[:id]
 		@court_answers_report = @legal_case.get_report
