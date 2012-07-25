@@ -59,6 +59,7 @@ ActiveAdmin.register LegalCase do
 	    	c.input :nature_id, :as => :select, :collection => Hash[Question.all[3].answers.map{|a| [a.content,a.id]}]
 	    	c.input :amount_id, :as => :select, :collection => Hash[Question.all[4].answers.map{|a| [a.content,a.id]}]
 	    	c.input :financial_id, :as => :select, :collection => Hash[Question.all[5].answers.map{|a| [a.content,a.id]}]
+	    	c.input :result, :as => :select, :collection => { "Fair"=> true, "Not Fair" => false, "Undecided" => nil }
 	    end	
 	    
 	    f.inputs :name => "Decision Details", :for => :court_decision_detail do |dd|

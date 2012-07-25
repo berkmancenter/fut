@@ -2,11 +2,11 @@ ActiveAdmin.register CaseAnswer do
 	actions :all, :except => [:new, :edit]
 	
 	scope :all, :default => true
-	# LegalCase.all.each do |legal_case|
-	#     self.send(:scope, legal_case.title) do |case_answers|
-	#       case_answers.where(:legal_case_id => legal_case.id)
-	#     end
- #  	end
+	LegalCase.all.each do |legal_case|
+	    self.send(:scope, legal_case.title) do |case_answers|
+	      case_answers.where(:legal_case_id => legal_case.id)
+	    end
+  	end
 
 	index do 
 		column :id, :sortable => :id do |case_answer|
@@ -20,7 +20,7 @@ ActiveAdmin.register CaseAnswer do
     	end
 	    default_actions
   	end
-  	# filter :legal_case, :as => :select, :collection => Hash[LegalCase.all.map{|c| [c.title,c.id]}]
+  	filter :legal_case, :as => :select, :collection => Hash[LegalCase.all.map{|c| [c.title,c.id]}]
 
   	show do
   		panel "Case Answer Details" do
