@@ -5,8 +5,12 @@
 	<h3>You got</h3> 
 	<h2 class="<%=@case_answer.test_answer.get_result.split(" ")[0]%>"><%=@case_answer.test_answer.get_result%></h2>
 
-	<h3>and The Court Decision was</h3>
-	<h2 class="<%=@legal_case.court_decision.get_result.split(" ")[0]%>"><%=@legal_case.court_decision.get_result%></h2>
+	<%unless @case_answer.legal_case.court_decision.result == nil%>
+		<h3>and The Court Decision was</h3>
+		<h2 class="<%=@legal_case.court_decision.get_result.split(" ")[0]%>"><%=@legal_case.court_decision.get_result%>
+		</h2>
+	<%end%>
+
 	<h2>The Report</h2>
 	<table class="table">
 		<tr>
