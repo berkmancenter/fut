@@ -27,7 +27,13 @@ ActiveAdmin.register LegalCase do
     		image_tag(legal_case.derivative_resource.source.url(:thumb), :height => '50')
   		end
   		column "Status" do |legal_case|
-    		status_tag (legal_case.court_decision.get_result), (legal_case.court_decision.result ? :ok : :error)
+    		if legal_case.court_decision.get_result == true
+    			status_tag "Fair Use" , :ok
+    		elsif legal_case.court_decision.get_result == false
+    			status_tag "Not Fair Use" , :error
+    		else
+    			status_tag "Undecided"  , :warning
+    		end
   		end			
 	    default_actions
   	end
@@ -78,7 +84,15 @@ ActiveAdmin.register LegalCase do
     		attributes_table_for legal_case do
     			row("Title") { legal_case.title }
 				row("Facts") { legal_case.facts }
-				row("Status") {status_tag (legal_case.court_decision.get_result), (legal_case.court_decision.result ? :ok : :error)} 			 
+				row("Status") do
+					if legal_case.court_decision.get_result == true
+    					status_tag "Fair Use" , :ok
+    				elsif legal_case.court_decision.get_result == false
+    					status_tag "Not Fair Use" , :error
+    				else
+    					status_tag "Undecided"  , :warning
+    				end
+				end
 			end
   		end
   		panel "Resources" do
