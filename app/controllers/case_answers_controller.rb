@@ -1,6 +1,6 @@
 class CaseAnswersController < ApplicationController
 	before_filter :check_visitor
-	before_filter :check_role, :only => [:new]
+	before_filter :check_role
 	def new
 		@case_answer= CaseAnswer.new
 		@legal_case = LegalCase.find_by_title params[:legal_case_id]

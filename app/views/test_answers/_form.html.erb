@@ -1,13 +1,23 @@
 <%= form_for @test_answer do |f|%>
 	<%@questions.each do |question|%>
 		<ul class= "question-box">
-			<h3><%=question.content%></h3>
+			<h3>
+				<%=question.content%>
+				<a href="#" class="info" rel="tooltip" data-original-title="<%=question.explanation%>">
+					<i class="icon-info-sign"></i>
+				</a> 
+			</h3>
 			<div class="row">
 				<% question.answers.each do |answer| %>			
 						<li class="answer span3"> 						
 			   				<label>
 			   					<%= f.radio_button question.flag+"_id", answer.id %> 
-			   					<span><%=answer.content%></span>
+			   					<span>
+			   						<%=answer.content%>
+			   						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.explanation%>">
+										<i class="icon-info-sign"></i>
+									</a>
+			   					</span>
 			   				</label>    
 		    			</li>
 		    		
@@ -91,5 +101,7 @@
             $('#submit').removeAttr('disabled').addClass('btn-warning');
         }
     });
+
+    $(".info").tooltip();
 
 </script>		
