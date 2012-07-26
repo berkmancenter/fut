@@ -6,7 +6,7 @@ class TestAnswer < ActiveRecord::Base
   belongs_to :amount , :class_name => 'Answer'
   belongs_to :financial , :class_name => 'Answer'
   belongs_to :target, :polymorphic => true
-  attr_accessible :purpose_id , :character_id ,:use_id ,:nature_id ,:amount_id ,:financial_id, :result
+  attr_accessible :target_type, :target_id ,:purpose_id , :character_id ,:use_id ,:nature_id ,:amount_id ,:financial_id, :result
   validates :purpose_id, :inclusion => { :in => 1..8 }
   validates :character_id, :inclusion => { :in => 9..10 }
   validates :use_id, :inclusion => { :in => 11..13 }
