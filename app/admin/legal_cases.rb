@@ -21,10 +21,12 @@ ActiveAdmin.register LegalCase do
     		link_to legal_case.title, admin_legal_case_path(legal_case)
     	end
     	column "Original" do |legal_case|
-    		image_tag(legal_case.original_resource.source.url(:thumb), :height => '50')
+    		# image_tag(legal_case.original_resource.source.url(:thumb), :height => '50')
+  			image_tag(legal_case.original_resource.url, :height => '50')
   		end
   		column "Derivative" do |legal_case|
-    		image_tag(legal_case.derivative_resource.source.url(:thumb), :height => '50')
+    		# image_tag(legal_case.derivative_resource.source.url(:thumb), :height => '50')
+    		image_tag(legal_case.derivative_resource.url, :height => '50')
   		end
   		column "Status" do |legal_case|
     		if legal_case.court_decision.result == true
@@ -48,10 +50,14 @@ ActiveAdmin.register LegalCase do
 	    end
 
 	    f.inputs "Original Resource", :for => :original_resource do |o|
-	    	o.input :source, :hint => o.template.image_tag(o.object.source.url(:thumb)), :label => "Original Copy", :required => true 	
+	    	# o.input :source, :hint => o.template.image_tag(o.object.source.url(:thumb)), :label => "Original Copy", :required => true 	
+	    	o.input :name
+	    	o.input :url
 	    end
 	     f.inputs "Derivative Resource", :for => :derivative_resource do |d|
-	    	d.input :source, :hint => d.template.image_tag(d.object.source.url(:thumb)), :label => "Derivative Copy", :required => true 
+	    	# d.input :source, :hint => d.template.image_tag(d.object.source.url(:thumb)), :label => "Derivative Copy", :required => true 
+	    	d.input :name
+	    	d.input :url
 	    end
 
 	    f.inputs "Characters" do
@@ -98,10 +104,12 @@ ActiveAdmin.register LegalCase do
   		panel "Resources" do
   			attributes_table_for legal_case do
   				row("Original Resource") do
-          			image_tag(legal_case.original_resource.source.url(:thumb))
+          			# image_tag(legal_case.original_resource.source.url(:thumb))
+          			image_tag(legal_case.original_resource.url, :height => '100')
         		end
         		row("Derivative Resource") do
-          			image_tag(legal_case.derivative_resource.source.url(:thumb))
+          			# image_tag(legal_case.derivative_resource.source.url(:thumb))
+          			image_tag(legal_case.derivative_resource.url, :height => '100')
         		end
   			end	
   		end

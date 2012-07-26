@@ -58,12 +58,10 @@ ActiveRecord::Schema.define(:version => 20120722084349) do
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
 
   create_table "attachments", :force => true do |t|
-    t.string   "source_file_name"
-    t.string   "source_content_type"
-    t.integer  "source_file_size"
-    t.datetime "source_updated_at"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "calculators", :force => true do |t|

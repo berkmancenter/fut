@@ -1,7 +1,7 @@
 <div class="show-case">
 	<h1><%=@legal_case.title%> Case</h1>
-	<%= image_tag @legal_case.original_resource.source.url %> vs
-	<%= image_tag @legal_case.derivative_resource.source.url %>
+	<%= image_tag @legal_case.original_resource.url %> vs
+	<%= image_tag @legal_case.derivative_resource.url %>
 	<h2>Description:</h2>
 	<p><%=@legal_case.facts%></p>
 
