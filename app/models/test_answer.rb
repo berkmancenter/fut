@@ -18,35 +18,38 @@ class TestAnswer < ActiveRecord::Base
   scope :case_answers, joins(:case_answer)
   scope :calculators, joins(:calculator)
 
-  def self.calculate_fair_use (test_answer)
-  	sum = 0
-  	sum += test_answer.purpose.value
-  	sum += test_answer.character.value
-  	sum += test_answer.use.value
-  	sum += test_answer.nature.value
-  	sum += test_answer.amount.value
-  	sum += test_answer.financial.value
-  	#Tie Breaker
-  	if sum == 0
-  	sum += test_answer.financial.value
-  	end
-  	#Caclulate 
-  	if sum > 0
-      return true
-  	else sum < 0
-      return false
-  	end
-  end
-    
-  
   public
+    def calculate_fair_use   	
+      result = self.tie_break? ?  self.financial.value : self.get_sum
+      return (result > 0) ? true : false
+    end
+    
+    def tie_break?
+      sum = self.get_sum
+      if sum == 0 
+        return true
+      else
+        return false
+      end
+    end
+
+   def get_sum
+    sum = 0
+    sum += self.purpose.value
+    sum += self.character.value
+    sum += self.use.value
+    sum += self.nature.value
+    sum += self.amount.value
+    sum += self.financial.value
+    return sum
+  end
+  
   def get_result
       if self.result == true
         return "Fair Use"
       else
         return "Not Fair Use"
-      end
-          
+      end        
   end
 
   def get_answers
