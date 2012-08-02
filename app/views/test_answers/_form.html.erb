@@ -1,4 +1,4 @@
-<%= form_for @test_answer, :remote => true do |f|%>
+<%= form_for @test_answer, :remote => ((params[:controller] == "calculators")? true : false)  do |f|%>
 	<%@questions.each do |question|%>
 		<ul class= "question-box">
 			<h3>
