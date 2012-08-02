@@ -14,9 +14,16 @@ class TestAnswersController < ApplicationController
 
 			unless params[:legal_case_id]
 				#test_answer for calculator test
+				
+				#Check Tie Break
 				if @test_answer.tie_break?
-					render :text => "e3ml hena b2a shoghl al tie break"
+					# Whatever here for what can we do for tie break!
+					# respond_to do |format|	
+					# 	format.html { redirect_to @calculator }
+		   			#   format.js
+	    			# end
 					
+				#In case we don't need tie Break
 				else
 					@test_answer.result = @test_answer.calculate_fair_use
 					@calculator = Calculator.new

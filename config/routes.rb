@@ -4,9 +4,8 @@ Fut::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   root :to => 'sessions#index' , :as => "home"
-  root :to => 'sessions#fair' , :as => "fair"
   
-  get "FairUse" => "sessions#fair", :as => "fair"
+  get "Desk" => "sessions#desk", :as => "desk"
 
   resources :test_answers, :path => "/Calculator/Result"
   resources :questions, :answers, :attachments, :case_answers, :calculators

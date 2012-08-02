@@ -18,7 +18,7 @@
           <a class="brand" href="<%=home_path%>">Fair Use Tool</a>
           <div class="container nav-collapse">
             <ul class="nav">            
-              <li><%= link_to "Fair Use", fair_path  %></li>
+              <li><%= link_to "Fair Use", desk_path  %></li>
               <li><%= link_to "Calculator", new_calculator_path  %></li>
               <li><%= link_to "Resources", ""  %></li>
               <li><%= link_to "About", ""  %></li>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="main" style="margin-top:40px;padding:40px">
-      <%if params[:controller] == "legal_cases" || params[:controller] == "case_answers" || params[:action] == "fair" %>
+      <%if params[:controller] == "legal_cases" || params[:controller] == "case_answers" || params[:action] == "desk" %>
         <div class= "role">
           <%=@current_role.name%>
         </div>
