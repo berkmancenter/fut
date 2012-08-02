@@ -7,34 +7,30 @@ class TestAnswersController < ApplicationController
 	end
 
 	def create
-		@test_answer= TestAnswer.new(params[:test_answer])
-		
-		
+		@test_answer= TestAnswer.new(params[:test_answer])	
 		if @test_answer.save
-
 			unless params[:legal_case_id]
 				#test_answer for calculator test
-				
+				@test_answer.result = @test_answer.calculate_fair_use
+				@calculator = Calculator.new
+				@calculator.test_answer = @test_answer
+				@calculator.owner = @current_visitor
+				@calculator.save
+				@answers_of_test = @test_answer.get_answers 
+				@questions= Question.all
 				#Check Tie Break
 				if @test_answer.tie_break?
-					# Whatever here for what can we do for tie break!
-					# respond_to do |format|	
-					# 	format.html { redirect_to @calculator }
-		   			#   format.js
-	    			# end
-					
-				#In case we don't need tie Break
-				else
-					@test_answer.result = @test_answer.calculate_fair_use
-					@calculator = Calculator.new
-					@calculator.test_answer = @test_answer
-					@calculator.owner = @current_visitor
-					@calculator.save
-					@answers_of_test = @test_answer.get_answers 
-					@questions= Question.all
 					respond_to do |format|	
 						format.html { redirect_to @calculator }
-		       			format.js
+		       			format.js { render 'create_tie_break.js.erb' }
+
+	       			end	
+				#In case we don't need tie Break
+				else
+					respond_to do |format|	
+						format.html { redirect_to @calculator }
+		       			format.js { render 'create.js.erb' }
+
 	       			end
 				end
 				

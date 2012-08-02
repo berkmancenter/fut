@@ -1,0 +1,36 @@
+<div class="test-answer">
+	<h2>TIED</h2>
+	<h3>
+		We need the TIE BREAKER
+		<a href="" class="info" rel="tooltip" data-original-title="If there is a tie the 6th aspect 'Financial Imapct' counts twice!">
+			<i class="icon-info-sign"></i>
+		</a>
+	</h3>
+	<button id="tie_break" class="btn btn-warning btn-large" style="width:150px; height:60px; margin:10px;">Tie Breaker</button>
+	<table class="table">
+			<tr>
+				<td class="high"><h4>Aspect</h4></td>
+				<td class="high"><h4>You</h4></td>
+			</tr>
+			<%for i in 0..5 %>
+				<tr>
+					<td class="high">
+						<p><h4><%=@questions[i].flag.capitalize%></h4></p>
+					</td>
+					
+					<td>
+						<p class=<%=@answers_of_test[i].get_use%>><%=@answers_of_test[i].content%></p>
+					</td>
+
+				</tr>
+			<%end%>
+	</table>		
+</div>
+<script type="text/javascript">
+ $(".info").tooltip();
+ $("#tie_break").on('click',function(){
+ 	$('div.test-answer').removeClass('test-answer').html('<%= escape_javascript(render(:file => "calculators/show.html.erb"))%>');
+
+ });
+
+</script>
