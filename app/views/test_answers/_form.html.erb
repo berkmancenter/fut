@@ -8,7 +8,7 @@
 				</a> 
 			</h3>
 			<div class="row">
-				<% question.answers.each do |answer| %>			
+				<% question.answers.order('id').each do |answer| %>			
 						<li class="answer span3"> 						
 			   				<label>
 			   					<%= f.radio_button question.flag+"_id", answer.id %> 
