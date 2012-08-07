@@ -32,7 +32,7 @@ ActiveAdmin.register CaseAnswer do
 		panel "Test Details" do
     		attributes_table_for case_answer do
     			answers_of_case = case_answer.test_answer.get_answers
-    			questions = Question.all
+    			questions = Question.essential
     			for i in 0..5
     				row(questions[i].flag) { link_to answers_of_case[i].content, admin_answer_path(answers_of_case[i]) }
     			end 			 

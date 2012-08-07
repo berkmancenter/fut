@@ -6,7 +6,7 @@ Fut::Application.routes.draw do
   root :to => 'sessions#index' , :as => "home"
   get "Desk" => "sessions#desk", :as => "desk"
 
-  resources :questions, :test_answers, :answers, :attachments, :case_answers, :calculators
+  resources :aspects, :questions, :test_answers, :answers, :attachments, :case_answers, :calculators
 
   resources :legal_cases do
     resources :case_answers

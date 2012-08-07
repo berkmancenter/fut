@@ -32,13 +32,6 @@ Role.create(:name => "Film Maker")
 Role.create(:name => "Artist")
 Role.create(:name => "DJ")
 Role.create(:name => "Journalist")
-
-
-
-
-
-
-
 #Hope Poster
 Attachment.create(:name => "Associated Press Obama", :url => "http://dl.dropbox.com/u/33588915/Legal%20Cases%20Photos/Obama.jpeg")
 Attachment.create(:name => "Obama Hope Poster", :url => "http://dl.dropbox.com/u/33588915/Legal%20Cases%20Photos/Obama%20Hope%20Poster.jpeg")

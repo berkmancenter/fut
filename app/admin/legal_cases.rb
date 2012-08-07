@@ -65,12 +65,12 @@ ActiveAdmin.register LegalCase do
 	    end
 	    
 		f.inputs :name => "Court Decision", :for => :court_decision do |c|
-	    	c.input :purpose_id, :as => :select, :collection => Hash[Question.all[0].answers.map{|a| [a.content,a.id]}]
-	    	c.input :character_id, :as => :select, :collection => Hash[Question.all[1].answers.map{|a| [a.content,a.id]}]
-	    	c.input :use_id, :as => :select, :collection => Hash[Question.all[2].answers.map{|a| [a.content,a.id]}]
-	    	c.input :nature_id, :as => :select, :collection => Hash[Question.all[3].answers.map{|a| [a.content,a.id]}]
-	    	c.input :amount_id, :as => :select, :collection => Hash[Question.all[4].answers.map{|a| [a.content,a.id]}]
-	    	c.input :financial_id, :as => :select, :collection => Hash[Question.all[5].answers.map{|a| [a.content,a.id]}]
+	    	c.input :purpose_id, :as => :select, :collection => Hash[Question.essential[0].answers.map{|a| [a.content,a.id]}]
+	    	c.input :character_id, :as => :select, :collection => Hash[Question.essential[1].answers.map{|a| [a.content,a.id]}]
+	    	c.input :use_id, :as => :select, :collection => Hash[Question.essential[2].answers.map{|a| [a.content,a.id]}]
+	    	c.input :nature_id, :as => :select, :collection => Hash[Question.essential[3].answers.map{|a| [a.content,a.id]}]
+	    	c.input :amount_id, :as => :select, :collection => Hash[Question.essential[4].answers.map{|a| [a.content,a.id]}]
+	    	c.input :financial_id, :as => :select, :collection => Hash[Question.essential[5].answers.map{|a| [a.content,a.id]}]
 	    	c.input :result, :as => :select, :collection => { "Fair"=> true, "Not Fair" => false, "Undecided" => nil }
 	    end	
 	    
@@ -121,7 +121,7 @@ ActiveAdmin.register LegalCase do
   		panel "Court Decision Details" do
     		attributes_table_for legal_case do
     			court_report = legal_case.get_report
-    			questions = Question.all
+    			questions = Question.essential
     			for i in 0..5
 	    			row(questions[i].flag.capitalize) do
 	    				link_to(court_report[i][:answer].content, admin_answer_path(court_report[i][:answer])) + " - " + court_report[i][:court_details]		

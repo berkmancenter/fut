@@ -2,7 +2,7 @@ class TestAnswersController < ApplicationController
 	before_filter :check_visitor
 	def new
 		@legal_case = LegalCase.find_by_title params[:legal_case_id] 
-		@questions = Question.all
+		@questions = Question.essential
 		@test_answer = TestAnswer.new
 	end
 
@@ -17,7 +17,7 @@ class TestAnswersController < ApplicationController
 				@calculator.owner = @current_visitor
 				@calculator.save
 				@answers_of_test = @test_answer.get_answers 
-				@questions= Question.all
+				@questions= Question.essential
 				#Check Tie Break
 				if @test_answer.tie_break?
 					respond_to do |format|	
@@ -59,7 +59,7 @@ class TestAnswersController < ApplicationController
 	
 	def edit
 		@legal_case = LegalCase.find_by_title params[:legal_case_id] 
-		@questions = Question.all
+		@questions = Question.essential
 		@test_answer = TestAnswer.find(params[:id])
 	end
 

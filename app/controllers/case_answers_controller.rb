@@ -9,7 +9,7 @@ class CaseAnswersController < ApplicationController
 			redirect_to home_path
 		else
 			@facts = @legal_case.facts.split(". ") 
-			@questions = Question.all
+			@questions = Question.essential
 			@test_answer = TestAnswer.new
 		end	
 	end
@@ -20,7 +20,7 @@ class CaseAnswersController < ApplicationController
 		@case_answer= @legal_case.case_answers.find params[:id]
 		@court_answers_report = @legal_case.get_report
 		@answers_of_case = @case_answer.test_answer.get_answers
-		@questions= Question.all
+		@questions= Question.essential
 	end
 
 	#We don't want these two actions anymore

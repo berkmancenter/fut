@@ -19,7 +19,7 @@ ActiveAdmin.register Calculator do
     		attributes_table_for calculator do
 				row("Status") {status_tag (calculator.test_answer.get_result), (calculator.test_answer.result ? :ok : :error)} 			 
 				answers_of_calculator = calculator.test_answer.get_answers
-    			questions = Question.all
+    			questions = Question.essential
     			for i in 0..5
     				row(questions[i].flag) { link_to answers_of_calculator[i].content, admin_answer_path(answers_of_calculator[i]) }
     			end 
