@@ -1,3 +1,19 @@
-// Place all the styles related to the aspects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins.css.scss";
+.intro{
+	@include awesome(800px, white);
+	margin:auto;
+	> p:nth-child(2) {
+		margin-top:10px;
+	}
+	> p:nth-child(7){
+		margin-bottom:20px;
+	}		
+}
+
+.aspect{
+	@include awesome(600px, #eee);
+	margin:auto;
+	button{
+		margin-left:40%;
+	}
+}

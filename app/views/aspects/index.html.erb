@@ -1,0 +1,50 @@
+<div class="intro">
+	<h1>What's Fair Use</h1>
+	<p>
+		When you write an essay in school, your teacher sometimes asks you to refer to other people's work, work that has given you ideas. Fair Use is kind of like that. Fair Use allows you to use parts of other people's work, whether it's a song, piece of writing, or video clip, as long as you follow some simple rules.  When you want to use this work under Fair Use, you need to consider:
+	</p>
+	<ol>
+		<li>has the original work been transformed into something new?</li>
+		<li>did the new work take creative effort?</li>
+		<li>how much of the original work was used?</li>
+		<li>does the new work compete with, or add to, the original work?</li>
+	</ol>	
+	<p>
+		Why do we need Fair Use? Why can't we just take parts of whatever we want, wherever we want, whenever we want?
+	</p> 
+	<p>
+		Fair Use tries to balance different interests. If you're a creator, like a filmmaker, musician, photographer or writer, it’s important to get credit for your work, whether that’s money, recognition or fame. If you use other people’s work, like for a school assignment or during your free time when you’re hanging out with friends, it’s important to be able to access different people's work for your educational demands, artistic needs or personal use. Fair Use tries to balance all of these important interests.
+	</p>
+	<p>
+		To help you learn more about Fair Use, on this site, we have many fun activities to help you learn how you can use other people’s work to the fullest, and fairest, advantage! 
+	</p>
+	<p>
+		For example, we help to bring these issues to life by using examples from legal cases where an issue of Fair Use arose. Each of the legal cases are divided into 6 separate sections to allow you to understand Fair Use better.
+	</p>
+	<div class="aspect">
+		<ul class="nav nav-tabs" id="aspects">
+		  <li><a href="#purpose">Purpose</a></li>
+		  <li><a href="#character">Character</a></li>
+		  <li><a href="#use">Use</a></li>
+		  <li><a href="#nature">Nature</a></li>
+		  <li><a href="#amount">Amount</a></li>
+		  <li><a href="#financial">Financial</a></li>
+		</ul>
+		<div class="tab-content">
+			<%@aspects.each do |aspect|%>
+				<div class="tab-pane" id="<%=aspect.name.downcase%>">
+					<h3><%=aspect.name%></h3>
+					<p><%=aspect.explanation%></p>
+					<button class="btn btn-warning">Take a Quiz</button>
+				</div>
+			<%end%>
+		</div>
+	</div>
+</div>
+<script>
+	$('#aspects a:first').tab('show');
+	$('#aspects a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	})
+</script>

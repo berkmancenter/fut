@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require aspects
  *= require case_answers
  *= require legal_cases 
  *= require mixins 
