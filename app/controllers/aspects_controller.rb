@@ -1,0 +1,3 @@
+
+class AspectsController < ApplicationController
+end
