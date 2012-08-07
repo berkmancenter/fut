@@ -35,16 +35,32 @@
 				<div class="tab-pane" id="<%=aspect.name.downcase%>">
 					<h3><%=aspect.name%></h3>
 					<p><%=aspect.explanation%></p>
-					<button class="btn btn-warning">Take a Quiz</button>
+					<button class="btn btn-warning">Quiz</button>
+					<div class="quiz" style="display:none;">
+						<%aspect.questions.each do |question|%>
+							<h5><%=question.content%></h5>
+							<%question.answers.each do |answer|%>
+								<%= radio_button_tag :value, answer.value %> 
+	          					<%= label_tag :value, answer.content%> 
+							<%end%>
+						<%end%>	
+						<a class="btn-warning btn">Submit</a>		
+					</div>
 				</div>
 			<%end%>
 		</div>
 	</div>
 </div>
 <script>
+	$('button').click(function(){
+		$('.quiz').show();
+		$('button').hide();	
+		});
 	$('#aspects a:first').tab('show');
 	$('#aspects a').click(function (e) {
 	  e.preventDefault();
+	  $('.quiz').hide();
+	  $('button').show();	
 	  $(this).tab('show');
-	})
+	});
 </script>
