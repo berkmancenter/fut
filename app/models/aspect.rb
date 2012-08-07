@@ -1,3 +1,4 @@
 class Aspect < ActiveRecord::Base
-  # attr_accessible :title, :body
+  has_many :questions
+  attr_accessible :name, :explanation
 end
