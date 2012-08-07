@@ -5,6 +5,8 @@ Fut::Application.routes.draw do
 
   root :to => 'sessions#index' , :as => "home"
   get "Desk" => "sessions#desk", :as => "desk"
+  get "Calculator" => "calculators#new", :as => "calculator"
+  get "What_is_Fair_Use" => "aspects#index", :as => "wfu"
 
   resources :aspects, :questions, :test_answers, :answers, :attachments, :case_answers, :calculators
 
