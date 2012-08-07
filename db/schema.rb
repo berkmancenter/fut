@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20120807133527) do
 
   create_table "aspects", :force => true do |t|
     t.string   "name"
-    t.string   "explanation"
+    t.text     "explanation"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
