@@ -1,10 +1,14 @@
-<div class= "desk">
-	<h1>Desk</h1>
-	<%= link_to	"What's Fair Use", wfu_path, :class => "btn"%>
-	<%= link_to	"Legal Cases", legal_cases_path, :class => "btn"%>
-	<%= link_to	"Scenario", "", :class => "btn"%>
-	<%= link_to	"Calculator", calculator_path, :class => "btn"%>
+<div class="desk">
+	<a href="<%=wfu_path%>"><div>What is Fair Use?</div></a>
+	<a href="<%=legal_cases_path%>"><div>Cases</div></a>
+	<a href="<%=%>"><div>Scenarios</div></a>
+	<a href="<%=calculator_path%>" id="calculator"><div>
+		<i class="icon-lock"></i> Calculator
+		<p>Complete the other sections to unlock the calculator!</p>
+	</div></a>
 </div>
-
-
-
+<style type="text/css" media="screen">
+	.desk{
+		background:url(writer_desk.png);
+	}
+</style>

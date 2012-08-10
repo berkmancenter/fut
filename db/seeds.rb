@@ -28,10 +28,10 @@ Answer.create(:content => "Neither most nor essential", :value => 1, :question_i
 Answer.create(:content => "Damages current potential market", :value => -1, :question_id => 6, :explanation => "The new work could be interesting to the same consumer base as the original as a substitute goods, thereby drawing potential buyers away from the work and ruining its' potential market position.")
 Answer.create(:content => "Doesn't Damages market", :value => 1, :question_id => 6, :explanation => "The new work performs a different function than the original and is not intended for the same purposes - as a result, the market position of the original work is not affected and remains in tact.")
 Role.create(:name => "Writer")
-Role.create(:name => "Film Maker")
+Role.create(:name => "Photo Filmmaker")
 Role.create(:name => "Artist")
 Role.create(:name => "DJ")
-Role.create(:name => "Journalist")
+Role.create(:name => "Detective")
 #Hope Poster
 Attachment.create(:name => "Associated Press Obama", :url => "http://dl.dropbox.com/u/33588915/Legal%20Cases%20Photos/Obama.jpeg")
 Attachment.create(:name => "Obama Hope Poster", :url => "http://dl.dropbox.com/u/33588915/Legal%20Cases%20Photos/Obama%20Hope%20Poster.jpeg")
