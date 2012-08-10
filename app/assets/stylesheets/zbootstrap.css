@@ -3774,7 +3774,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav {
   position: relative;
-  top:20px;
+  top:25px;
   display: block;
   float: right;
   margin: 0 10px 0 0;
@@ -3791,9 +3791,10 @@ input[type="submit"].btn.btn-mini {
 
 /*Edited navbar*/
 .navbar .nav > li > a {
-  font-family: 'Helvetica';
+  font-family: 'Conv_HelveticaNeueLTStd-MdCn';
   font-weight:bold;
-  font-size:13px;
+  font-size:14px;
+  letter-spacing:1px;
   float: none;
   padding-right:10px;
   padding-left: 10px;
@@ -3819,6 +3820,7 @@ input[type="submit"].btn.btn-mini {
   color: #ffffff;
   text-decoration: none;
   background-color: transparent;
+  text-shadow: 0px 0px 1px white;
 }
 
 .navbar .nav .active > a,

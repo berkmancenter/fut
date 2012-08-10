@@ -9,6 +9,22 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Conv_HelveticaNeueLTStd-BdCn';
+    src: url('fonts/HelveticaNeueLTStd-BdCn.eot');
+    src: local('☺'), url('fonts/HelveticaNeueLTStd-BdCn.woff') format('woff'), url('fonts/HelveticaNeueLTStd-BdCn.ttf') format('truetype'), url('fonts/HelveticaNeueLTStd-BdCn.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Conv_HelveticaNeueLTStd-MdCn';
+    src: url('fonts/HelveticaNeueLTStd-MdCn.eot');
+    src: local('☺'), url('fonts/HelveticaNeueLTStd-MdCn.woff') format('woff'), url('fonts/HelveticaNeueLTStd-MdCn.ttf') format('truetype'), url('fonts/HelveticaNeueLTStd-MdCn.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
 	padding-top:60px;
 	background-color:#114863;
