@@ -1,11 +1,18 @@
 <div class= "home">
-	<h1>Catchy title/ephrase</h1>	
-	<p>
-		This website explains what fair use is and shows what everybody is affected. It's made for people who want to unserstand how to handle copyright material correctly - Nobody likes trouble
-	</p>
-	<%=image_tag "Video.png"%>
-	<h3>What do you want to be?</h3>
-	<%= render 'roles/panel'%>
+	<h1>use it right!</h1>	
+	<div class="roles">
+		<h3>check your knowledge on fair use!!!</h3>
+		<ul >
+			<li>
+				<h2>choose a role</h2>
+				<a href="">START OVER</a>
+			</li>
+			<% 5.times do %>
+				<li><%= image_tag "writer.png"%></li>
+			<%end%>
+		</ul>	
+	</div>
+	
 
 </div>
 

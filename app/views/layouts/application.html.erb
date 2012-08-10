@@ -8,49 +8,24 @@
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="<%=home_path%>">Fair Use Tool</a>
-          <div class="container nav-collapse">
-            <ul class="nav">            
-              <li><%= link_to "Fair Use", desk_path  %></li>
-              <li><%= link_to "Calculator", calculator_path  %></li>
-              <li><%= link_to "Resources", ""  %></li>
-              <li><%= link_to "About", ""  %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-    <div class="main" style="margin-top:40px;padding:40px">
-      <%if params[:controller] == "legal_cases" || params[:controller] == "case_answers" || params[:action] == "desk" %>
-        <div class= "role">
-          <%=@current_role.name%>
-        </div>
-      <%end%>
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="<%=home_path%>">Fair Use Tool</a>
+        <div class="container nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "HOME", home_path  %></li>            
+            <li><%= link_to "WHAT IS FAIR USE", desk_path  %></li>
+            <li><%= link_to "CHECK YOUR WORK", calculator_path  %></li>
+            <li><%= link_to "LEARN MORE", ""  %></li>
+            <li><%= link_to "ABOUT", ""  %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container -->
+    </div><!--/.navbar-inner -->
+  </div><!--/.navbar -->
+  <div id= "main" class="container">
 		<%= yield %>
 	</div>
 
 </body>
-<style type="text/css">
-.role{
-  height:30px;
-  width:200px;
-  background:red;
-  margin:auto;
-  margin-top:-40px;
-  margin-bottom:20px;
-  background-color:white;
-  border-radius: 10px;
-  box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
-  text-align:center;
-  font-size:20px;
-  padding-top:10px;  
-}
-</style>
 </html>

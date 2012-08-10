@@ -8,7 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+
  *= require_self
+ *= require layout
  *= require aspects
  *= require case_answers
  *= require legal_cases 
@@ -18,4 +20,5 @@
  *= require sessions  
  *= require test_answers 
  *= require zbootstrap 
+ *= require layout 
  */
