@@ -129,7 +129,6 @@ textarea {
 
 .clearfix:before,
 .clearfix:after {
-  display: table;
   content: "";
 }
 
@@ -180,7 +179,6 @@ a:hover {
 
 .row:before,
 .row:after {
-  display: table;
   content: "";
 }
 
@@ -302,7 +300,6 @@ a:hover {
 
 .row-fluid:before,
 .row-fluid:after {
-  display: table;
   content: "";
 }
 
@@ -395,7 +392,6 @@ a:hover {
 
 .container:before,
 .container:after {
-  display: table;
   content: "";
 }
 
@@ -411,7 +407,6 @@ a:hover {
 
 .container-fluid:before,
 .container-fluid:after {
-  display: table;
   content: "";
 }
 
@@ -1212,7 +1207,6 @@ select:focus:required:invalid:focus {
 
 .form-actions:before,
 .form-actions:after {
-  display: table;
   content: "";
 }
 
@@ -1475,7 +1469,6 @@ legend + .control-group {
 
 .form-horizontal .control-group:before,
 .form-horizontal .control-group:after {
-  display: table;
   content: "";
 }
 
@@ -2950,7 +2943,6 @@ input[type="submit"].btn.btn-mini {
 
 .btn-group:before,
 .btn-group:after {
-  display: table;
   content: "";
 }
 
@@ -3488,7 +3480,6 @@ input[type="submit"].btn.btn-mini {
 
 .tabbable:before,
 .tabbable:after 
-  display: table;
   content: "";
 }
 
@@ -3681,7 +3672,6 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-form:before,
 .navbar-form:after {
-  display: table;
   content: "";
 }
 
@@ -4124,7 +4114,6 @@ input[type="submit"].btn.btn-mini {
 
 .pager:before,
 .pager:after {
-  display: table;
   content: "";
 }
 
@@ -4274,7 +4263,6 @@ input[type="submit"].btn.btn-mini {
 
 .modal-footer:before,
 .modal-footer:after {
-  display: table;
   content: "";
 }
 
@@ -4493,7 +4481,6 @@ input[type="submit"].btn.btn-mini {
 
 .thumbnails:before,
 .thumbnails:after {
-  display: table;
   content: "";
 }
 
