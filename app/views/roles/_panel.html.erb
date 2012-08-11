@@ -3,7 +3,7 @@
 		<h2>choose a role</h2>
 		<a href="">START OVER</a>
 	</li>
-	<%Role.all.each.order('id') do |role|%>
+	<%Role.available.order('id').each do |role|%>
 		<li>
 			<%=link_to({:controller => 'roles', :action => 'set_role', :id => role.id}) do %>	
             	<%= image_tag role.name.downcase + ".png"%>
