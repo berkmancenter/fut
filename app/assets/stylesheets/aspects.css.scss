@@ -1,19 +1,44 @@
-@import "mixins.css.scss";
 .intro{
-	@include awesome(800px, white);
-	margin:auto;
-	> p:nth-child(2) {
-		margin-top:10px;
+	h1{
+		font-family:"KomikaTitleAxisRegular";
+		letter-spacing:3px;
+		font-size:35px;
+		margin-top:50px;
+		text-align:left;
 	}
-	> p:nth-child(7){
-		margin-bottom:20px;
-	}		
-}
 
-.aspect{
-	@include awesome(600px, #eee);
-	margin:auto;
-	button{
-		margin-left:40%;
+	> p{
+		margin: 10px 0px;
+		text-align:left;
 	}
+	.aspect{
+		width:800px;
+		margin:auto;
+		ul{
+			margin:0px;	
+		}
+	}
+	text-align:center;
+	
+	button{
+		font-family:"Conv_HelveticaNeueLTStd-MdCn";
+		background-color: #7e8e96;
+		color:white;
+		margin-top:20px;
+		font-size: 18px;
+		padding: 0px 30px;
+		padding-top:10px;
+		border:none;
+		background-image: -ms-linear-gradient(top, #bdc9c5, #7e8e96);
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#bdc9c5), to(#7e8e96));
+		background-image: -webkit-linear-gradient(top, #bdc9c5, #7e8e96);
+		background-image: -o-linear-gradient(top, #bdc9c5, #7e8e96);
+		background-image: linear-gradient(top, #bdc9c5, #7e8e96);
+		background-image: -moz-linear-gradient(top, #bdc9c5, #7e8e96);
+		background-repeat: repeat-x;
+	}
+	button:hover{
+		box-shadow: 0px 0px 4px white;
+	}
+
 }
