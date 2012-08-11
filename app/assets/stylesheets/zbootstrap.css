@@ -3280,7 +3280,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills:before,
 .nav-tabs:after,
 .nav-pills:after {
-  display: table;
+  
   content: "";
 }
 
