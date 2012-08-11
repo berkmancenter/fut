@@ -14,31 +14,29 @@
 	.aspect{
 		width:800px;
 		margin:auto;
+		margin-bottom:20px;
 		ul{
-			margin:0px;	
+			margin:auto;
+			max-width:700px;
+			position:relative;
+			top:2px;
 		}
 	}
 	text-align:center;
 	
-	button{
-		font-family:"Conv_HelveticaNeueLTStd-MdCn";
+	.quiz-button{
+		font-family:"ubuntu";
 		background-color: #7e8e96;
 		color:white;
-		margin-top:20px;
-		font-size: 18px;
-		padding: 0px 30px;
-		padding-top:10px;
+		height:25px;
+		line-height:25px;
+		padding:0 30px;
+		margin-bottom:20px;
 		border:none;
-		background-image: -ms-linear-gradient(top, #bdc9c5, #7e8e96);
-		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#bdc9c5), to(#7e8e96));
-		background-image: -webkit-linear-gradient(top, #bdc9c5, #7e8e96);
-		background-image: -o-linear-gradient(top, #bdc9c5, #7e8e96);
-		background-image: linear-gradient(top, #bdc9c5, #7e8e96);
-		background-image: -moz-linear-gradient(top, #bdc9c5, #7e8e96);
-		background-repeat: repeat-x;
+		box-shadow: 0px 0px 4px black;
 	}
-	button:hover{
-		box-shadow: 0px 0px 4px white;
+	.quiz-button:hover{
+		box-shadow: 0px 0px 8px black;
 	}
 
 }
