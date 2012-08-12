@@ -1,0 +1,42 @@
+.intro{
+	h1{
+		font-family:"KomikaTitleAxisRegular";
+		letter-spacing:3px;
+		font-size:35px;
+		margin-top:50px;
+		text-align:left;
+	}
+
+	> p{
+		margin: 15px 0px;
+		text-align:left;
+	}
+	.aspect{
+		width:800px;
+		margin:auto;
+		margin-bottom:20px;
+		ul{
+			margin:auto;
+			max-width:700px;
+			position:relative;
+			top:2px;
+		}
+	}
+	text-align:center;
+	
+	.quiz-button{
+		font-family:"KomikaTitleAxisRegular";
+		background-color: #7e8e96;
+		color:white;
+		height:30px;
+		line-height:30px;
+		padding:0 30px;
+		margin-bottom:20px;
+		border:none;
+		box-shadow: 0px 0px 4px black;
+	}
+	.quiz-button:hover{
+		box-shadow: 0px 0px 8px black;
+	}
+
+}

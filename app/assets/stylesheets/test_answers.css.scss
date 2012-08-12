@@ -3,7 +3,11 @@
 	@include awesome(500px, white);
  		margin:auto;
  		text-align:center;
-
+ 		margin-top:20px;
+ 		margin-bottom:15px;
+ 	h2, h3,{
+ 		color:black;
+ 	}	
  	.Not{
  		color:red;
  		margin-bottom:5px
@@ -32,5 +36,9 @@
 
 .Fair{
 	color:green;
+	margin-bottom:5px
+}
+.Draw{
+	color:orange;
 	margin-bottom:5px
 }

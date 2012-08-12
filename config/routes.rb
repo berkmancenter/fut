@@ -4,12 +4,11 @@ Fut::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   root :to => 'sessions#index' , :as => "home"
-  root :to => 'sessions#fair' , :as => "fair"
-  
-  get "FairUse" => "sessions#fair", :as => "fair"
+  get "Desk" => "sessions#desk", :as => "desk"
+  get "Calculator" => "calculators#new", :as => "calculator"
+  get "What_is_Fair_Use" => "aspects#index", :as => "wfu"
 
-  resources :test_answers, :path => "/Calculator/Result"
-  resources :questions, :answers, :attachments, :case_answers, :calculators
+  resources :aspects, :questions, :test_answers, :answers, :attachments, :case_answers, :calculators
 
   resources :legal_cases do
     resources :case_answers

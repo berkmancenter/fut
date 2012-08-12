@@ -1,7 +1,16 @@
-<div class="roles">
-		<%Role.all.each do |role|%>
-			<%=link_to({:controller => 'roles', :action => 'set_role', :id => role.id}, :class => "btn") do %>
-            <%=role.name%>
-          <%end%>
-		<%end%>
-</div>
+<ul >
+	<li>
+		<h2>choose a role</h2>
+		<a href="">START OVER</a>
+	</li>
+	<%Role.available.order('id').each do |role|%>
+		<li>
+			<%=link_to({:controller => 'roles', :action => 'set_role', :id => role.id}) do %>	
+            	<%= image_tag role.name.downcase + ".png"%>
+				<h4><%=role.name%></h4>
+          	<%end%>
+		</li>
+	<%end%>
+	
+	
+</ul>

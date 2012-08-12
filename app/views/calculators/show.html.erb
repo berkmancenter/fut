@@ -12,8 +12,13 @@
 						<p><h4><%=@questions[i].flag.capitalize%></h4></p>
 					</td>
 					
-					<td>
-						<p><%=@answers_of_test[i].content%></p>
+					<td>		
+						<p class=<%=@answers_of_test[i].get_use%>>
+							<%=@answers_of_test[i].content%>
+							<%if @test_answer.tie_break? == true && i == 5 %>
+								x 2
+							<%end%>
+						</p>		
 					</td>
 
 				</tr>

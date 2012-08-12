@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120722084349) do
+ActiveRecord::Schema.define(:version => 20120807133527) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -57,13 +57,18 @@ ActiveRecord::Schema.define(:version => 20120722084349) do
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
 
+  create_table "aspects", :force => true do |t|
+    t.string   "name"
+    t.text     "explanation"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "attachments", :force => true do |t|
-    t.string   "source_file_name"
-    t.string   "source_content_type"
-    t.integer  "source_file_size"
-    t.datetime "source_updated_at"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "calculators", :force => true do |t|
@@ -115,9 +120,12 @@ ActiveRecord::Schema.define(:version => 20120722084349) do
   create_table "questions", :force => true do |t|
     t.string   "content"
     t.text     "explanation"
+    t.integer  "aspect_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "questions", ["aspect_id"], :name => "index_questions_on_aspect_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

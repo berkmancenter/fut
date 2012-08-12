@@ -2,8 +2,8 @@
 	<div class="row">
 		<div class="span4">
 			<h1><%=@legal_case.title%> Case</h1>
-			<%= image_tag @legal_case.original_resource.source.url %> vs 
-			<%= image_tag @legal_case.derivative_resource.source.url %>
+			<%= image_tag @legal_case.original_resource.url %> vs 
+			<%= image_tag @legal_case.derivative_resource.url %>
 			<p class="pull-left">Original</p>
 			<p class="pull-right">Derivative</p>
 			<h2>Facts</h2>
@@ -13,7 +13,6 @@
 		</div>
 		<div class="span8">	
 			<%= render 'test_answers/form' %>
-			<%= render 'test_answers/scoreboard'%>
 		</div>
 	</div>
 </div>
