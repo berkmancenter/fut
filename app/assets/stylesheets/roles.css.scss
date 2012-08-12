@@ -1,9 +1,0 @@
-@import "mixins.css.scss";
-.roles{
-	text-align:center;
-	a{
-		@include awesome(150px, white);
-		text-align:center;
-		margin-right:20px;
-	}
-}

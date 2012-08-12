@@ -1,6 +1,6 @@
 class CaseAnswersController < ApplicationController
 	before_filter :check_visitor
-	before_filter :check_role, :only => [:new]
+	before_filter :check_role
 	def new
 		@case_answer= CaseAnswer.new
 		@legal_case = LegalCase.find_by_title params[:legal_case_id]
@@ -9,7 +9,7 @@ class CaseAnswersController < ApplicationController
 			redirect_to home_path
 		else
 			@facts = @legal_case.facts.split(". ") 
-			@questions = Question.all
+			@questions = Question.essential.order('id')	
 			@test_answer = TestAnswer.new
 		end	
 	end
@@ -20,7 +20,7 @@ class CaseAnswersController < ApplicationController
 		@case_answer= @legal_case.case_answers.find params[:id]
 		@court_answers_report = @legal_case.get_report
 		@answers_of_case = @case_answer.test_answer.get_answers
-		@questions= Question.all
+		@questions= Question.essential.order('id')	
 	end
 
 	#We don't want these two actions anymore

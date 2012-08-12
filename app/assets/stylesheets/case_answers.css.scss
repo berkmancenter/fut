@@ -56,6 +56,12 @@
 	@include awesome(500px, white);
 	margin:auto;
  	text-align:center;
+ 	margin-top:20px;
+ 	margin-bottom:15px;
+
+ 	p, h1, h3, strong{
+		color:black;
+	}
  	
 }
 .test-answer, .case-answer{

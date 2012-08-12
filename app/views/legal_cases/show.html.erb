@@ -1,12 +1,9 @@
 <div class="show-case">
-	<h1><%=@legal_case.title%> Case</h1>
-	<%= image_tag @legal_case.original_resource.source.url %> vs
-	<%= image_tag @legal_case.derivative_resource.source.url %>
-	<h2>Description:</h2>
-	<p><%=@legal_case.facts%></p>
+	<h2><%=@legal_case.title%></h2>
+	<%= image_tag @legal_case.original_resource.url %> <h4>vs</h4>
+	<%= image_tag @legal_case.derivative_resource.url %>
+	<h3>Overview</h3>
+	<p><%=@legal_case.facts.split('.')[0]%></p>
 
- <%= link_to "Test This Case", new_legal_case_case_answer_path(@legal_case.title), :class => "btn btn-warning" %>
-</br>
- <%= link_to "Edit", edit_legal_case_path(@legal_case.title) %>
- <%= link_to 'Destroy', @legal_case, :confirm => 'Are you sure?', :method => :delete%>
+ <%= link_to "LET'S GO", new_legal_case_case_answer_path(@legal_case.title)%>
 </div>

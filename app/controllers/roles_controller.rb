@@ -3,6 +3,6 @@ class RolesController < ApplicationController
 	def set_role
 		@current_visitor.role = Role.find params[:id]
 		@current_visitor.save
-		redirect_to fair_path
+		redirect_to desk_path
 	end
 end

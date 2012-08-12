@@ -8,28 +8,28 @@
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="<%=home_path%>">Fair Use Tool</a>
-          <div class="container nav-collapse">
-            <ul class="nav">            
-              <li><%= link_to "Fair Use", fair_path  %></li>
-              <li><%= link_to "Calculator", new_calculator_path  %></li>
-              <li><%= link_to "Resources", ""  %></li>
-              <li><%= link_to "About", ""  %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-    <div class="main" style="margin-top:40px;padding:40px">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="<%=home_path%>">Fair Use Tool</a>
+        <div class="container nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "HOME", desk_path  %></li>            
+            <li><%= link_to "WHAT IS FAIR USE", wfu_path  %></li>
+            <li><%= link_to "CHECK YOUR WORK", calculator_path  %></li>
+            <li><%= link_to "LEARN MORE", ""  %></li>
+            <li><%= link_to "ABOUT", ""  %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container -->
+    </div><!--/.navbar-inner -->
+  </div><!--/.navbar -->
+  <div id= "main" class="container">
 		<%= yield %>
 	</div>
-
+  <footer>
+    <p>
+      Unless otherwise noted this site and its contents are licensed under a creative commons attrubution 3.0 Unported license.
+    </p>
+  </footer>
 </body>
 </html>
