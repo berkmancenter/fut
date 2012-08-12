@@ -1,7 +1,7 @@
-<h1>Legal Cases</h1>
 <div class="cases">
+	<h1>Legal Cases</h1>
 	<% @legal_cases.each do |c|%>
 			
-		<%= link_to c.title, legal_case_path(c.title), :class => "btn" %>
+		<%= link_to c.title, legal_case_path(c.title)%>
 	<%end%>
 </div>
