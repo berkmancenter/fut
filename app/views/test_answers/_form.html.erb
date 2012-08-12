@@ -1,15 +1,17 @@
 <%= form_for @test_answer, :remote => ((params[:controller] == "calculators")? true : false)  do |f|%>
+<div class="span8">
+	
+
 	<%@questions.each do |question|%>
-		<ul class= "question-box">
+		<div class= "question-box">
 			<h3>
 				<%=question.content%>
 				<a href="#" class="info" rel="tooltip" data-original-title="<%=question.explanation%>">
 					<i class="icon-info-sign"></i>
 				</a> 
 			</h3>
-			<div class="row">
 				<% question.answers.order('id').each do |answer| %>			
-						<li class="answer span3"> 						
+						<div class="answer"> 						
 			   				<label>
 			   					<%= f.radio_button question.flag+"_id", answer.id %> 
 			   					<span>
@@ -19,10 +21,10 @@
 									</a>
 			   					</span>
 			   				</label>    
-		    			</li>
+		    			</div>
 		    		
 				<%end%>
-			</div>
+			</br>
 			<%if question.id != 6 &&  question.id != 1%>
 				<button class= "btn" name="next" type="button">Next</button>
 				<button class= "btn" name="back" type="button">Back</button>
@@ -34,8 +36,12 @@
 				<%end%>
 				<button class= "btn" name="back" type="button">Back</button>
 			<%end%>
-		</ul>
+		</div>
 	<%end%>
+</div>
+<div class="span4">
+	
+	<%= render 'test_answers/scoreboard'%>
 	<%if params[:action]== 'new' %>
 		<%= f.submit "Create Court Decision", :class => "btn-large",:id=> 'submit', :disabled=> true%>
 	<%elsif params[:action]== 'edit' %>	
@@ -44,6 +50,7 @@
 		<%= f.submit nil, :class => "btn-large",:id=> 'submit', :disabled=> true%>
 	<%end%>
 <%end%>
+</div>
 <script type="text/javascript">
 	$('input[type=radio]').click(function(){
 
@@ -73,8 +80,7 @@
 
 
 	/*Hide Questions and show them one by one*/
-	$('.question-box').hide();
-	$('.question-box:nth-child(2)').show();
+	$('.question-box:nth-child(1)').show();
 	$('button[name*="next"]').click(function(){
 		$(this).closest('.question-box').fadeOut().next().fadeIn();
 	});
