@@ -4,6 +4,7 @@ class AspectsController < ApplicationController
 
 	def index
 		@aspects = Aspect.all
+		@questions = Question.essential.order('id')
 	end
 
 end

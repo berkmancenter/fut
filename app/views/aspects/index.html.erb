@@ -25,7 +25,7 @@ body{
 			<%@aspects.each do |aspect|%>
 				<div class="tab-pane" id="<%=aspect.name.downcase%>">
 					<h3><%=aspect.name%></h3>
-					<h4><%=Question.find(aspect.id).explanation%></h4>
+					<h4><%=@questions[aspect.id - 1].explanation%></h4>
 					<p><%=aspect.explanation%></p>
 				</div>
 			<%end%>
