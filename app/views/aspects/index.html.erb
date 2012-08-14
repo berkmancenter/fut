@@ -40,11 +40,31 @@ body{
 		</div>
 	</div>
 	<button href="" class="quiz-button">TAKE A QUIZ</button>
-	<div class="quiz-area">
-
+	<div class="quiz-area row">
+		<div class="wrapper">	
+			<%@quiz_questions.each do |quiz_question|%>
+				<div class="span6">
+					<h5><%=quiz_question.content%></h5>
+					<%quiz_question.answers.each do |answer|%>
+						<%= radio_button_tag( "question#{quiz_question.id}", answer.value) %>
+						<%= label_tag("question#{quiz_question.id}_#{answer.value}", answer.content) %>
+					</br>
+					<%end%>				
+				</div>
+			<%end%>
+		</div>
+		<button href="" id="result-btn">See Result</button>
 	</div>
 </div>
 <script>
+	$('#result-btn').on('click',function(){
+		$('input[type=radio]:checked').each(function(){
+			if ($(this).val() == 1){$(this).next().css('color','green')}
+			else {$(this).next().css('color','red')}			
+		});
+	});
+
+
 	$('.tab-content').find('.tab-pane').eq(0).addClass('active');
 	$('#aspects a').click(function (e) {
 	  e.preventDefault();

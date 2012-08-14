@@ -112,7 +112,7 @@ Question.create(:content => "What is more likely to be 'fair use' in terms of a 
 Question.create(:content => "If you use a clip from a famous movie, and that movie makes less money because of your new work, what kind of market impact does your work have?", :essential => false)
 Answer.create(:content => "Because you may be able to defend your use of someone else's work as fair use.", :value => 1, :question_id => 7 , :hint => "Right")
 Answer.create(:content => "Because if the purpose of your work is commercial/for profit, then you will not need the permission of the person whose work you're using.", :value => 1, :question_id => 7 , :hint => "Right")
-Answer.create(:content => "Because if the purpose of your work is educational you will have to pay royalties for the original author", :value => 1, :question_id => 7 , :hint => "Wrong Answer")
+Answer.create(:content => "Because if the purpose of your work is educational you will have to pay royalties for the original author", :value => -1, :question_id => 7 , :hint => "Wrong Answer")
 Answer.create(:content => "Commercial character", :value => -1, :question_id => 8 , :hint => "Wrong Answer")
 Answer.create(:content => "Non-Commercial character", :value => 1, :question_id => 8 , :hint => "Right")
 Answer.create(:content => "Yes", :value => 1, :question_id => 9 , :hint => "Right")

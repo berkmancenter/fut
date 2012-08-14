@@ -4,7 +4,7 @@ class AspectsController < ApplicationController
 
 	def index
 		@aspects = Aspect.all
-		@questions = Question.essential.order('id')
+		@quiz_questions = Question.quiz.order('content')
 	end
 
 end
