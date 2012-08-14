@@ -6,7 +6,7 @@
 		<div class= "question-box">
 			<h3>
 				<%=question.content%>
-				<a href="#" class="info" rel="tooltip" data-original-title="<%=question.explanation%>">
+				<a href="#" class="info" rel="tooltip" data-original-title="<%=question.hint%>">
 					<i class="icon-info-sign"></i>
 				</a> 
 			</h3>
@@ -16,7 +16,7 @@
 			   					<%= f.radio_button question.flag+"_id", answer.id %> 
 			   					<span>
 			   						<%=answer.content%>
-			   						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.explanation%>">
+			   						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.hint%>">
 										<i class="icon-info-sign"></i>
 									</a>
 			   					</span>
