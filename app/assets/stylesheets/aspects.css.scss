@@ -34,7 +34,7 @@
 		border:none;
 		box-shadow: 0px 0px 4px black;
 	}
-	#result-btn:hover, .quiz-button:hover{
+	.quiz-button:hover{
 		box-shadow: 0px 0px 8px black;
 	}
 
@@ -66,5 +66,16 @@
 		width:350px;
 		margin:10px;
 		color:black;
+	}
+	#result-btn{
+		background-color:red;
+		background-image:none;
+		-webkit-transition: all 0.5s;
+	}
+	#result-btn:hover{
+		text-shadow:0px 0px 3px white;
+	}
+	#result-btn[disabled]:hover{
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	}
 }
