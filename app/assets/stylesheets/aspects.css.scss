@@ -24,7 +24,7 @@
 	}
 	text-align:center;
 	
-	#result-btn, .quiz-button{
+	#result-btn, #quiz-button{
 		font-family:"KomikaTitleAxisRegular";
 		background-color: #7e8e96;
 		color:white;
@@ -34,7 +34,7 @@
 		border:none;
 		box-shadow: 0px 0px 4px black;
 	}
-	.quiz-button:hover{
+	#quiz-button:hover{
 		box-shadow: 0px 0px 8px black;
 	}
 
@@ -42,6 +42,10 @@
 		display: inline;
 	}
 	.quiz-area{
+		h2{
+			font-family:"KomikaTitleAxisRegular";
+			letter-spacing:2px;
+		}
 		text-align:center;
 		background-color:rgb(244, 154, 0);
   		border: 3px solid black;
@@ -51,6 +55,7 @@
   		padding:20px;
   		margin:0px;
   		margin-top:20px;
+  		display:none;
 	}
 	.wrapper{
 		text-align:left;
@@ -60,7 +65,7 @@
   		-moz-border-radius:10px;
   		border-radius:10px;
   		overflow:hidden;
-  		margin-bottom:20px;
+  		margin:15px 0;
 	}
 	.span6{
 		width:350px;

@@ -39,8 +39,10 @@ body{
 			<%end%>
 		</div>
 	</div>
-	<button href="" class="quiz-button">TAKE A QUIZ</button>
+	<button href="" id="quiz-button">TAKE A QUIZ</button>
 	<div class="quiz-area row">
+		<h2>Quiz</h2>
+		<h4>If your struggle, use the cheat sheet above ;)</h4>
 		<div class="wrapper">	
 			<%@quiz_questions.each do |quiz_question|%>
 				<div class="span6">
@@ -57,6 +59,10 @@ body{
 	</div>
 </div>
 <script>
+	$('#quiz-button').on('click',function(){
+		$('.quiz-area').fadeIn();
+	});
+
 	$('input:radio').change(function(){
         var names = [];
         var allChecked = true;
@@ -83,9 +89,7 @@ body{
 	});
 	$('.tab-content').find('.tab-pane').eq(0).addClass('active');
 	$('#aspects a').click(function (e) {
-	  e.preventDefault();
-	  $('.quiz').hide();
-	  $('button').show();	
+	  e.preventDefault();	
 	  $(this).tab('show');
 	});
 </script>
