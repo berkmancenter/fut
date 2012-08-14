@@ -50,6 +50,9 @@ body{
 					<%quiz_question.answers.each do |answer|%>
 						<%= radio_button_tag( "question#{quiz_question.id}", answer.value) %>
 						<%= label_tag("question#{quiz_question.id}_#{answer.value}", answer.content) %>
+						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.hint%>">
+						Why?
+						</a>
 					</br>
 					<%end%>				
 				</div>
@@ -82,9 +85,16 @@ body{
     });
 	$('#result-btn').on('click',function(){
 		$('label').css('color','black');
+		$('.info').hide();
+
 		$('input[type=radio]:checked').each(function(){
 			if ($(this).val() == 1){$(this).next().css('color','green')}
-			else {$(this).next().css('color','red')}			
+			else {
+				$(this).next().css('color','red')
+				$(this).siblings('input[value=1]').each(function(){
+					$(this).next().css('color','green').next().show();
+				});
+			}			
 		});
 	});
 	$('.tab-content').find('.tab-pane').eq(0).addClass('active');
@@ -92,4 +102,5 @@ body{
 	  e.preventDefault();	
 	  $(this).tab('show');
 	});
+	 $(".info").tooltip();
 </script>
