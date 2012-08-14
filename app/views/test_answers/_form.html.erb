@@ -6,9 +6,11 @@
 		<div class= "question-box">
 			<h3>
 				<%=question.content%>
-				<a href="#" class="info" rel="tooltip" data-original-title="<%=question.hint%>">
-					<i class="icon-info-sign"></i>
-				</a> 
+				<%if question.hint%>
+					<a href="#" class="info" rel="tooltip" data-original-title="<%=question.hint%>">
+						<i class="icon-info-sign"></i>
+					</a> 
+				<%end%>
 			</h3>
 				<% question.answers.order('id').each do |answer| %>			
 						<div class="answer"> 						
@@ -16,9 +18,11 @@
 			   					<%= f.radio_button question.flag+"_id", answer.id %> 
 			   					<span>
 			   						<%=answer.content%>
-			   						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.hint%>">
-										<i class="icon-info-sign"></i>
-									</a>
+			   						<%if answer.hint%>
+				   						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.hint%>">
+											<i class="icon-info-sign"></i>
+										</a>
+									<%end%>
 			   					</span>
 			   				</label>    
 		    			</div>
