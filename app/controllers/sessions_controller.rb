@@ -7,4 +7,10 @@ class SessionsController < ApplicationController
 
   def desk
   end
+
+  def start_over
+  	@current_visitor= Visitor.create
+  	session[:visitor_id] = @current_visitor.id
+  	redirect_to :back
+  end
 end

@@ -1,7 +1,9 @@
 <ul >
 	<li>
 		<h2>choose a role</h2>
-		<a href="">START OVER</a>
+		<%if @current_visitor.progress != "0"%>
+			<%=link_to "START OVER",{:controller => "sessions", :action => "start_over"}%>
+		<%end%>
 	</li>
 	<%Role.available.order('id').each do |role|%>
 		<li>
