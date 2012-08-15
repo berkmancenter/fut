@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(:version => 20120807133527) do
     t.string   "name",       :default => "Anonymous"
     t.string   "ip_adress"
     t.integer  "role_id"
+    t.boolean  "quiz",       :default => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
   end
