@@ -2,14 +2,20 @@
 	<a href="<%=wfu_path%>"><div>What is Fair Use?</div></a>
 	<a href="<%=legal_cases_path%>"><div>Cases</div></a>
 	<a href="<%=%>"><div>Scenarios</div></a>
-	<a href="<%=calculator_path%>" id="calculator"><div>
-		<i class="icon-lock"></i> Calculator
-		<p>Complete the other sections to unlock the calculator!</p>
-		<h6>You finished <%=@current_visitor.progress.to_s%> of 2 sections</h6>
-	</div></a>
+	<a id="calculator" class="locked">
+		<div>
+			<i class="icon-lock"></i> Calculator
+			<p>Complete the other sections to unlock the calculator!</p>
+			<h6>You finished <%=@current_visitor.progress%> of 2 sections</h6>
+		</div>
+	</a>
 </div>
-<style type="text/css" media="screen">
-	.desk{
-		
-	}
-</style>
+<script type="text/javascript">
+	<%if @current_visitor.progress == "2" %>
+		$(document).ready(function() {
+		    $('a#calculator').attr("href","<%=calculator_path%>").removeClass("locked");
+		    $('.icon-lock').hide();
+		    $('p').text("WOW! You can use calculator now");
+		});
+	<%end%>
+</script>

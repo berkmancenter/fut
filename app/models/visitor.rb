@@ -4,7 +4,6 @@ class Visitor < ActiveRecord::Base
   has_many :calculators, :as => :owner
   has_many :case_answers, :as => :owner
   validates :name, :length => { :maximum => 30 }
-  validates :progress, :inclusion => { :in => 0..3 }
 
 	public
 	def progress
@@ -15,6 +14,6 @@ class Visitor < ActiveRecord::Base
 		if self.case_answers != []
 			total+=1
 		end
-		return total
+		return total.to_s
 	end
 end

@@ -190,8 +190,8 @@
 		top:50%; 
 		margin-top:-0.8em;
 	}
-	a#calculator:hover{ 
-		cursor:default; 
+	a.locked{
+		cursor:default;
 	}
 	a#calculator > div > p { 
 		font-size:15px;
