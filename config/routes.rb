@@ -1,4 +1,8 @@
 Fut::Application.routes.draw do
+  get "static/about"
+
+  get "static/learn_more"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -15,10 +19,9 @@ Fut::Application.routes.draw do
     resources :test_answers
     resources :court_decision_details
   end
-
+  match ':action' => 'static#:action'
   match ':title' => "LegalCase#show"
   match ':controller(/:action(/:id))(.:format)'
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

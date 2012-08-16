@@ -19,7 +19,7 @@ ActiveAdmin.register Question do
 	filter :content
 	filter :hint
 
-  show :title => :content do
+  show do
   	panel "Question Details" do
     	attributes_table_for question do
 				row("Content") { question.content }
@@ -28,4 +28,13 @@ ActiveAdmin.register Question do
   	end
  		active_admin_comments
 	end
+
+  form do |f|
+    f.inputs "Basic Details" do
+        f.input :content
+        f.input :hint
+        f.input :essential, :as => :select, :collection => { "Quiz"=> false, "Essential" => true}
+      end
+    f.buttons
+  end
 end
