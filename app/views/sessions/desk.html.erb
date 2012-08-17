@@ -1,4 +1,4 @@
-<div class="desk" style="background:url(<%= asset_path("#{@current_role.name.downcase}_desk.png") %>);">
+<div class="desk" style="background:url(<%= asset_path("#{@current_role.name.split(" ")[0].downcase}_desk.png") %>);">
 	<a href="<%=wfu_path%>"><div>What is Fair Use?</div></a>
 	<a href="<%=legal_cases_path%>"><div>Cases</div></a>
 	<a href="<%=%>"><div>Scenarios</div></a>
@@ -10,6 +10,11 @@
 		</div>
 	</a>
 </div>
+<style type="text/css">	
+	body{
+		background-color: #e7e8e8;
+	}
+</style>
 <script type="text/javascript">
 	<%if @current_visitor.progress == "2" %>
 		$(document).ready(function() {

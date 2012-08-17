@@ -1,7 +1,13 @@
+<style type="text/css">
+	body{
+		background-color: #db0017;
+	}
+</style>
 <div class="cases">
-	<h1>Legal Cases</h1>
-	<% @legal_cases.each do |c|%>
-			
-		<%= link_to c.title, legal_case_path(c.title)%>
-	<%end%>
+	<h1>Real Cases</h1>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	
+	<div class="cases-wrapper">	
+		<%= render :partial => 'case', :collection => @legal_cases, :as => :legal_case%> 
+	</div>
 </div>
