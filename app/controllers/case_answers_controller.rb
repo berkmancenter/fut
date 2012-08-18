@@ -20,7 +20,10 @@ class CaseAnswersController < ApplicationController
 		@case_answer= @legal_case.case_answers.find params[:id]
 		@court_answers_report = @legal_case.get_report
 		@answers_of_case = @case_answer.test_answer.get_answers
-		@questions= Question.essential.order('id')	
+		@court_statistics = @legal_case.court_decision.statistics
+		@answer_statistics = @case_answer.test_answer.statistics
+		@questions= Question.essential.order('id')
+
 	end
 
 	#We don't want these two actions anymore

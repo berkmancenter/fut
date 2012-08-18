@@ -243,6 +243,7 @@
 			}
 			#main-panel{
 				padding-bottom:0px;
+				margin-bottom:10px;
 				width:640px;
 				h1{
 					font-size:50px;
@@ -290,6 +291,53 @@
 					h3{
 						font-size:30px;
 
+					}
+				}
+			}
+			.report{
+				clear:both;
+				margin-top:20px;
+				table{
+					background:#fbe5bd;
+					color:black;
+					width:100%;
+					tr{
+						background:#fbe5bd;
+						border-bottom:1px solid rgba(255,255,255,0.3);
+					}
+					td{
+					font-size:13px;
+					font-weight:bold;
+					}
+					.details{
+						display:none;
+						text-align:left;
+						p{
+							font-family:inhert;
+							margin:10px;
+						}
+					}
+					tr td:first-child{
+						width:95px;
+						color:black;
+						text-align:left;
+						font-weight:bold;
+						font-size:20px;
+						font-family: "Conv_HelveticaNeueLTStd-Cn";
+						padding:10px;
+						span{
+							color:#e5be82;
+							font-family:"KomikaTitleAxisRegular";
+							margin-right:5px;
+							font-weight:bold;
+							font-size:20px;
+						}
+					}
+					tr td:nth-child(2){
+						width:325px;
+					}
+					tr:hover{
+						cursor:pointer;
 					}
 				}
 			}

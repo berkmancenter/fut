@@ -27,22 +27,42 @@
 					<div>
 						<h2>YOU</h2>
 						<ul class="judgement-panel nav">
-							<li><%=image_tag "fu.png"%><sub>X</sub><h3>4</h3></li>
-							<li><%=image_tag "nfu.png"%><sub>X</sub><h3>2</h3></li>
-							<li><%=image_tag "un.png"%><sub>X</sub><h3>5</h3></li>
+							<li><%=image_tag "fu.png"%><sub>X</sub><h3><%=@answer_statistics[0]%></h3></li>
+							<li><%=image_tag "nfu.png"%><sub>X</sub><h3><%=@answer_statistics[1]%></h3></li>
+							<li><%=image_tag "un.png"%><sub>X</sub><h3><%=@answer_statistics[2]%></h3></li>
 						</ul>
 					</div>
 					<div>
 						<h2>THE JUDGES</h2>
 						<ul class="judgement-panel nav">
-							<li><%=image_tag "fu.png"%><sub>X</sub><h3>4</h3></li>
-							<li><%=image_tag "nfu.png"%><sub>X</sub><h3>5</h3></li>
-							<li><%=image_tag "un.png"%><sub>X</sub><h3>1</h3></li>
+							<li><%=image_tag "fu.png"%><sub>X</sub><h3><%=@court_statistics[0]%></h3></li>
+							<li><%=image_tag "nfu.png"%><sub>X</sub><h3><%=@court_statistics[1]%></h3></li>
+							<li><%=image_tag "un.png"%><sub>X</sub><h3><%=@court_statistics[2]%></h3></li>
 						</ul>
 					</div>	
 				</div>
 			</section>
-
+			<section class="report">
+				<table>
+					<%for i in 0..5 %>
+						<tr class="aspect-answer">
+							<td><span><%=i+1%></span><%=@questions[i].flag.capitalize%></td>
+							<td class=<%=@answers_of_case[i].get_use%>><%=@answers_of_case[i].content%></td>
+							<td class=<%=@court_answers_report[i][:answer].get_use%>><%=@court_answers_report[i][:answer].content%></td>
+						</tr>
+						<tr class="details">
+							<td></td>
+							<td></td>
+							<td><p><%=@court_answers_report[i][:court_details]%></p></td>
+						</tr>
+					<%end%>
+				</table>
+			</section>
 		</div>
 	</div><!--test-case-wrapper-->
 </div><!--test-case-->
+<script type="text/javascript">
+	$('.aspect-answer').on('click',function(){
+		$(this).next().toggle(200);
+	});
+</script>
