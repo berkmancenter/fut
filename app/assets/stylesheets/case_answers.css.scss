@@ -1,82 +1,153 @@
-@import "mixins.css.scss";
 .test-case{
-	@include awesome(1220px, #EFEFEF);
-	position:relative;
-	margin:auto;
-	img{
-		width:200px;
-		height:250px;
-		margin:5px;
+	text-align:center;
+	h1{
+		font-family:"KomikaTitleAxisRegular";
+		letter-spacing:3px;
+		font-size:35px;
+		margin-top:10px;
+		text-align:left;
+		margin-bottom:10px;
 	}
-	.question-box{
-		margin:0px;
-		top:90px;
-		left:210px;
+	.test-case-wrapper{
+		background:white;
+		overflow:hidden;
+		padding:20px;
+		-webkit-border-radius: 15px;
+     	-moz-border-radius: 15px;
+        border-radius: 15px;
 
-	}
-	.question-box:nth-child(2){
-		top:20px;
-	}
-	.question-box:nth-child(3), .question-box:nth-child(7){
-		top:120px;
-	}
-	
-	.span8 .scoreboard{
-		margin:0px;
-		top:70px;
-		left:0px;
-	}
-	.span4{
-		
-		width:450px;
-		text-align:center;
-	}
-	.span8{
-		position:relative;
-		
-		width:750px
-	}
+        #case-resources{
+        	width:350px;
+        	display:inline-block;
+        	float:left;
+	        img{
+	        	width:130px;
+	        	height:130px;
+	        }
+	        h4{
+	        	display:inline-block;
+				font-family:"KomikaTitleAxisRegular";
+				font-size:17px;
+				color:black;
+				margin: 0 10px;
+				margin-top:65px;
+	        }
+		}
 
-	input[type="submit"]{
-		position:absolute;
-		bottom:-470px;
-		right:50px;
-		width:260px;
-		height:60px;
-	}
+		#case-details{
+			overflow: auto;
+			height:200px;
+			padding-top:10px;
+			color:black;
+			width:400px;
+			display:inline-block;
+			text-align:left;
+			float:right;
+			margin-bottom:10px;
+			h4{
+				font-family: "Conv_HelveticaNeueLTStd-MdCn";
+				font-size:22px;
+				letter-spacing:1px;
+			}
+		}
+		.tabs-left{
+			clear:both;
+			ul{
+				margin:0;
+				border-right:0;
+			}
+			ul,a{
+				background:#fbe5bd;
+			}
+			a{
+				padding:5px 10px;
+				margin:0;
+				webkit-border-radius: 0 0;
+				moz-border-radius: 0 0;
+				border-radius: 0 0;
+				border:none;
+				color:black;
+				text-align:left;
+				font-weight:bold;
+				font-size:16px;
+				span{
+					color:#e5be82;
+					font-family:"KomikaTitleAxisRegular";
+					margin-right:10px;
+					font-weight:bold;
+					font-size:25px;
+				}
+			}
+			a:hover, .active a{
+				background:#f5c060;
+				span{
+					color:white;
+					text-shadow: 2px 2px #e0a042;
+				}
+			}
+			#help ul{
+				background:white;
+				padding-top:10px;
+				text-align:left;
+				li{
+					list-style:none;
+					margin-top:3px;
+					h6{
+						display:inline-block;
+						color:black;
+						font-family: "Conv_HelveticaNeueLTStd-Cn";
+						font-size:10px;
+						margin-left:5px;
+						letter-spacing:1px;
+						position:relative;
+						top:2px;
+					}
+				}
+			}
+			.tab-content{
+				background:#f5c060;
+				height:290px;
+				width:300px;
+				border:none;
+				webkit-border-radius: 0 0;
+				moz-border-radius: 0 0;
+				border-radius: 0 0;
+				padding:10px;
 
-	.pull-right{
-		margin-right:80px;
-	}
-	.pull-left{
-		margin-left:80px;
-	}
-}
-.case-answer{
-	@include awesome(500px, white);
-	margin:auto;
- 	text-align:center;
- 	margin-top:20px;
- 	margin-bottom:15px;
-
- 	p, h1, h3, strong{
-		color:black;
-	}
- 	
-}
-.test-answer, .case-answer{
-	.high{
- 		background:rgb(44, 44, 44);
- 		color:white;
- 	}
- 	table td{
- 		text-align:center;
- 	}
-}
-.user-answers{
-	.table{
-		position:static;
-		width:500px;
-		margin:0px;
-	}
+				.tab-pane{
+					background:none;
+					margin:0;
+					.info{
+						background:none;
+						position:relative;
+					}
+					h5{
+						font-family: "Conv_HelveticaNeueLTStd-MdCn";
+						font-size:16px;
+						letter-spacing:1px;
+						margin-bottom:11px;
+						margin-top:2px;
+						.info{
+							bottom:3px;
+						}	
+					}
+					.answer{				
+						margin-bottom:8px;
+						.info{
+							top:3px;
+						}
+						input{
+							position:relative;
+							bottom:4px;
+						}
+						label{
+							display:inline;
+							font-family: "Conv_HelveticaNeueLTStd-Cn";
+							font-size:17px;
+						}	
+					}
+				}
+			}
+		}
+	}	
 }

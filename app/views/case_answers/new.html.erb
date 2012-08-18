@@ -1,21 +1,77 @@
-<div class= "test-case">
-	<div class="row">
-		<div class="span4">
-			<h1><%=@legal_case.title%> Case</h1>
-			<%= image_tag @legal_case.original_resource.url %> vs 
+<style type="text/css">
+	body{
+		background-color: #db0017;
+	}
+</style>
+<div class="test-case">
+	<h1>Real Cases</h1>
+	<p>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+	</p>
+	<div class="test-case-wrapper">
+		<section id="case-resources">
+			<%= image_tag @legal_case.original_resource.url %>
+			<h4>VS</h4>
 			<%= image_tag @legal_case.derivative_resource.url %>
-			<p class="pull-left">Original</p>
-			<p class="pull-right">Derivative</p>
-			<h2>Facts</h2>
-			<%@facts.each do |fact|%>
-				<p><%=fact%></p>
-			<%end%>
-		</div>
-		<div class="span8">	
-			<%= render 'test_answers/form' %>
-		</div>
-	</div>
-</div>
+		</section>
+		<section id="case-details">
+			<h4><%=@legal_case.title%></h4>
+			<p><%=@legal_case.facts%></p>
+		</section>
+		<section class="tabs-left">
+			<ul class="nav nav-tabs" id="aspects">
+				<li class="active"><a href="#purpose"><span>1</span>PURPOSE</a></li>
+				<li><a href="#character"><span>2</span>CHARACTER</a></li>
+				<li><a href="#use"><span>3</span>USE</a></li>
+				<li><a href="#nature"><span>4</span>NATURE</a></li>
+				<li><a href="#amount"><span>5</span>AMOUNT</a></li>
+				<li><a href="#financial"><span>6</span>FINANCIAL</a></li>
+				<li id="help">
+					<ul>
+						<li><%=image_tag "fu.png"%><h6>Fair Use</h6></li>
+						<li><%=image_tag "nfu.png"%><h6>Not Fair Use</h6></li>
+						<li><%=image_tag "un.png"%><h6>Undecided</h6></li>
+					</ul>
+				</li>
+			</ul>
+			<%= form_for @test_answer do |f|%>
+				<div class="tab-content">
+					<%@questions.each do |question|%>
+						<div class="tab-pane" id="<%=question.flag%>">
+							<h5>
+								<%=question.content%>?
+								<%if question.hint%>
+									<a href="#" class="info" rel="tooltip" data-original-title="<%=question.hint%>">
+										<i class="icon-info-sign"></i>
+									</a> 
+								<%end%>
+							</h5>
+							<% question.answers.order('id').each do |answer| %>	
+								<div class="answer">		
+			   						<%=f.radio_button question.flag+"_id", answer.id %> 
+			   						<%=f.label answer.content%>
+			   						<%if answer.hint%>
+				   						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.hint%>">
+											<i class="icon-info-sign"></i>
+										</a>
+									<%end%>
+								</div>	
+							<%end%>					
+						</div>	
+					<%end%>
+				</div><!--tab-content-->
+			<%end%>	
+		</section><!--tabs-left-->
+	</div><!--test-case-wrapper-->
+</div><!--test-case-->
 <script type="text/javascript">
-$(".test-case").find(".btn-large").attr("value","Compare your Answer with Judges");
+	$(".test-case").find(".btn-large").attr("value","Compare your Answer with Judges");
+
+	$('.tab-content').find('.tab-pane').eq(0).addClass('active');
+	$('#aspects a').click(function (e) {
+		e.preventDefault();	
+		$(this).tab('show');
+	});
+
+	$(".info").tooltip();
 </script>
