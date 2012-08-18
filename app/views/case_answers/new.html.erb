@@ -100,9 +100,9 @@
 				<div class="case-result">
 					<h2>YOUR JUDGEMENT</h2>
 					<ul class="judgement-panel nav">
-						<li><%=image_tag "fu.png"%><sub>X</sub><h3>4</h3></li>
-						<li><%=image_tag "nfu.png"%><sub>X</sub><h3>3</h3></li>
-						<li><%=image_tag "un.png"%><sub>X</sub><h3>2</h3></li>
+						<li><%=image_tag "fu.png"%><sub>X</sub><h3>0</h3></li>
+						<li><%=image_tag "nfu.png"%><sub>X</sub><h3>0</h3></li>
+						<li><%=image_tag "un.png"%><sub>X</sub><h3>0</h3></li>
 					</ul>
 					<%= f.submit "Compare Result with Judges", :class => "btn",:id=> 'submit', :disabled=> true%>	
 				</div>
@@ -166,6 +166,22 @@
 		else {
 			lamp.css('background','url(<%= asset_path("un.png") %>)').css('border','none');
 		}
+
+		var fu=0,nfu=0,un=0;
+		$('input[type=radio]:checked').each(function(){
+			var checked_value = $(this).val();
+			if (($.inArray(checked_value, fair)) != -1) {fu++}
+			else if (($.inArray(checked_value, notfair)) != -1) {nfu++}
+			else{un++}
+
+		});
+		$('.judgement-panel li').eq(0).children('h3').text(fu);
+		$('.judgement-panel li').eq(1).children('h3').text(nfu);
+		$('.judgement-panel li').eq(2).children('h3').text(un);
+
 	});
+
+   
+
 
 </script>
