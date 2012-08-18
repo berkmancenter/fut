@@ -18,23 +18,23 @@
 			<h4><%=@legal_case.title%></h4>
 			<p><%=@legal_case.facts%></p>
 		</section>
-		<section class="tabs-left">
-			<ul class="nav nav-tabs" id="aspects">
-				<li class="active"><a href="#purpose"><span>1</span>PURPOSE</a></li>
-				<li><a href="#character"><span>2</span>CHARACTER</a></li>
-				<li><a href="#use"><span>3</span>USE</a></li>
-				<li><a href="#nature"><span>4</span>NATURE</a></li>
-				<li><a href="#amount"><span>5</span>AMOUNT</a></li>
-				<li><a href="#financial"><span>6</span>FINANCIAL</a></li>
-				<li id="help">
-					<ul>
-						<li><%=image_tag "fu.png"%><h6>Fair Use</h6></li>
-						<li><%=image_tag "nfu.png"%><h6>Not Fair Use</h6></li>
-						<li><%=image_tag "un.png"%><h6>Undecided</h6></li>
-					</ul>
-				</li>
-			</ul>
-			<%= form_for @test_answer do |f|%>
+		<%= form_for @test_answer do |f|%>
+			<section class="tabs-left">
+				<ul class="nav nav-tabs" id="aspects">
+					<li class="active"><a href="#purpose"><span>1</span>PURPOSE</a></li>
+					<li><a href="#character"><span>2</span>CHARACTER</a></li>
+					<li><a href="#use"><span>3</span>USE</a></li>
+					<li><a href="#nature"><span>4</span>NATURE</a></li>
+					<li><a href="#amount"><span>5</span>AMOUNT</a></li>
+					<li><a href="#financial"><span>6</span>FINANCIAL</a></li>
+					<li id="help">
+						<ul>
+							<li><%=image_tag "fu.png"%><h6>Fair Use</h6></li>
+							<li><%=image_tag "nfu.png"%><h6>Not Fair Use</h6></li>
+							<li><%=image_tag "un.png"%><h6>Undecided</h6></li>
+						</ul>
+					</li>
+				</ul>
 				<div class="tab-content">
 					<%@questions.each do |question|%>
 						<div class="tab-pane" id="<%=question.flag%>">
@@ -59,9 +59,19 @@
 							<%end%>					
 						</div>	
 					<%end%>
+					<%= hidden_field_tag :legal_case_id, @legal_case.id%>
 				</div><!--tab-content-->
-			<%end%>	
-		</section><!--tabs-left-->
+				<div class="case-result">
+					<h2>YOUR JUDGEMENT</h2>
+					<ul class="judgement-panel nav">
+						<li><%=image_tag "fu.png"%><sub>X</sub><h3>4</h3></li>
+						<li><%=image_tag "nfu.png"%><sub>X</sub><h3>3</h3></li>
+						<li><%=image_tag "un.png"%><sub>X</sub><h3>2</h3></li>
+					</ul>
+					<%= f.submit "Compare Result with Judges", :class => "btn",:id=> 'submit', :disabled=> true%>	
+				</div>
+			</section><!--tabs-left-->
+		<%end%>	
 	</div><!--test-case-wrapper-->
 </div><!--test-case-->
 <script type="text/javascript">
@@ -74,4 +84,24 @@
 	});
 
 	$(".info").tooltip();
+
+	/*To Disable Submit button until finishing all questions*/
+    $('input:radio').change(function(){
+        var names = [];
+        var allChecked = true;
+        $('input:radio').each(function(){
+            if(names.indexOf($(this).attr('name')) === -1) {
+                names.push($(this).attr('name'));
+            }
+        });
+        for(var i = 0, cnt = names.length; i < cnt; i++) {
+            if(!$('input[name="' + names[i] + '"]').is(':checked')) {
+                allChecked = false;
+            }
+        }
+        if(allChecked) {
+            $('#submit').removeAttr('disabled').addClass('btn-warning');
+        }
+    });
+
 </script>

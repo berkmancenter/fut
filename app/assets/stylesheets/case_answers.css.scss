@@ -51,7 +51,9 @@
 			}
 		}
 		.tabs-left{
+			background:green;
 			clear:both;
+			margin:0;
 			ul{
 				margin:0;
 				border-right:0;
@@ -87,7 +89,7 @@
 			}
 			#help ul{
 				background:white;
-				padding-top:10px;
+				padding-top:5px;
 				text-align:left;
 				li{
 					list-style:none;
@@ -105,6 +107,8 @@
 				}
 			}
 			.tab-content{
+				display:inline-block;
+				float:left;
 				background:#f5c060;
 				height:290px;
 				width:300px;
@@ -120,6 +124,7 @@
 					.info{
 						background:none;
 						position:relative;
+						right:5px;
 					}
 					h5{
 						font-family: "Conv_HelveticaNeueLTStd-MdCn";
@@ -128,13 +133,13 @@
 						margin-bottom:11px;
 						margin-top:2px;
 						.info{
-							bottom:3px;
+							bottom:2px;
 						}	
 					}
 					.answer{				
 						margin-bottom:8px;
 						.info{
-							top:3px;
+							top:4px;
 						}
 						input{
 							position:relative;
@@ -145,6 +150,53 @@
 							font-family: "Conv_HelveticaNeueLTStd-Cn";
 							font-size:17px;
 						}	
+					}
+				}	
+			}
+			.case-result{
+				float:left;
+				background:red;
+				width:300px;
+				background:#fbe5bd;
+				height:290px;
+				padding:10px;
+				font-family: "Conv_HelveticaNeueLTStd-Cn";
+				color:black;
+				h2{
+					padding-top:70px;
+				}
+				.btn{
+					margin-top:20px;
+					font-family:"KomikaTitleAxisRegular";
+					background-color: #7e8e96;
+					background-image:none;
+					color:white;
+					padding:10px 20px;
+					border:none;
+					box-shadow: 1px 1px rgba(0,0,0,0.1);
+				}
+				.btn:hover{
+					text-shadow:0px 0px 1px white;
+				}
+				.judgement-panel{
+					li,h3{
+						display:inline-block;
+					}
+					sub{
+						margin:0 5px;
+						font-size:12px;
+						position:relative;
+						font-weight:bold;
+						top:7px;
+						font-family: "Conv_HelveticaNeueLTStd-MdCn";
+					}
+					h3{
+						position:relative;
+						top:7px;
+						font-size:25px;
+					}
+					li:nth-child(2){
+						margin: 0 15px;
 					}
 				}
 			}
