@@ -61,7 +61,21 @@
 			ul,a{
 				background:#fbe5bd;
 			}
+			ul li div{
+				width:21px;
+				height:21px;
+				display:inline-block;
+				margin:0px;
+				padding:0px;
+				float:right;
+				position:relative;
+				top:3px;
+				border:1px solid white;
+				background:#e9d4b0;	
+				-webkit-transition: all 0.5s;
+			}
 			a{
+				width:140px;
 				padding:5px 10px;
 				margin:0;
 				webkit-border-radius: 0 0;
@@ -75,7 +89,7 @@
 				span{
 					color:#e5be82;
 					font-family:"KomikaTitleAxisRegular";
-					margin-right:10px;
+					margin-right:5px;
 					font-weight:bold;
 					font-size:25px;
 				}
@@ -111,7 +125,7 @@
 				float:left;
 				background:#f5c060;
 				height:290px;
-				width:300px;
+				width:275px;
 				border:none;
 				webkit-border-radius: 0 0;
 				moz-border-radius: 0 0;
@@ -156,7 +170,7 @@
 			.case-result{
 				float:left;
 				background:red;
-				width:300px;
+				width:275px;
 				background:#fbe5bd;
 				height:290px;
 				padding:10px;

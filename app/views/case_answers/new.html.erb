@@ -21,12 +21,48 @@
 		<%= form_for @test_answer do |f|%>
 			<section class="tabs-left">
 				<ul class="nav nav-tabs" id="aspects">
-					<li class="active"><a href="#purpose"><span>1</span>PURPOSE</a></li>
-					<li><a href="#character"><span>2</span>CHARACTER</a></li>
-					<li><a href="#use"><span>3</span>USE</a></li>
-					<li><a href="#nature"><span>4</span>NATURE</a></li>
-					<li><a href="#amount"><span>5</span>AMOUNT</a></li>
-					<li><a href="#financial"><span>6</span>FINANCIAL</a></li>
+					<li class="active">
+						<a href="#purpose">
+							<span>1</span>
+							PURPOSE
+							<div name="test_answer[purpose_id]"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#character">
+							<span>2</span>
+							CHARACTER
+							<div name="test_answer[character_id]"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#use">
+							<span>3</span>
+							USE
+							<div name="test_answer[use_id]"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#nature">
+							<span>4</span>
+							NATURE
+							<div name="test_answer[nature_id]"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#amount">
+							<span>5</span>
+							AMOUNT
+							<div name="test_answer[amount_id]"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#financial">
+							<span>6</span>
+							FINANCIAL
+							<div name="test_answer[financial_id]"></div>
+						</a>
+					</li>
 					<li id="help">
 						<ul>
 							<li><%=image_tag "fu.png"%><h6>Fair Use</h6></li>
@@ -83,7 +119,11 @@
 		$(this).tab('show');
 	});
 
+
+
 	$(".info").tooltip();
+
+
 
 	/*To Disable Submit button until finishing all questions*/
     $('input:radio').change(function(){
@@ -103,5 +143,29 @@
             $('#submit').removeAttr('disabled').addClass('btn-warning');
         }
     });
+
+
+
+    $('input[type=radio]').click(function(){
+
+		/*To light the corresponded lamp*/
+		$this = $(this);
+		var fair = ["1","2","3","4","5","6","7","10","11","12","14","21","23"];
+		var notfair = ["9","13","17","18","19","20","22"];
+		var name = $this.attr('name');
+		var value = $this.val();
+		var lamp = $('div[name*="'+name+'"]');
+		if (($.inArray(value, fair)) != -1) 
+		{
+			lamp.css('background','url(<%= asset_path("fu.png") %>)').css('border','none');
+		}
+		else if (($.inArray(value, notfair)) != -1)
+		{
+			lamp.css('background','url(<%= asset_path("nfu.png") %>)').css('border','none');
+		}
+		else {
+			lamp.css('background','url(<%= asset_path("un.png") %>)').css('border','none');
+		}
+	});
 
 </script>
