@@ -47,8 +47,10 @@ class TestAnswer < ActiveRecord::Base
   def get_result
       if self.result == true
         return "Fair Use"
-      else
+      elsif self.result == false
         return "Not Fair Use"
+      else
+        return "Undecided"
       end        
   end
 
@@ -60,5 +62,22 @@ class TestAnswer < ActiveRecord::Base
     answers << self.amount
     answers << self.financial  
     return answers
-  end 
+  end
+
+  def statistics
+    fu=0
+    nfu=0
+    un=0 
+    answers= self.get_answers
+    answers.each do |answer|  
+      if answer.value == 1
+        fu= fu+1
+      elsif answer.value == -1
+        nfu= nfu+1
+      else
+        un= un+1
+      end   
+    end
+    return [fu,nfu,un]
+  end  
 end
