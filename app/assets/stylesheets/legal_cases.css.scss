@@ -17,10 +17,12 @@
      	-moz-border-radius: 15px;
         border-radius: 15px;
         border: 3px solid black;
+        overflow:hidden;
         
         .case{
 			width:300px;
-			display: inline-block;
+			height:250px;
+			display: block;
 			background-color:white;
 			padding:10px;
 			-webkit-border-radius: 15px;
@@ -29,6 +31,7 @@
         	box-shadow: 8px 8px rgba(0,0,0,0.2);
         	color:black;
         	margin:20px;
+        	float:left;
 
 			img{
 				width:100px;

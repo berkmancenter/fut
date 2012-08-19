@@ -8,6 +8,24 @@
 		text-align:left;
 		margin-bottom:10px;
 	}
+	.help{
+		padding-top:5px;
+		text-align:left;
+		li{
+			list-style:none;
+			margin-top:3px;
+			h6{
+				display:inline-block;
+				color:black;
+				font-family: "Conv_HelveticaNeueLTStd-Cn";
+				font-size:10px;
+				margin-left:5px;
+				letter-spacing:1px;
+				position:relative;
+				top:2px;
+			}
+		}
+	}
 	.test-case-wrapper{
 		background:white;
 		overflow:hidden;
@@ -101,24 +119,8 @@
 					text-shadow: 2px 2px #e0a042;
 				}
 			}
-			#help ul{
-				background:white;
-				padding-top:5px;
-				text-align:left;
-				li{
-					list-style:none;
-					margin-top:3px;
-					h6{
-						display:inline-block;
-						color:black;
-						font-family: "Conv_HelveticaNeueLTStd-Cn";
-						font-size:10px;
-						margin-left:5px;
-						letter-spacing:1px;
-						position:relative;
-						top:2px;
-					}
-				}
+			ul:last-child{
+				background-color:white;
 			}
 			.tab-content{
 				overflow:hidden;
@@ -262,12 +264,14 @@
 					overflow:hidden;	
 					div:first-child{
 						float:left;
+						margin-left:15px;
 					}
 					div:nth-child(2){
 						float:right;
+						margin-right:25px;
 					}
 					div{
-						width:300px;
+						width:280px;
 						display:inline-block;
 						text-align:center;
 						border-bottom:5px solid #f5c060;
@@ -306,19 +310,21 @@
 						border-bottom:1px solid rgba(255,255,255,0.3);
 					}
 					td{
+					font-family: "Verdana";
 					font-size:13px;
 					font-weight:bold;
+					text-align:left;
 					}
 					.details{
 						display:none;
-						text-align:left;
 						p{
-							font-family:inhert;
+							font-family: "Verdana";
 							margin:10px;
+							font-weight:normal;
 						}
 					}
 					tr td:first-child{
-						width:95px;
+						width:105px;
 						color:black;
 						text-align:left;
 						font-weight:bold;
@@ -334,11 +340,38 @@
 						}
 					}
 					tr td:nth-child(2){
-						width:325px;
+						width:315px;
+					}
+					tr td:last-child{
+						width:20px;
+						padding-right:5px;
+						.closed{
+							transform:rotate(90deg);
+							-ms-transform:rotate(90deg); 
+							-moz-transform:rotate(90deg);
+							-webkit-transform:rotate(90deg);
+							-o-transform:rotate(90deg);
+						}
 					}
 					tr:hover{
 						cursor:pointer;
 					}
+
+				}
+				.help{
+					margin-left:0px;
+					float:left;
+					li{
+						display:inline-block;
+						margin-right:10px;
+
+					}
+				}
+				#download{
+					color:black;
+					float:right;
+					font-size:12px;
+					margin-top:10px;
 				}
 			}
 		}

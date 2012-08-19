@@ -46,17 +46,35 @@
 				<table>
 					<%for i in 0..5 %>
 						<tr class="aspect-answer">
-							<td><span><%=i+1%></span><%=@questions[i].flag.capitalize%></td>
-							<td class=<%=@answers_of_case[i].get_use%>><%=@answers_of_case[i].content%></td>
-							<td class=<%=@court_answers_report[i][:answer].get_use%>><%=@court_answers_report[i][:answer].content%></td>
+							<td>
+								<span><%=i+1%></span><%=@questions[i].flag.capitalize%>
+							</td>
+							<td class=<%=@answers_of_case[i].get_use%>>
+								<%=image_tag 'fu.png'%>
+								<%=@answers_of_case[i].content%>
+							</td>
+							<td class=<%=@court_answers_report[i][:answer].get_use%>>
+								<%=image_tag 'nfu.png'%>
+								<%=@court_answers_report[i][:answer].content%>
+							</td>
+							<td>
+								<%=image_tag 'select_right.gif', :class=> "closed"%>
+							</td>
 						</tr>
 						<tr class="details">
 							<td></td>
 							<td></td>
 							<td><p><%=@court_answers_report[i][:court_details]%></p></td>
+							<td></td>
 						</tr>
 					<%end%>
 				</table>
+				<ul class="help">
+					<li><%=image_tag "fu.png"%><h6>Fair Use</h6></li>
+					<li><%=image_tag "nfu.png"%><h6>Not Fair Use</h6></li>
+					<li><%=image_tag "un.png"%><h6>Undecided</h6></li>
+				</ul>
+				<p id="download">You can download <a href="">the non-legal Summary</a> (PDF)</p>
 			</section>
 		</div>
 	</div><!--test-case-wrapper-->
@@ -64,5 +82,12 @@
 <script type="text/javascript">
 	$('.aspect-answer').on('click',function(){
 		$(this).next().toggle(200);
+		var arrow= $(this).children('td:last-child').children('img')
+		if(arrow.hasClass('closed')){
+			arrow.removeClass('closed');
+		}
+		else{
+			arrow.addClass('closed');	
+		}
 	});
 </script>
