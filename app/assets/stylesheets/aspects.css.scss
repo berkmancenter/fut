@@ -21,6 +21,25 @@
 			position:relative;
 			top:2px;
 		}
+		.nav-tabs > li > a:hover {  
+			background-color:#f49a00;
+			border: 3px solid black;
+		 }
+
+		.nav-tabs > .active > a{  
+			background-color: #f49a00;
+			border: 3px solid black;
+			color: default; 
+		}   
+
+		.nav-tabs > .active > a	,
+		.nav-tabs > .active > a:hover {
+  			color: black;
+  			border-bottom: 3px solid #f49a00;
+  			text-decoration:none;
+		}
+
+
 	}
 	text-align:center;
 	

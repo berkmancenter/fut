@@ -10,7 +10,9 @@
  *
 
  *= require_self
- *= require layout
+ *= require bootstrap
+ *= require bootstrap-override
+ *= require layout  
  *= require aspects
  *= require case_answers
  *= require legal_cases 
@@ -18,7 +20,5 @@
  *= require questions 
  *= require roles 
  *= require sessions  
- *= require test_answers 
- *= require zbootstrap 
- *= require layout 
+ *= require test_answers
  */
