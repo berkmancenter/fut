@@ -1,12 +1,6 @@
 class SessionsController < ApplicationController
   before_filter :check_visitor
   before_filter :check_role, :only => [:desk]
-  
-  def index
-  end
-
-  def desk
-  end
 
   def start_over
   	@current_visitor= Visitor.create

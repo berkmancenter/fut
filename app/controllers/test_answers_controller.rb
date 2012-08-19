@@ -56,23 +56,4 @@ class TestAnswersController < ApplicationController
 			render :text => "3abeeet"
 		end				
 	end
-	
-	def edit
-		@legal_case = LegalCase.find_by_title params[:legal_case_id] 
-		@questions = Question.essential.order('id')	
-		@test_answer = TestAnswer.find(params[:id])
-	end
-
-	def update
-		@test_answer = TestAnswer.find(params[:id])
-		@test_answer.update_attributes(params[:test_answer])
-		@legal_case = @test_answer.court_decision_case
-		redirect_to edit_case_court_decision_detail_path(@legal_case.title,@test_answer.court_decision_detail)
-	end
-
-	def destroy
-		@test_answer= TestAnswer.find(params[:id])
-		@test_answer.destroy
-		redirect_to home_path
-	end
 end
