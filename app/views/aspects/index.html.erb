@@ -3,6 +3,7 @@ body{
 	background-color: #db0017;
 }
 </style>
+
 <div class="wfu">
 	<h1>What is Fair Use?</h1>
 	<p>
@@ -62,51 +63,11 @@ body{
 	</div>
 </div>
 <script>
-	$('#quiz-button').on('click',function(){
-		$('.quiz-area').slideDown(200);
-	});
-
-	$('input:radio').change(function(){
-        var names = [];
-        var allChecked = true;
-        $('input:radio').each(function(){
-            if(names.indexOf($(this).attr('name')) === -1) {
-                names.push($(this).attr('name'));
-            }
-        });
-        for(var i = 0, cnt = names.length; i < cnt; i++) {
-            if(!$('input[name="' + names[i] + '"]').is(':checked')) {
-                allChecked = false;
-            }
-        }
-        if(allChecked) {
-            $('#result-btn').removeAttr('disabled').css('background-color','red');
-        }
-    });
-	$('#result-btn').on('click',function(){
-		<%
-			@current_visitor.quiz=true
-			@current_visitor.save!
-		%>
-		$('label').css('color','black');
-		$('.info').hide();
-
-		$('input[type=radio]:checked').each(function(){
-			if ($(this).val() == 1){$(this).next().css('color','green')}
-			else {
-				$(this).next().css('color','red')
-				$(this).siblings('input[value=1]').each(function(){
-					$(this).next().css('color','green').next().show();
-				});
-			}			
-		});
-	});
-	
-	$('.tab-content').find('.tab-pane').eq(0).addClass('active');
-	$('#aspects a').click(function (e) {
-	  e.preventDefault();	
-	  $(this).tab('show');
-	});
-	
-	$(".info").tooltip();
+$('#result-btn').on('click',function(){
+	<%
+		@current_visitor.quiz=true
+		@current_visitor.save!
+	%>
+});		
 </script>
+<%= javascript_include_tag 'bootstrap-tab', 'bootstrap-tooltip', 'button', 'tabs', 'aspects' %>

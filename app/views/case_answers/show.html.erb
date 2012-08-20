@@ -79,15 +79,4 @@
 		</div>
 	</div><!--test-case-wrapper-->
 </div><!--test-case-->
-<script type="text/javascript">
-	$('.aspect-answer').on('click',function(){
-		$(this).next().toggle(200);
-		var arrow= $(this).children('td:last-child').children('img')
-		if(arrow.hasClass('closed')){
-			arrow.removeClass('closed');
-		}
-		else{
-			arrow.addClass('closed');	
-		}
-	});
-</script>
+<%= javascript_include_tag 'case_answers' %>
