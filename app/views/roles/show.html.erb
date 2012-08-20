@@ -1,6 +1,6 @@
 <div class="desk" style="background:url(<%= asset_path("#{@current_role.name.split(" ")[0].downcase}_desk.png") %>);">
-	<a href="<%=wfu_path%>"><div>What is Fair Use?</div></a>
-	<a href="<%=legal_cases_path%>"><div>Cases</div></a>
+	<a href="<%=role_wfu_path(@current_role.name.gsub(" ","_"))%>"><div>What is Fair Use?</div></a>
+	<a href="<%=role_legal_cases_path(@current_role.name.gsub(" ","_"))%>"><div>Cases</div></a>
 	<a href="<%=%>"><div>Scenarios</div></a>
 	<a id="calculator" class="locked">
 		<div>
@@ -18,9 +18,9 @@
 <script type="text/javascript">
 	<%if @current_visitor.progress == "2" %>
 		$(document).ready(function() {
-		    $('a#calculator').attr("href","<%=calculator_path%>").removeClass("locked");
+		    $('a#calculator').attr("href","<%=role_calculator_path(@current_role.name.gsub(" ","_"))%>").removeClass("locked");
 		    $('.icon-lock').hide();
-		    $('p').text("WOW! You can use calculator now");
+		    $('#calculator p').text("WOW! You can use calculator now");
 		});
 	<%end%>
 </script>

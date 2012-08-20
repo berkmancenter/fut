@@ -2,12 +2,12 @@
 	<li>
 		<h2>choose a role</h2>
 		<%if @current_visitor.progress != "0"%>
-			<%=link_to "START OVER",{:controller => "sessions", :action => "start_over"}%>
+			<%=link_to "START OVER",{:controller => "home", :action => "start_over"}%>
 		<%end%>
 	</li>
-	<%Role.available.order('id').each do |role|%>
+	<%Role.order('id').each do |role|%>
 		<li>
-			<%=link_to({:controller => 'roles', :action => 'set_role', :id => role.id}) do %>	
+			<%=link_to(role_path(role.name.gsub(" ","_"))) do %>	
             	<%= image_tag role.name.downcase + ".png"%>
 				<h4><%=role.name%></h4>
           	<%end%>

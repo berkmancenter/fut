@@ -1,8 +1,8 @@
 class RolesController < ApplicationController
 	before_filter :check_visitor
-	def set_role
-		@current_visitor.role = Role.find params[:id]
-		@current_visitor.save
-		redirect_to desk_path
+	def show
+		@current_role = Role.find_by_name params[:id].gsub("_"," ")
+		@current_visitor.role = @current_role
+		@current_visitor.save	
 	end
 end

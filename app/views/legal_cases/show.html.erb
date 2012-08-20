@@ -1,9 +1,94 @@
-<div class="show-case">
-	<h2><%=@legal_case.title%></h2>
-	<%= image_tag @legal_case.original_resource.url %> <h4>vs</h4>
-	<%= image_tag @legal_case.derivative_resource.url %>
-	<h3>Overview</h3>
-	<p><%=@legal_case.facts.split('.')[0]%></p>
+<style type="text/css">
+	body{
+		background-color: #db0017;
+	}
+</style>
+<div class="test-case">
+	<h1>Real Cases</h1>
+	<p>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+	</p>
+	<div class="test-case-wrapper">
+		<section id="case-resources">
+			<%= image_tag @legal_case.original_resource.url %>
+			<h4>VS</h4>
+			<%= image_tag @legal_case.derivative_resource.url %>
+		</section>
+		<section id="case-details">
+			<h4><%=@legal_case.title%></h4>
+			<p><%=@legal_case.facts%></p>
+		</section>
+		<%= render 'case_answers/new'%>	
+	</div><!--test-case-wrapper-->
+</div><!--test-case-->
+<script type="text/javascript">
+	$(".test-case").find(".btn-large").attr("value","Compare your Answer with Judges");
 
- <%= link_to "LET'S GO", new_legal_case_case_answer_path(@legal_case.title)%>
-</div>
+	$('.tab-content').find('.tab-pane').eq(0).addClass('active');
+	$('#aspects a').click(function (e) {
+		e.preventDefault();	
+		$(this).tab('show');
+	});
+
+
+
+	$(".info").tooltip();
+
+
+
+	/*To Disable Submit button until finishing all questions*/
+    $('input:radio').change(function(){
+        var names = [];
+        var allChecked = true;
+        $('input:radio').each(function(){
+            if(names.indexOf($(this).attr('name')) === -1) {
+                names.push($(this).attr('name'));
+            }
+        });
+        for(var i = 0, cnt = names.length; i < cnt; i++) {
+            if(!$('input[name="' + names[i] + '"]').is(':checked')) {
+                allChecked = false;
+            }
+        }
+        if(allChecked) {
+            $('#submit').removeAttr('disabled').addClass('btn-warning');
+        }
+    });
+
+
+
+    $('input[type=radio]').click(function(){
+
+		/*To light the corresponded lamp*/
+		$this = $(this);
+		var fair = ["1","2","3","4","5","6","7","10","11","12","14","21","23"];
+		var notfair = ["9","13","17","18","19","20","22"];
+		var name = $this.attr('name');
+		var value = $this.val();
+		var lamp = $('div[name*="'+name+'"]');
+		if (($.inArray(value, fair)) != -1) 
+		{
+			lamp.css('background','url(<%= asset_path("fu.png") %>)').css('border','none');
+		}
+		else if (($.inArray(value, notfair)) != -1)
+		{
+			lamp.css('background','url(<%= asset_path("nfu.png") %>)').css('border','none');
+		}
+		else {
+			lamp.css('background','url(<%= asset_path("un.png") %>)').css('border','none');
+		}
+
+		var fu=0,nfu=0,un=0;
+		$('input[type=radio]:checked').each(function(){
+			var checked_value = $(this).val();
+			if (($.inArray(checked_value, fair)) != -1) {fu++}
+			else if (($.inArray(checked_value, notfair)) != -1) {nfu++}
+			else{un++}
+
+		});
+		$('.judgement-panel li').eq(0).children('h3').text(fu);
+		$('.judgement-panel li').eq(1).children('h3').text(nfu);
+		$('.judgement-panel li').eq(2).children('h3').text(un);
+
+	});
+</script>

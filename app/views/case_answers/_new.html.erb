@@ -1,0 +1,90 @@
+<%= form_for @test_answer do |f|%>
+	<section class="tabs-left">
+		<ul class="nav nav-tabs" id="aspects">
+			<li class="active">
+				<a href="#purpose">
+					<span>1</span>
+					PURPOSE
+					<div name="test_answer[purpose_id]"></div>
+				</a>
+			</li>
+			<li>
+				<a href="#character">
+					<span>2</span>
+					CHARACTER
+					<div name="test_answer[character_id]"></div>
+				</a>
+			</li>
+			<li>
+				<a href="#use">
+					<span>3</span>
+					USE
+					<div name="test_answer[use_id]"></div>
+				</a>
+			</li>
+			<li>
+				<a href="#nature">
+					<span>4</span>
+					NATURE
+					<div name="test_answer[nature_id]"></div>
+				</a>
+			</li>
+			<li>
+				<a href="#amount">
+					<span>5</span>
+					AMOUNT
+					<div name="test_answer[amount_id]"></div>
+				</a>
+			</li>
+			<li>
+				<a href="#financial">
+					<span>6</span>
+					FINANCIAL
+					<div name="test_answer[financial_id]"></div>
+				</a>
+			</li>
+			<li>
+				<ul class="help">
+					<li><%=image_tag "fu.png"%><h6>Fair Use</h6></li>
+					<li><%=image_tag "nfu.png"%><h6>Not Fair Use</h6></li>
+					<li><%=image_tag "un.png"%><h6>Undecided</h6></li>
+				</ul>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<%@questions.each do |question|%>
+				<div class="tab-pane" id="<%=question.flag%>">
+					<h5>
+						<%=question.content%>?
+						<%if question.hint%>
+							<a href="#" class="info" rel="tooltip" data-original-title="<%=question.hint%>">
+								<i class="icon-info-sign"></i>
+							</a> 
+						<%end%>
+					</h5>
+					<% question.answers.order('id').each do |answer| %>	
+						<div class="answer">		
+	   						<%=f.radio_button question.flag+"_id", answer.id %> 
+	   						<%=f.label answer.content%>
+	   						<%if answer.hint%>
+		   						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.hint%>">
+									<i class="icon-info-sign"></i>
+								</a>
+							<%end%>
+						</div>	
+					<%end%>					
+				</div>	
+			<%end%>
+			<%= hidden_field_tag :legal_case_id, @legal_case.id%>
+		</div><!--tab-content-->
+		<div class="result">
+			<h2>YOUR JUDGEMENT</h2>
+			<ul class="judgement-panel nav">
+				<li><%=image_tag "fu.png"%><sub>X</sub><h3>0</h3></li>
+				<li><%=image_tag "nfu.png"%><sub>X</sub><h3>0</h3></li>
+				<li><%=image_tag "un.png"%><sub>X</sub><h3>0</h3></li>
+			</ul>
+			<%= f.submit "Compare Result with Judges", :class => "btn",:id=> 'submit', :disabled=> true%>	
+		</div>
+	</section><!--tabs-left-->
+<%end%>	

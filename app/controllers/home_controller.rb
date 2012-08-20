@@ -1,6 +1,5 @@
-class SessionsController < ApplicationController
+class HomeController < ApplicationController
   before_filter :check_visitor
-  before_filter :check_role, :only => [:desk]
 
   def start_over
   	@current_visitor= Visitor.create

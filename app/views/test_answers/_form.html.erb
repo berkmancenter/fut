@@ -1,7 +1,5 @@
 <%= form_for @test_answer, :remote => ((params[:controller] == "calculators")? true : false)  do |f|%>
 <div class="span8">
-	
-
 	<%@questions.each do |question|%>
 		<div class= "question-box">
 			<h3>

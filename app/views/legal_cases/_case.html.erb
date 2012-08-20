@@ -1,4 +1,4 @@
-<a href="<%=new_legal_case_case_answer_path(legal_case.title)%>" class="case">
+<a href="<%=role_legal_case_path(@current_role.name.gsub(" ","_"),legal_case.title.gsub(" ","_"))%>" class="case">
 	<h3><%=legal_case.title%></h3>
 	<%= image_tag legal_case.original_resource.url %> <h4>vs</h4>
 	<%= image_tag legal_case.derivative_resource.url %>

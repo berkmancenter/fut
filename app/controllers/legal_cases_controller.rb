@@ -7,13 +7,14 @@ class LegalCasesController < ApplicationController
 	end
 
 	def show
-		# To make sure that the requested legal case has the same current role
-		if @legal_case = LegalCase.find_by_title(params[:id])
-			unless @legal_case.roles.include? @current_role
-				render :text => "This legal Case is not included in your role"
-			end
+		@legal_case = LegalCase.find_by_title (params[:id]).gsub("_"," ")
+		# To make sure that the requested case has the same current role
+		unless @legal_case.roles.include? @current_role
+			redirect_to home_path
 		else
-			render :text => "Wrong Page"
-		end
+			# Neded for new case answer partial view
+			@questions = Question.essential.order('id')	
+			@test_answer = TestAnswer.new
+		end	
 	end
 end

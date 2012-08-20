@@ -1,8 +1,8 @@
-
 class StaticController < ApplicationController
-  def about
+  before_filter :check_visitor
+  def About
   end
 
-  def learn_more
+  def LearnMore
   end
 end
