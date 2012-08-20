@@ -13,12 +13,12 @@
  *= require bootstrap
  *= require bootstrap-override
  *= require layout
- *= require home    
+ *= require home
+ *= require roles    
  *= require aspects
  *= require case_answers
  *= require legal_cases 
  *= require mixins 
- *= require questions 
- *= require roles 
+ *= require questions
  *= require test_answers
  */

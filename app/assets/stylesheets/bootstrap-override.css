@@ -2,23 +2,34 @@ body {
   font-family: "Verdana", Helvetica, Arial, sans-serif;
   color: white;
   background-color:#114863;
- }
+}
 
- a:hover{
+h1{
+  font-family:"KomikaTitleAxisRegular";
+  letter-spacing:3px;
+  font-size:35px;
+  margin-top:50px;
+  text-align:left;
+  margin-bottom:10px;
+}
+p{
+  text-align:left;
+}
+
+a:hover{
   text-decoration: none;
- }
+}
 
- .container,
- .navbar-fixed-top .container,
- .navbar-fixed-bottom .container {
+.container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
   width: 800px;
- }
+}
 
- .table tbody tr:hover td,
-
- .table tbody tr:hover th {
+.table tbody tr:hover td,
+.table tbody tr:hover th {
   background-color: transparent;  
- }
+}
 [class^="icon-"],
 [class*=" icon-"] {
   background-image: url(glyphicons-halflings.png);

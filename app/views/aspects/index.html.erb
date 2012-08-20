@@ -3,7 +3,7 @@ body{
 	background-color: #db0017;
 }
 </style>
-<div class="intro">
+<div class="wfu">
 	<h1>What is Fair Use?</h1>
 	<p>
 		To help you learn more about Fair Use, on this site, we have many fun activities to help you learn how you can use other people’s work to the fullest, and fairest, advantage! 
@@ -45,7 +45,7 @@ body{
 		<h4>If your struggle, use the cheat sheet above ;)</h4>
 		<div class="wrapper">	
 			<%@quiz_questions.each do |quiz_question|%>
-				<div class="span6">
+				<div class="quiz">
 					<h5><%=quiz_question.content%></h5>
 					<%quiz_question.answers.each do |answer|%>
 						<%= radio_button_tag( "question#{quiz_question.id}", answer.value) %>
