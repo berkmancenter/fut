@@ -308,15 +308,17 @@
 						border-bottom:1px solid rgba(255,255,255,0.3);
 					}
 					td{
-					font-family: "Verdana";
 					font-size:13px;
 					font-weight:bold;
 					text-align:left;
 					}
+					td img{
+						margin-bottom:4px;
+					}
 					.details{
 						display:none;
 						p{
-							font-family: "Verdana";
+	
 							margin:10px;
 							font-weight:normal;
 						}

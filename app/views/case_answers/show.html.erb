@@ -20,7 +20,7 @@
 				<h4>Final</br> Result</h4>
 			</section>
 			<section id="main-panel">
-				<h1 class="<%=@legal_case.court_decision.get_result.split(" ")[0]%>"><%=@legal_case.court_decision.get_result%></h1>
+				<h1 class="<%=setColor(@legal_case.court_decision.get_result)%>"><%=@legal_case.court_decision.get_result%></h1>
 				<h4>Congratulation!<h4> 
 				<h5>you made  almost the same decision as the real judges did</h5>
 				<div id="judge-panels">
@@ -49,12 +49,12 @@
 							<td>
 								<span><%=i+1%></span><%=@questions[i].flag.capitalize%>
 							</td>
-							<td class=<%=@answers_of_case[i].get_use%>>
-								<%=image_tag 'fu.png'%>
+							<td class="<%=setColor(@answers_of_case[i].value)%>">
+								<%=image_tag setIcon(@answers_of_case[i].value)%>
 								<%=@answers_of_case[i].content%>
 							</td>
-							<td class=<%=@court_answers_report[i][:answer].get_use%>>
-								<%=image_tag 'nfu.png'%>
+							<td class="<%=setColor(@court_answers_report[i][:answer].value)%>">
+								<%=image_tag setIcon(@court_answers_report[i][:answer].value)%>
 								<%=@court_answers_report[i][:answer].content%>
 							</td>
 							<td>
