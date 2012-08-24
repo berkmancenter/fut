@@ -1,88 +1,45 @@
 @import "mixins.css.scss";
 .cases{
 	text-align:center;
-	h1{
-		font-family:"KomikaTitleAxisRegular";
-		letter-spacing:3px;
-		font-size:35px;
-		margin-top:50px;
-		text-align:left;
-		margin-bottom:10px;
-	}
-
-	a{
-		display: inline-block;
-		background-color: #9fd423;
-		background-image: -moz-linear-gradient(top, #9fd423, #73ad27);
-		background-image: -ms-linear-gradient(top, #9fd423, #73ad27);
-		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9fd423), to(#73ad27));
-		background-image: -webkit-linear-gradient(top, #9fd423, #73ad27);
-		background-image: -o-linear-gradient(top, #9fd423, #73ad27);
-		background-image: linear-gradient(top, #9fd423, #73ad27);
-		background-repeat: repeat-x;
-		border: 4px solid #235d30;
+	.cases-wrapper{
+		background-color:#F49A00;
+		padding: 20px;
+		text-align:center;
 		-webkit-border-radius: 15px;
      	-moz-border-radius: 15px;
         border-radius: 15px;
-       	padding:25px;
-       	margin:10px;
-       	font-family:"KomikaTitleAxisRegular";
-		font-size:12px;
-	    letter-spacing:2px;
-	    color:white;
-	}
-}	
+        border: 3px solid black;
+        overflow:hidden;
+        
+        .case{
+			width:300px;
+			height:250px;
+			display: block;
+			background-color:white;
+			padding:10px;
+			-webkit-border-radius: 15px;
+     		-moz-border-radius: 15px;
+        	border-radius: 15px;
+        	box-shadow: 8px 8px rgba(0,0,0,0.2);
+        	color:black;
+        	margin:20px;
+        	float:left;
 
-.show-case{
-	width:450px;
-	margin:auto;
-	margin-top:15px;
-	background-color: #9fd423;
-	background-image: -moz-linear-gradient(top, #9fd423, #73ad27);
-	background-image: -ms-linear-gradient(top, #9fd423, #73ad27);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9fd423), to(#73ad27));
-	background-image: -webkit-linear-gradient(top, #9fd423, #73ad27);
-	background-image: -o-linear-gradient(top, #9fd423, #73ad27);
-	background-image: linear-gradient(top, #9fd423, #73ad27);
-	background-repeat: repeat-x;
-	border: 4px solid #235d30;
-	-webkit-border-radius: 15px;
- 	-moz-border-radius: 15px;
-    border-radius: 15px;
-   	padding:25px;
-    color:white;
-    text-align:center;
-	
-	h2,h3,h4,a{
-		font-family:"KomikaTitleAxisRegular";
-		letter-spacing:2px;	
-	}
-	h4{
-		display:inline-block;
-	}
-	img{
-		width:150px;
-		height:200px;
-		margin:10px;
-	}
-	p{
+			img{
+				width:100px;
+				height:100px;
+       			margin: 10px 0;
+			}
+			h4{
+				display:inline;
+				font-family:"KomikaTitleAxisRegular";
+				margin: 0 5px;
+				font-size:17px;
 
-	}
-	a{
-		display:inline-block;
-		box-shadow: 0px 0px 4px white;
-		height:30px;
-		width:150px;
-		line-height:30px;
-		font-size:14px;
-		background-color: rgba(35, 93, 48, 0.6);
-		padding:10px;
-		color:white;
-		-webkit-border-radius: 5px;
- 		-moz-border-radius: 5px;
-    	border-radius: 5px;
-	}
-	a:hover{
-		box-shadow: 0px 0px 8px white;	
+			}
+		}
+		.case:hover{
+			background-color:#eee;
+		}
 	}
 }

@@ -1,3 +1,0 @@
-
-class AttachmentsController < ApplicationController
-end

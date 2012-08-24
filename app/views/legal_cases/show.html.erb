@@ -1,9 +1,24 @@
-<div class="show-case">
-	<h2><%=@legal_case.title%></h2>
-	<%= image_tag @legal_case.original_resource.url %> <h4>vs</h4>
-	<%= image_tag @legal_case.derivative_resource.url %>
-	<h3>Overview</h3>
-	<p><%=@legal_case.facts.split('.')[0]%></p>
-
- <%= link_to "LET'S GO", new_legal_case_case_answer_path(@legal_case.title)%>
-</div>
+<style type="text/css">
+	body{
+		background-color: #db0017;
+	}
+</style>
+<div class="test-case">
+	<h1>Real Cases</h1>
+	<p>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+	</p>
+	<div class="test-case-wrapper">
+		<section id="case-resources">
+			<%= image_tag @legal_case.original_resource.url %>
+			<h4>VS</h4>
+			<%= image_tag @legal_case.derivative_resource.url %>
+		</section>
+		<section id="case-details">
+			<h4><%=@legal_case.title%></h4>
+			<p><%=@legal_case.facts%></p>
+		</section>
+		<%= render 'case_answers/new'%>	
+	</div><!--test-case-wrapper-->
+</div><!--test-case-->
+<%= javascript_include_tag 'bootstrap-tab', 'bootstrap-tooltip', 'button', 'tabs', 'scoreboard' %>

@@ -1,0 +1,15 @@
+$("#quiz-button").on "click", ->
+  $(".quiz-area").slideDown 200
+
+$("#result-btn").on "click", ->
+  $("label").css "color", "black"
+  $(".info").hide()
+  $("input[type=radio]:checked").each ->
+    if $(this).val() is "1"
+      $(this).next().css "color", "green"
+    else
+      $(this).next().css "color", "red"
+      $(this).siblings("input[value=1]").each ->
+        $(this).next().css("color", "green").next().show()
+
+

@@ -1,39 +1,82 @@
-<div class="case-answer">
-	<h1>Congratulations!</h1>
-	<h3>You are almost a judge</h3>
-
-	<h3>You got</h3> 
-	<h2 class="<%=@case_answer.test_answer.get_result.split(" ")[0]%>"><%=@case_answer.test_answer.get_result%></h2>
-
-	<%unless @case_answer.legal_case.court_decision.result == nil%>
-		<h3>and The Court Decision was</h3>
-		<h2 class="<%=@legal_case.court_decision.get_result.split(" ")[0]%>"><%=@legal_case.court_decision.get_result%>
-		</h2>
-	<%end%>
-
-	<h3>The Report</h3>
-	<table class="table">
-		<tr>
-			<td class="high"><h4>Aspect</h4></td>
-			<td class="high"><h4>You</h4></td>
-			<td class="high"><h4>Judge Report</h4></td>
-		</tr>
-		<%for i in 0..5 %>
-			<tr>
-				<td class="high">
-					<p><h4><%=@questions[i].flag.capitalize%></h4></p>
-				</td>
-				
-				<td>
-					<p><%=@answers_of_case[i].content%></p>
-				</td>
-				
-				<td>
-					<strong><%=@court_answers_report[i][:answer].content%></strong>
-					<p><%=@court_answers_report[i][:court_details]%></p>
-				</td>
-			</tr>
-		<%end%>
-	</table>		
-	<%= link_to "Test More Legal Cases?", legal_cases_path %>
-</div>
+<style type="text/css">
+	body{
+		background-color: #db0017;
+	}
+</style>
+<div class="test-case">
+	<h1>Real Cases</h1>
+	<div class="test-case-wrapper">
+		<section id="case-resources">
+			<%= image_tag @legal_case.original_resource.url %>
+			<h4>VS</h4>
+			<%= image_tag @legal_case.derivative_resource.url %>
+		</section>
+		<section id="case-details">
+			<h4><%=@legal_case.title%></h4>
+			<p><%=@legal_case.facts%></p>
+		</section>
+		<div class="case-result">
+			<section id="final">
+				<h4>Final</br> Result</h4>
+			</section>
+			<section id="main-panel">
+				<h1 class="<%=setColor(@legal_case.court_decision.get_result)%>"><%=@legal_case.court_decision.get_result%></h1>
+				<h4>Congratulation!<h4> 
+				<h5>you made  almost the same decision as the real judges did</h5>
+				<div id="judge-panels">
+					<div>
+						<h2>YOU</h2>
+						<ul class="judgement-panel nav">
+							<li><%=image_tag "fu.png"%><sub>X</sub><h3><%=@answer_statistics[0]%></h3></li>
+							<li><%=image_tag "nfu.png"%><sub>X</sub><h3><%=@answer_statistics[1]%></h3></li>
+							<li><%=image_tag "un.png"%><sub>X</sub><h3><%=@answer_statistics[2]%></h3></li>
+						</ul>
+					</div>
+					<div>
+						<h2>THE JUDGES</h2>
+						<ul class="judgement-panel nav">
+							<li><%=image_tag "fu.png"%><sub>X</sub><h3><%=@court_statistics[0]%></h3></li>
+							<li><%=image_tag "nfu.png"%><sub>X</sub><h3><%=@court_statistics[1]%></h3></li>
+							<li><%=image_tag "un.png"%><sub>X</sub><h3><%=@court_statistics[2]%></h3></li>
+						</ul>
+					</div>	
+				</div>
+			</section>
+			<section class="report">
+				<table>
+					<%for i in 0..5 %>
+						<tr class="aspect-answer">
+							<td>
+								<span><%=i+1%></span><%=@questions[i].flag.capitalize%>
+							</td>
+							<td class="<%=setColor(@answers_of_case[i].value)%>">
+								<%=image_tag setIcon(@answers_of_case[i].value)%>
+								<%=@answers_of_case[i].content%>
+							</td>
+							<td class="<%=setColor(@court_answers_report[i][:answer].value)%>">
+								<%=image_tag setIcon(@court_answers_report[i][:answer].value)%>
+								<%=@court_answers_report[i][:answer].content%>
+							</td>
+							<td>
+								<%=image_tag 'select_right.gif', :class=> "closed"%>
+							</td>
+						</tr>
+						<tr class="details">
+							<td></td>
+							<td></td>
+							<td><p><%=@court_answers_report[i][:court_details]%></p></td>
+							<td></td>
+						</tr>
+					<%end%>
+				</table>
+				<ul class="help">
+					<li><%=image_tag "fu.png"%><h6>Fair Use</h6></li>
+					<li><%=image_tag "nfu.png"%><h6>Not Fair Use</h6></li>
+					<li><%=image_tag "un.png"%><h6>Undecided</h6></li>
+				</ul>
+				<p id="download">You can download <a href="">the non-legal Summary</a> (PDF)</p>
+			</section>
+		</div>
+	</div><!--test-case-wrapper-->
+</div><!--test-case-->
+<%= javascript_include_tag 'case_answers' %>

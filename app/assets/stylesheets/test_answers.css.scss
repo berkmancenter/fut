@@ -1,44 +1,13 @@
-@import "mixins.css.scss";
-.test-answer{
-	@include awesome(500px, white);
- 		margin:auto;
- 		text-align:center;
- 		margin-top:20px;
- 		margin-bottom:15px;
- 	h2, h3,{
- 		color:black;
- 	}	
- 	.Not{
- 		color:red;
- 		margin-bottom:5px
- 	}
-
- 	.Fair{
- 		color:green;
- 		margin-bottom:5px
- 	}
-
- 	ul{
- 		 list-style-type: none;		
- 	}
-
- 	p{
- 		margin-top:10px;
- 	}
- 	form .btn {
- 		margin-top:-10px;
- 	}
- }
-.Not{
+.not-fair{
 	color:red;
 	margin-bottom:5px
 }
 
-.Fair{
-	color:green;
+.fair{
+	color:#2edb00;
 	margin-bottom:5px
 }
-.Draw{
-	color:orange;
+.draw{
+	color:#fcd01d;
 	margin-bottom:5px
 }

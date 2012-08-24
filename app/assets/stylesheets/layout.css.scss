@@ -20,6 +20,16 @@
 }
 
 @font-face {
+    font-family: 'Conv_HelveticaNeueLTStd-Cn';
+    src: url('fonts/HelveticaNeueLTStd-Cn.eot?#iefix') format('embedded-opentype'),
+         url('fonts/HelveticaNeueLTStd-Cn.woff') format('woff'), 
+         url('fonts/HelveticaNeueLTStd-Cn.ttf') format('truetype'), 
+         url('fonts/HelveticaNeueLTStd-Cn.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Conv_HelveticaNeueLTStd-MdCn';
     src: url('fonts/HelveticaNeueLTStd-MdCn.eot');
     src: local('☺'), url('fonts/HelveticaNeueLTStd-MdCn.woff') format('woff'), url('fonts/HelveticaNeueLTStd-MdCn.ttf') format('truetype'), url('fonts/HelveticaNeueLTStd-MdCn.svg') format('svg');
@@ -38,11 +48,15 @@ body {
 
 #main{
     min-height:500px;
+    width:800px;
 }
 
 footer{
 	width:800px;
 	margin:auto;
     font-size:12px;
-	text-align:center;
+    p{
+        text-align:center;
+    }
 }
+

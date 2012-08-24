@@ -13,11 +13,11 @@
         <a class="brand" href="<%=home_path%>">Fair Use Tool</a>
         <div class="container nav-collapse">
           <ul class="nav">
-            <li><%= link_to "HOME", desk_path  %></li>            
+            <li><%= link_to "HOME", @current_visitor.role.nil? ? home_path : role_path(@current_visitor.role.name.gsub(" ","_"))%></li>            
             <li><%= link_to "WHAT IS FAIR USE", wfu_path  %></li>
             <li><%= link_to "CHECK YOUR WORK", calculator_path  %></li>
-            <li><%= link_to "LEARN MORE", ""  %></li>
-            <li><%= link_to "ABOUT", ""  %></li>
+            <li><%= link_to "LEARN MORE", "/LearnMore"  %></li>
+            <li><%= link_to "ABOUT", "/About"  %></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container -->
