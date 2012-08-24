@@ -3,7 +3,8 @@ body{
 	background-color: #db0017;
 }
 </style>
-<div class="intro">
+
+<div class="wfu">
 	<h1>What is Fair Use?</h1>
 	<p>
 		To help you learn more about Fair Use, on this site, we have many fun activities to help you learn how you can use other people’s work to the fullest, and fairest, advantage! 
@@ -13,8 +14,8 @@ body{
 	</p>
 	<div class="aspect">
 		<ul class="nav nav-tabs" id="aspects">
-			<li><a href="#about">ABOUT FAIR USE</a></li>
-		  	<li class="active"><a href="#purpose">PURPOSE</a></li>
+			<li class="active"><a href="#about">ABOUT FAIR USE</a></li>
+		  	<li><a href="#purpose">PURPOSE</a></li>
 		  	<li><a href="#character">CHARACTER</a></li>
 		  	<li><a href="#use">USE</a></li>
 		  	<li><a href="#nature">NATURE</a></li>
@@ -22,23 +23,51 @@ body{
 		  	<li><a href="#financial">MARKET</a></li>
 		</ul>
 		<div class="tab-content">
+			<div class="tab-pane" id="about">
+					<h3>About Fair Use</h3>
+					<h4>What is fair use mean?</h4>
+					<p>
+						To help you learn more about Fair Use, on this site, we have many fun activities to help you learn how you can use other people’s work to the fullest, and fairest, advantage!
+						For example, we help to bring these issues to life by using examples from legal cases where an issue of Fair Use arose. Each of the legal cases are divided into 6 separate sections to allow you to understand Fair Use better.
+					</p>
+				</div>
 			<%@aspects.each do |aspect|%>
 				<div class="tab-pane" id="<%=aspect.name.downcase%>">
 					<h3><%=aspect.name%></h3>
-					<h4><%=@questions[aspect.id - 1].explanation%></h4>
+					<h4><%=aspect.question.hint%></h4>
 					<p><%=aspect.explanation%></p>
 				</div>
 			<%end%>
 		</div>
 	</div>
-	<button href="" class="quiz-button">TAKE A QUIZ</button>
+	<button href="" id="quiz-button">TAKE A QUIZ</button>
+	<div class="quiz-area row">
+		<h2>Quiz</h2>
+		<h4>If your struggle, use the cheat sheet above ;)</h4>
+		<div class="wrapper">	
+			<%@quiz_questions.each do |quiz_question|%>
+				<div class="quiz">
+					<h5><%=quiz_question.content%></h5>
+					<%quiz_question.answers.each do |answer|%>
+						<%= radio_button_tag( "question#{quiz_question.id}", answer.value) %>
+						<%= label_tag("question#{quiz_question.id}_#{answer.value}", answer.content) %>
+						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.hint%>">
+						Why?
+						</a>
+					</br>
+					<%end%>				
+				</div>
+			<%end%>
+		</div>
+		<button disabled="true" href="" class="btn" id="result-btn">See Result</button>
+	</div>
 </div>
 <script>
-	$('.tab-content').find('.tab-pane').eq(0).addClass('active');
-	$('#aspects a').click(function (e) {
-	  e.preventDefault();
-	  $('.quiz').hide();
-	  $('button').show();	
-	  $(this).tab('show');
-	});
+$('#result-btn').on('click',function(){
+	<%
+		@current_visitor.quiz=true
+		@current_visitor.save!
+	%>
+});		
 </script>
+<%= javascript_include_tag 'bootstrap-tab', 'bootstrap-tooltip', 'button', 'tabs', 'aspects' %>

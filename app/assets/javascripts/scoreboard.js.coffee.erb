@@ -1,0 +1,31 @@
+$("input[type=radio]").click ->  
+  
+  #To activate the corresponding aspect icon
+  $this = $(this)
+  fair = ["1", "2", "3", "4", "5", "6", "7", "10", "11", "12", "14", "21", "23"]
+  notfair = ["9", "13", "17", "18", "19", "20", "22"]
+  name = $this.attr("name")
+  value = $this.val()
+  lamp = $("div[name*=\"" + name + "\"]")
+  unless ($.inArray(value, fair)) is -1
+    lamp.css("background", "url(<%= asset_path("fu.png") %>)").css "border", "none"
+  else unless ($.inArray(value, notfair)) is -1
+    lamp.css("background", "url(<%= asset_path("nfu.png") %>)").css "border", "none"
+  else
+    lamp.css("background", "url(<%= asset_path("un.png") %>)").css "border", "none"
+  
+  #To update scoreboard panel
+  fu = 0
+  nfu = 0
+  un = 0
+  $("input[type=radio]:checked").each ->
+    checked_value = $(this).val()
+    unless ($.inArray(checked_value, fair)) is -1
+      fu++
+    else unless ($.inArray(checked_value, notfair)) is -1
+      nfu++
+    else
+      un++
+  $(".judgement-panel li").eq(0).children("h3").text fu
+  $(".judgement-panel li").eq(1).children("h3").text nfu
+  $(".judgement-panel li").eq(2).children("h3").text un

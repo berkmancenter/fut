@@ -1,0 +1,131 @@
+body {
+  font-family: "Verdana", Helvetica, Arial, sans-serif;
+  color: white;
+  background-color:#114863;
+}
+
+h1{
+  font-family:"KomikaTitleAxisRegular";
+  letter-spacing:3px;
+  font-size:35px;
+  margin-top:50px;
+  text-align:left;
+  margin-bottom:10px;
+}
+p{
+  text-align:left;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 800px;
+}
+
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background-color: transparent;  
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  background-image: url(glyphicons-halflings.png);
+}
+.icon-white {
+  background-image: url(glyphicons-halflings-white.png);
+ }
+
+.nav-tabs > li > a{ 
+  margin-right: 1px;  
+  line-height: 18px;
+ }
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav-tabs > li > a {  
+  font-family:"Conv_HelveticaNeueLTStd-MdCn"; 
+  font-size:18px;
+  color:white;  
+  background-color:#a8593e;
+  padding-top: 13px;  
+  padding-bottom: 5px;
+  border: 3px solid black;
+  min-width:29px; 
+  text-align:center;
+  -webkit-border-radius: 10px 10px 0 0; 
+  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+}
+  
+
+.tab-content {
+  overflow: auto;
+  background-color:#f49a00;
+  border: 3px solid black;
+  -webkit-border-radius:0 0 10px 10px;
+  -moz-border-radius:0 0 10px 10px;
+  border-radius:0 0 10px 10px;
+  padding:20px 50px;
+}
+.tab-content > .tab-pane{
+  background-color:white;
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  border-radius:12px;
+  color:black;
+  padding:10px;
+  text-align:left;
+}
+
+.tab-content > .tab-pane h4{
+  font-style:italic;
+  color:gray;
+}
+
+.navbar .nav {
+  float: right;
+  margin-top:15px;
+}   
+.navbar .nav > li > a {
+  font-family: 'Conv_HelveticaNeueLTStd-MdCn';
+  font-weight:bold;
+  font-size:14px;
+  padding:0px;
+  padding-left: 20px;
+  color: white;
+}
+
+.navbar .nav > li > a:hover{
+  text-shadow: 0 0 1px white;
+}
+.navbar .brand:hover {
+  text-shadow: 3px 3px rgba(0,0,0,0.4);
+}
+
+.navbar .brand {
+  font-family: 'KomikaTitleAxisRegular';
+  font-size: 30px;
+  letter-spacing:2px;
+  text-shadow: 3px 3px  rgba(0,0,0,0.2);
+  color: white;
+  padding:0;
+  margin:0;
+}
+
+.navbar-inner {
+  background-color: #9fd423;
+  background-image: -moz-linear-gradient(top, #9fd423, #73ad27);
+  background-image: -ms-linear-gradient(top, #9fd423, #73ad27);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9fd423), to(#73ad27));
+  background-image: -webkit-linear-gradient(top, #9fd423, #73ad27);
+  background-image: -o-linear-gradient(top, #9fd423, #73ad27);
+  background-image: linear-gradient(top, #9fd423, #73ad27);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#9fd423', endColorstr='#73ad27', GradientType=0);
+  height:50px;
+  padding-top:10px;
+}

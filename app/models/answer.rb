@@ -1,8 +1,8 @@
 class Answer < ActiveRecord::Base
   belongs_to :question
   has_many :test_answers
-  attr_accessible :content, :explanation, :value, :question_id
-  validates :content, :presence =>true, :length => { :maximum => 80 }
+  attr_accessible :content, :hint, :value, :question_id
+  validates :content, :presence =>true, :length => { :maximum => 200 }
   validates :value, :inclusion => { :in => -1..1 }
 end
 

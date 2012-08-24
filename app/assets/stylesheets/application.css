@@ -10,15 +10,16 @@
  *
 
  *= require_self
+ *= require bootstrap
+ *= require bootstrap-override
  *= require layout
+ *= require home
+ *= require static
+ *= require roles    
  *= require aspects
  *= require case_answers
  *= require legal_cases 
  *= require mixins 
- *= require questions 
- *= require roles 
- *= require sessions  
- *= require test_answers 
- *= require zbootstrap 
- *= require layout 
+ *= require questions
+ *= require test_answers
  */

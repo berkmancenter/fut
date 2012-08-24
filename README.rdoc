@@ -11,6 +11,24 @@ Fair Use Tool is an interactive online tool that will be accessible for middle-s
 * ImageMagick 6.6.9
 * Ghostscript 9.05 
 
+== Installation
+* First fork the repository to your own GitHub account by clicking the fork button:
+* Clone it to your local own machine:
+    git clone https://github.com/your_username/fut.git
+* Navigate to the newly created project directory:
+    cd fut
+* After you are all set up with main requirements above, run bundlle command to install the required gems
+    bundle install
+* Before creating database don't forget to edit the config/database.yml file to include the right socket, username and password for your MySQL server
+* Create the database
+    rake db:create
+* Then run the migrations
+    rake db:migrate
+* Finally run the seed command to fill the database with initial data
+    rake db:seed
+* Congratulations, You're almost done! Now run the server and open the site in your web browser 'http://localhost:3000'
+    rails s thin
+
 == License
 * Fair Use Tool project is licensed under The MIT License. 
 * Copyright (C) 2012 by Karim El Husseiny <kelhusseiny@cyber.law.harvard.ed>

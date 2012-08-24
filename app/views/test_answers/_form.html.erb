@@ -1,14 +1,14 @@
 <%= form_for @test_answer, :remote => ((params[:controller] == "calculators")? true : false)  do |f|%>
 <div class="span8">
-	
-
 	<%@questions.each do |question|%>
 		<div class= "question-box">
 			<h3>
 				<%=question.content%>
-				<a href="#" class="info" rel="tooltip" data-original-title="<%=question.explanation%>">
-					<i class="icon-info-sign"></i>
-				</a> 
+				<%if question.hint%>
+					<a href="#" class="info" rel="tooltip" data-original-title="<%=question.hint%>">
+						<i class="icon-info-sign"></i>
+					</a> 
+				<%end%>
 			</h3>
 				<% question.answers.order('id').each do |answer| %>			
 						<div class="answer"> 						
@@ -16,9 +16,11 @@
 			   					<%= f.radio_button question.flag+"_id", answer.id %> 
 			   					<span>
 			   						<%=answer.content%>
-			   						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.explanation%>">
-										<i class="icon-info-sign"></i>
-									</a>
+			   						<%if answer.hint%>
+				   						<a href="#" class="info" rel="tooltip" data-original-title="<%=answer.hint%>">
+											<i class="icon-info-sign"></i>
+										</a>
+									<%end%>
 			   					</span>
 			   				</label>    
 		    			</div>
@@ -31,83 +33,13 @@
 			<%elsif question.id == 1%>
 				<button class= "btn" name="next" type="button">Next</button>
 			<%else%>
-				<%unless @legal_case == nil %>
-					<%= hidden_field_tag :legal_case_id, @legal_case.id%>
-				<%end%>
 				<button class= "btn" name="back" type="button">Back</button>
 			<%end%>
 		</div>
 	<%end%>
 </div>
-<div class="span4">
-	
+<div class="span4">	
 	<%= render 'test_answers/scoreboard'%>
-	<%if params[:action]== 'new' %>
-		<%= f.submit "Create Court Decision", :class => "btn-large",:id=> 'submit', :disabled=> true%>
-	<%elsif params[:action]== 'edit' %>	
-		<%= f.submit "Update Court Decision", :class => "btn-large btn-warning",:id=> 'submit'%>
-	<%else%>
-		<%= f.submit nil, :class => "btn-large",:id=> 'submit', :disabled=> true%>
-	<%end%>
+		<%= f.submit 'Calculate', :class => "btn-large",:id=> 'submit', :disabled=> true%>
 <%end%>
 </div>
-<script type="text/javascript">
-	$('input[type=radio]').click(function(){
-
-		/*To highlight the checked answer*/
-		$(this).siblings('span').addClass('input-checked');
-   		$(this).closest('.answer').siblings('.answer').children('label').children('span').removeClass('input-checked');
-
-		/*To light the corresponded lamp*/
-		$this = $(this);
-		var fair = ["1","2","3","4","5","6","7","10","11","12","14","21","23"];
-		var notfair = ["9","13","17","18","19","20","22"];
-		var name = $this.attr('name');
-		var value = $this.val();
-		var lamp = $('div[name*="'+name+'"]');
-		if (($.inArray(value, fair)) != -1) 
-		{
-			lamp.css('background','green');
-		}
-		else if (($.inArray(value, notfair)) != -1)
-		{
-			lamp.css('background','red');
-		}
-		else {
-			lamp.css('background','orange');
-		}
-	});
-
-
-	/*Hide Questions and show them one by one*/
-	$('.question-box:nth-child(1)').show();
-	$('button[name*="next"]').click(function(){
-		$(this).closest('.question-box').fadeOut().next().fadeIn();
-	});
-	$('button[name*="back"]').click(function(){
-		$(this).closest('.question-box').fadeOut().prev().fadeIn();
-	});
-
-
-	/*To Disable Submit button until finishing all questions*/
-    $('input:radio').change(function(){
-        var names = [];
-        var allChecked = true;
-        $('input:radio').each(function(){
-            if(names.indexOf($(this).attr('name')) === -1) {
-                names.push($(this).attr('name'));
-            }
-        });
-        for(var i = 0, cnt = names.length; i < cnt; i++) {
-            if(!$('input[name="' + names[i] + '"]').is(':checked')) {
-                allChecked = false;
-            }
-        }
-        if(allChecked) {
-            $('#submit').removeAttr('disabled').addClass('btn-warning');
-        }
-    });
-
-    $(".info").tooltip();
-
-</script>		

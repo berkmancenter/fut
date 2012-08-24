@@ -1,4 +1,4 @@
 class Aspect < ActiveRecord::Base
-  has_many :questions
-  attr_accessible :name, :explanation
+  belongs_to :question
+  attr_accessible :name, :explanation, :question_id
 end

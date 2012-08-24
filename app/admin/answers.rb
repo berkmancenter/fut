@@ -41,14 +41,14 @@ ActiveAdmin.register Answer do
 
   	filter :content
   	filter :value, :as => :select, :collection => { "Green"=> 1, "Red" => -1, "Draw" => 0 }
-  	filter :explanation
+  	filter :hint
 
 	form do |f|
 		f.inputs "Answers" do
 	    	f.input :question, :member_label => :content 
 	    	f.input :content
 	    	f.input :value, :as => :select, :collection => { "Green"=> 1, "Red" => -1, "Draw" => 0 }
-	    	f.input :explanation
+	    	f.input :hint
 	    end
 	    f.buttons
 	end
@@ -67,7 +67,7 @@ ActiveAdmin.register Answer do
 	    				status_tag "Red", :error 
 	    			end
 				end
-				row("Explanation") { answer.explanation }
+				row("Hint") { answer.hint }
     		end
   		end
  		active_admin_comments

@@ -1,42 +1,92 @@
-.intro{
-	h1{
-		font-family:"KomikaTitleAxisRegular";
-		letter-spacing:3px;
-		font-size:35px;
-		margin-top:50px;
-		text-align:left;
-	}
-
-	> p{
-		margin: 15px 0px;
-		text-align:left;
-	}
+.wfu{
+	text-align:center;
 	.aspect{
-		width:800px;
-		margin:auto;
-		margin-bottom:20px;
+		margin-bottom:15px;
 		ul{
 			margin:auto;
-			max-width:700px;
+			width:700px;
 			position:relative;
 			top:2px;
 		}
+		.nav-tabs > .active > a{  
+			background-color: #f49a00;
+			border: 3px solid black;
+			color: default; 
+		} 
+		.nav-tabs > li > a:hover {  
+			background-color:#f49a00;
+			border: 3px solid black;
+		}
+		.nav-tabs > .active > a	,
+		.nav-tabs > .active > a:hover {
+  			color: black;
+  			border-bottom: 3px solid #f49a00;
+		}
 	}
-	text-align:center;
-	
-	.quiz-button{
+	#result-btn, #quiz-button{
 		font-family:"KomikaTitleAxisRegular";
 		background-color: #7e8e96;
 		color:white;
 		height:30px;
 		line-height:30px;
 		padding:0 30px;
-		margin-bottom:20px;
 		border:none;
 		box-shadow: 0px 0px 4px black;
 	}
-	.quiz-button:hover{
+	#quiz-button:hover{
 		box-shadow: 0px 0px 8px black;
 	}
-
+	label{
+		display: inline;
+	}
+	.quiz-area{
+		h2{
+			font-family:"KomikaTitleAxisRegular";
+			letter-spacing:2px;
+		}
+		text-align:center;
+		background-color:rgb(244, 154, 0);
+  		border: 3px solid black;
+  		-webkit-border-radius:10px;
+  		-moz-border-radius:10px;
+  		border-radius:10px;
+  		padding:20px;
+  		margin:0px;
+  		margin-top:20px;
+  		display:none;
+	}
+	.wrapper{
+		text-align:left;
+		background-color:white;
+		border: 3px solid black;
+  		-webkit-border-radius:10px;
+  		-moz-border-radius:10px;
+  		border-radius:10px;
+  		overflow:hidden;
+  		margin:15px 0;
+  		padding-bottom:10px;
+	}
+	.quiz{
+		display:inline-block;
+		width:350px;
+		margin:10px;
+		height:150px;
+		overflow:auto;
+		float:left;
+		color:black;
+		.info{
+			display:none;
+		}
+	}
+	#result-btn{
+		background-color:red;
+		background-image:none;
+		-webkit-transition: all 0.5s;
+	}
+	#result-btn:hover{
+		text-shadow:0px 0px 3px white;
+	}
+	#result-btn[disabled]:hover{
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	}
 }

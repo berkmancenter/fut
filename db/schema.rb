@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20120807133527) do
     t.integer  "question_id", :null => false
     t.string   "content"
     t.integer  "value"
-    t.text     "explanation"
+    t.text     "hint"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -60,9 +60,12 @@ ActiveRecord::Schema.define(:version => 20120807133527) do
   create_table "aspects", :force => true do |t|
     t.string   "name"
     t.text     "explanation"
+    t.integer  "question_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "aspects", ["question_id"], :name => "index_aspects_on_question_id"
 
   create_table "attachments", :force => true do |t|
     t.string   "name"
@@ -119,13 +122,11 @@ ActiveRecord::Schema.define(:version => 20120807133527) do
 
   create_table "questions", :force => true do |t|
     t.string   "content"
-    t.text     "explanation"
-    t.integer  "aspect_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "hint"
+    t.boolean  "essential"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "questions", ["aspect_id"], :name => "index_questions_on_aspect_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -168,6 +169,7 @@ ActiveRecord::Schema.define(:version => 20120807133527) do
     t.string   "name",       :default => "Anonymous"
     t.string   "ip_adress"
     t.integer  "role_id"
+    t.boolean  "quiz",       :default => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
   end
